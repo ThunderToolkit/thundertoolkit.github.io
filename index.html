@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ThunderToolKit</title>
+  <meta name="description" content="A growing collection of practical tools.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f6f5f1;
+      --surface: #ffffff;
+      --text: #16181d;
+      --muted: #5d6270;
+      --line: #e3e1da;
+      --accent: #e8a800;
+      --accent-ink: #16181d;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #111318;
+        --surface: #1a1d24;
+        --text: #f1f0ec;
+        --muted: #9ba0ad;
+        --line: #2a2e38;
+        --accent: #ffc72c;
+        --accent-ink: #111318;
+      }
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font: 16px/1.6 Inter, system-ui, sans-serif;
+    }
+    .wrap { max-width: 1040px; margin: 0 auto; padding: 0 16px; }
+    header { padding: 72px 0 40px; }
+    .brand {
+      display: inline-flex; align-items: center; gap: 10px;
+      font: 700 15px "Space Grotesk", sans-serif;
+      letter-spacing: .08em; text-transform: uppercase; color: var(--muted);
+    }
+    .bolt {
+      width: 30px; height: 30px; border-radius: 8px;
+      background: var(--accent); color: var(--accent-ink);
+      display: grid; place-items: center; font-size: 16px;
+    }
+    h1 {
+      font: 700 clamp(36px, 7vw, 64px)/1.05 "Space Grotesk", sans-serif;
+      margin: 20px 0 14px; letter-spacing: -.02em;
+    }
+    .lede { color: var(--muted); font-size: 18px; max-width: 560px; margin: 0; }
+    .grid {
+      display: grid; gap: 16px;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      padding-bottom: 64px;
+    }
+    .card {
+      background: var(--surface); border: 1px solid var(--line);
+      border-radius: 14px; padding: 22px;
+      display: flex; flex-direction: column; gap: 8px;
+      color: inherit; text-decoration: none;
+      transition: border-color .15s, transform .15s;
+    }
+    a.card:hover { border-color: var(--accent); transform: translateY(-2px); }
+    .card h2 { font: 700 19px "Space Grotesk", sans-serif; margin: 0; }
+    .card p { margin: 0; color: var(--muted); font-size: 15px; }
+    .tag {
+      align-self: flex-start; font-size: 12px; font-weight: 500;
+      padding: 2px 10px; border-radius: 99px;
+      border: 1px solid var(--line); color: var(--muted);
+    }
+    .card.soon { border-style: dashed; }
+    footer {
+      border-top: 1px solid var(--line); padding: 24px 0 40px;
+      color: var(--muted); font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand"><span class="bolt">⚡</span>ThunderToolKit</div>
+      <h1>Tools that get work done.</h1>
+      <p class="lede">A growing collection of practical tools. New ones are added regularly.</p>
+    </header>
+
+    <main class="grid">
+      <!-- To add a tool, copy this block, change the link, title and description,
+           and remove class "soon":
+      <a class="card" href="my-tool.html">
+        <span class="tag">Category</span>
+        <h2>Tool name</h2>
+        <p>One line on what it does.</p>
+      </a>
+      -->
+      <div class="card soon">
+        <span class="tag">Coming soon</span>
+        <h2>Tool one</h2>
+        <p>The first tool will appear here.</p>
+      </div>
+      <div class="card soon">
+        <span class="tag">Coming soon</span>
+        <h2>Tool two</h2>
+        <p>The second tool will appear here.</p>
+      </div>
+      <div class="card soon">
+        <span class="tag">Coming soon</span>
+        <h2>Tool three</h2>
+        <p>The third tool will appear here.</p>
+      </div>
+    </main>
+  </div>
+  <footer>
+    <div class="wrap">© <span id="y"></span> ThunderToolKit</div>
+  </footer>
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
+</html>
