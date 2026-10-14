@@ -13,9 +13,11 @@ A collection of practical tools, starting with the Thunder Biotech Investor Guid
 
 ## Investor Guide status
 
-Done: The Science, The Landscape, What Sets Thunder Apart, Patents, Investor FAQ (15 questions), Sources.
+Done: The Science, The Landscape, Valuation scenarios (by study outcome and by stage of sale), Deals & Valuations (12 acquisitions + 2 buyout options since 2021), What Sets Thunder Apart, Patents, Investor FAQ (15 questions), Sources.
 
-Still to build: Deals & valuations, Pipeline & milestones.
+Still to build: Pipeline & milestones.
+
+Per-share values: set `SHARES_OUTSTANDING` (fully diluted) near the bottom of `investors.html`; until then the page shows "pending share count". Valuation ranges are illustrative estimates and should be reviewed by securities counsel before investors see them.
 
 FAQ answers still waiting on details (shown as orange "[Rob to confirm/add]" boxes on the page):
 - Lead indication(s) for the mesothelin program
