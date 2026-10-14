@@ -147,6 +147,13 @@
     #deals td:first-child { white-space: nowrap; }
     tr.flag td { background: color-mix(in srgb, var(--accent-soft) 60%, var(--surface)); }
     .takeaways { margin-top: 36px; }
+    .goals { display: grid; gap: 10px; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); margin: 0 0 26px; }
+    .goal { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; }
+    .goal b { display: block; font: 700 16px "Lato", sans-serif; color: var(--accent-dark); margin-bottom: 2px; }
+    .goal span { font-size: 14px; color: var(--muted); }
+    figure.mech { margin: 18px 0 8px; background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 14px; overflow-x: auto; }
+    figure.mech img { display: block; width: 100%; min-width: 620px; height: auto; }
+    figure.mech figcaption { color: #5d6270; font-size: 13px; margin-top: 8px; }
     .faq details { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; margin: 0 0 10px; }
     .faq summary { cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 16px 20px; font-weight: 600; }
     .faq summary::-webkit-details-marker { display: none; }
@@ -188,6 +195,14 @@
     <div class="wrap">
       <h2>The Science</h2>
       <p class="intro">CAR-T therapies transformed blood cancers but have struggled in solid tumors, which make up most cancer cases. Macrophages are emerging as the answer to that problem.</p>
+      <div class="group-label" style="margin-top:0">What Thunder set out to build: a cancer treatment that is</div>
+      <div class="goals">
+        <div class="goal"><b>Effective</b><span>Reprograms the tumor's own macrophages to attack it</span></div>
+        <div class="goal"><b>Less toxic</b><span>Short-lived CAR expression; macrophages cannot cause graft-versus-host disease</span></div>
+        <div class="goal"><b>Widely applicable</b><span>Targets solid tumors, where most cancer cases occur</span></div>
+        <div class="goal"><b>Off-the-shelf</b><span>Given by IV injection; no specialized facilities or cell manufacturing</span></div>
+      </div>
+
 
       <div class="grid">
         <div class="card"><div class="stat">Up to ~50%</div><p>of the immune cells inside some solid tumors are macrophages. They are already there, in large numbers.</p></div>
@@ -199,14 +214,31 @@
       <p style="color:var(--muted);max-width:720px">Inside a solid tumor, many macrophages are switched into an "M2" state that suppresses the immune system and helps the tumor grow. These are called tumor-associated macrophages (TAMs). Flipping them into the "M1" state turns them into cancer killers.</p>
 
       <h3 style="margin-top:28px">How MOTO-CAR works</h3>
+      <figure class="mech">
+        <img src="assets/moto-car-mechanism.png" alt="MOTO-CAR mechanism: a TAM-targeting nanoparticle carrying MOTO-CAR genetic instructions is given by IV injection, travels to the tumor, is taken up by tumor-associated macrophages, which then express MOTO-CARs, leading to tumor reduction while the MOTO-CARs are short-lived." loading="lazy">
+        <figcaption>From Thunder Biotech's science overview: IV injection → nanoparticles travel to the tumor → taken up by tumor macrophages (TAMs) → TAMs express MOTO-CARs → tumor reduction, with short-lived MOTO-CARs.</figcaption>
+      </figure>
       <div class="steps" style="margin-top:14px">
-        <div class="step"><div><strong>Deliver the instructions</strong><p>A lipid nanoparticle (LNP) carries genetic instructions for a chimeric antigen receptor (CAR) to macrophages, including inside the body ("in vivo").</p></div></div>
+        <div class="step"><div><strong>Deliver the instructions</strong><p>A lipid nanoparticle (LNP) carries genetic instructions for a chimeric antigen receptor (CAR) to macrophages, including inside the body ("in vivo"). The nanoparticle is decorated to target tumor-associated macrophages (TAMs) and is given by IV injection.</p></div></div>
         <div class="step"><div><strong>Recognize the tumor</strong><p>The CAR recognizes a marker on cancer cells. Thunder's lead program targets mesothelin, which is expressed in many cancer types.</p></div></div>
         <div class="step"><div><strong>Flip the switch</strong><p>When the CAR binds its target, it signals the macrophage to shift toward the cancer-fighting M1 state.</p></div></div>
         <div class="step"><div><strong>Bring in reinforcements</strong><p>Activated macrophages attack tumor cells and recruit T cells, which may build immune memory against recurrence.</p></div></div>
       </div>
 
       <div class="callout"><p><strong>Why in vivo matters.</strong> Most early CAR-macrophage therapies took cells out of the patient, engineered them in a lab, and infused them back. That is slow and expensive, and macrophages are hard to engineer and don't multiply. Programming macrophages inside the body with an LNP avoids cell manufacturing altogether. This is the direction the field has moved, and it is the approach in Thunder's lead program.</p></div>
+
+      <h3 style="margin-top:28px">How MOTO-CARs remodel the tumor</h3>
+      <p style="color:var(--muted);max-width:720px;margin:0 0 12px">Once switched on, MOTO-CAR macrophages change the tumor environment so the immune system can attack the cancer effectively, by:</p>
+      <div class="grid">
+        <div class="card"><h3>Targeting the tumor</h3><p>Recognizing a tumor-specific antigen, such as mesothelin.</p></div>
+        <div class="card"><h3>Killing directly</h3><p>Engulfing and destroying tumor cells.</p></div>
+        <div class="card"><h3>Changing the signals</h3><p>Secreting signals that create an anti-tumor immune environment.</p></div>
+        <div class="card"><h3>Recruiting help</h3><p>Drawing other immune cells, like T cells, into the tumor.</p></div>
+        <div class="card"><h3>Activating T cells</h3><p>Presenting tumor neoantigens so T cells learn to kill the cancer.</p></div>
+        <div class="card"><h3>Building memory</h3><p>Creating durable immune memory that may protect against recurrence.</p></div>
+      </div>
+
+      <div class="callout"><p><strong>Short-lived by design.</strong> MOTO-CARs are expressed only temporarily. They do their work in the tumor and then fade, which is intended to limit long-term side effects while the immune response they start, including T-cell memory, carries on.</p></div>
 
       <h3 style="margin-top:28px">Where the field stands in 2026</h3>
       <ul class="clean">
@@ -441,6 +473,7 @@
         <div class="card"><h3>Both directions of the switch</h3><p>Thunder's patents describe pushing macrophages toward M1 to fight cancer and toward M2 to calm inflammation. That supports two markets: solid tumors and inflammatory/autoimmune disease.</p></div>
         <div class="card"><h3>Learned from the first wave</h3><p>Carisma, the leading ex vivo company, dropped its HER2 programs amid crowded HER2 competition and tumors losing the HER2 marker. Thunder's in vivo approach avoids cell manufacturing, and its lead target, mesothelin, is expressed across many cancer types.</p></div>
         <div class="card"><h3>Deep scientific founder</h3><p>Founder and CSO Kim O'Neill, PhD, has 40 years of cancer research experience at Brigham Young University, 155 peer-reviewed papers and 9 issued patents.</p></div>
+        <div class="card"><h3>Off-the-shelf and short-lived</h3><p>MOTO-CAR is designed as an IV-injected, off-the-shelf treatment with temporary CAR expression: no cell manufacturing, no specialized facilities, and a built-in limit on how long the engineered receptor stays active.</p></div>
       </div>
     </div>
   </section>
@@ -514,6 +547,10 @@
         <div class="a"><p>A lipid nanoparticle carries genetic instructions for the CAR to macrophages. When the CAR finds its target on a cancer cell, it flips the macrophage from a tumor-protecting "M2" state into a cancer-fighting "M1" state. The activated macrophage attacks the tumor and brings in T cells, which may build immune memory against recurrence. <a href="#science">See the four steps</a></p></div>
       </details>
       <details>
+        <summary>How is MOTO-CAR given, and does it stay in the body?</summary>
+        <div class="a"><p>It is designed to be given by IV injection as an off-the-shelf product, with no need to collect and engineer a patient's cells. The nanoparticles travel to the tumor and are taken up by tumor macrophages. MOTO-CARs are short-lived: they are expressed temporarily, which is intended to limit long-term side effects, while the immune response they trigger, including T-cell memory, can last. <a href="#science">See the mechanism diagram</a></p></div>
+      </details>
+      <details>
         <summary>Why target mesothelin?</summary>
         <div class="a"><p>Mesothelin is a marker found on many cancer types, which gives one program a broad potential reach. It also avoids the crowded HER2 space, which contributed to the first-generation CAR-macrophage company dropping its programs. Thunder's patents describe many other targets as well, including HER2, GPC3, CEA and ROR1. <span class="tbd">[Rob to confirm: lead indication(s), e.g. mesothelioma, ovarian, pancreatic]</span></p></div>
       </details>
@@ -584,7 +621,7 @@
       <h2 style="font-size:22px">Sources</h2>
       <p>Research current as of October 14, 2026.</p>
       <ol>
-        <li><a href="https://thunderbiotech.com/our-science/">Thunder Biotech — Our Science</a>, <a href="https://thunderbiotech.com/pipeline/">Pipeline</a>, <a href="https://thunderbiotech.com/our-team/">Our Team</a></li>
+        <li><a href="https://thunderbiotech.com/our-science/">Thunder Biotech — Our Science</a>, <a href="https://thunderbiotech.com/pipeline/">Pipeline</a>, <a href="https://thunderbiotech.com/our-team/">Our Team</a> · Thunder Biotech Science 1-Pager (company document, 2026)</li>
         <li><a href="https://patents.google.com/patent/US10415017B2/en">US 10,415,017 B2</a> · <a href="https://patents.google.com/patent/US10889803">US 10,889,803 B2</a> · <a href="https://patents.google.com/patent/US12024719">US 12,024,719 B2</a> (Google Patents)</li>
         <li><a href="https://trea.com/industry/macrophages/937f281e-3ecb-45d5-b9ab-b840c225ef5a">Trea — macrophage patent filings</a></li>
         <li><a href="https://www.swansonreed.com/?p=36398">Swanson Reed — Utah Patent of the Month, August 2024</a></li>
