@@ -139,6 +139,9 @@
     .hero-stat { background: rgba(0,0,0,.18); border: 1px solid rgba(255,255,255,.18); border-radius: 14px; padding: 16px 18px; }
     .hero-stat b { display: block; font: 900 32px/1 "Lato", sans-serif; margin-bottom: 6px; }
     .hero-stat span { font-size: 14px; color: rgba(255,255,255,.86); }
+    .sort-bar { display: flex; justify-content: flex-end; align-items: center; gap: 8px; margin: 0 0 8px; font-size: 13px; color: var(--muted); }
+    .sort-bar select { font: 500 13px Inter, sans-serif; color: var(--text); background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 6px 28px 6px 10px; cursor: pointer; }
+    .sort-bar select:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
     .deal-note { color: var(--muted); font-size: 14px; margin: 10px 0 0; }
     td.val { white-space: nowrap; font-weight: 600; }
     #deals td:first-child { white-space: nowrap; }
@@ -356,27 +359,29 @@
       <p class="deal-note" style="margin:0 0 12px">This market is young. The first large-pharma purchase of an in vivo CAR company was announced in March 2025, so the record below also includes options to acquire.</p>
 
       <h3 style="margin:18px 0 8px">Acquired by large pharma</h3>
+      <div class="sort-bar"><label for="sort0">Sort</label><select id="sort0" class="deal-sort"><option value="date-desc">Date: newest first</option><option value="date-asc">Date: oldest first</option><option value="value-desc">Value: highest first</option><option value="value-asc">Value: lowest first</option></select></div>
       <div class="table-wrap">
         <table>
           <thead><tr><th>Date</th><th>Acquirer</th><th>Company</th><th>Technology</th><th>Lead use</th><th>Stage at deal</th><th>Value</th></tr></thead>
           <tbody>
-            <tr><td>Apr 2026</td><td>Eli Lilly</td><td><strong>Kelonia Therapeutics</strong></td><td>Lentiviral gene delivery to T cells (KLN-1010, BCMA)</td><td>Multiple myeloma</td><td><span class="pill good">Phase 1</span></td><td class="val">$3.25B upfront,<br>up to $7B</td></tr>
-            <tr><td>Feb 2026</td><td>Eli Lilly</td><td><strong>Orna Therapeutics</strong></td><td>Circular RNA in LNP (ORN-252, CD19)</td><td>Autoimmune disease</td><td><span class="pill warn">Preclinical (trial-ready)</span></td><td class="val">Up to $2.4B</td></tr>
-            <tr><td>Oct 2025</td><td>Bristol Myers Squibb</td><td><strong>Orbital Therapeutics</strong></td><td>Circular RNA in LNP (OTX-201)</td><td>Autoimmune disease</td><td><span class="pill warn">Preclinical</span></td><td class="val">~$1.5B cash</td></tr>
-            <tr><td>Aug 2025</td><td>Gilead / Kite</td><td><strong>Interius BioTherapeutics</strong></td><td>Lentiviral in vivo CAR (CD20)</td><td>B-cell cancers</td><td><span class="pill good">Phase 1</span></td><td class="val">$350M</td></tr>
-            <tr><td>Jun 2025</td><td>AbbVie</td><td><strong>Capstan Therapeutics</strong></td><td>Targeted LNP, mRNA CAR-T (CPTX2309)</td><td>Autoimmune disease</td><td><span class="pill good">Phase 1</span></td><td class="val">Up to $2.1B</td></tr>
-            <tr><td>Mar 2025</td><td>AstraZeneca</td><td><strong>EsoBiotec</strong></td><td>Lentiviral delivery to immune cells (ENaBL)</td><td>Cancer</td><td><span class="pill good">Early clinical</span></td><td class="val">$425M upfront,<br>up to $1B</td></tr>
+            <tr data-date="2026-04" data-value="7000"><td>Apr 2026</td><td>Eli Lilly</td><td><strong>Kelonia Therapeutics</strong></td><td>Lentiviral gene delivery to T cells (KLN-1010, BCMA)</td><td>Multiple myeloma</td><td><span class="pill good">Phase 1</span></td><td class="val">$3.25B upfront,<br>up to $7B</td></tr>
+            <tr data-date="2026-02" data-value="2400"><td>Feb 2026</td><td>Eli Lilly</td><td><strong>Orna Therapeutics</strong></td><td>Circular RNA in LNP (ORN-252, CD19)</td><td>Autoimmune disease</td><td><span class="pill warn">Preclinical (trial-ready)</span></td><td class="val">Up to $2.4B</td></tr>
+            <tr data-date="2025-10" data-value="1500"><td>Oct 2025</td><td>Bristol Myers Squibb</td><td><strong>Orbital Therapeutics</strong></td><td>Circular RNA in LNP (OTX-201)</td><td>Autoimmune disease</td><td><span class="pill warn">Preclinical</span></td><td class="val">~$1.5B cash</td></tr>
+            <tr data-date="2025-08" data-value="350"><td>Aug 2025</td><td>Gilead / Kite</td><td><strong>Interius BioTherapeutics</strong></td><td>Lentiviral in vivo CAR (CD20)</td><td>B-cell cancers</td><td><span class="pill good">Phase 1</span></td><td class="val">$350M</td></tr>
+            <tr data-date="2025-06" data-value="2100"><td>Jun 2025</td><td>AbbVie</td><td><strong>Capstan Therapeutics</strong></td><td>Targeted LNP, mRNA CAR-T (CPTX2309)</td><td>Autoimmune disease</td><td><span class="pill good">Phase 1</span></td><td class="val">Up to $2.1B</td></tr>
+            <tr data-date="2025-03" data-value="1000"><td>Mar 2025</td><td>AstraZeneca</td><td><strong>EsoBiotec</strong></td><td>Lentiviral delivery to immune cells (ENaBL)</td><td>Cancer</td><td><span class="pill good">Early clinical</span></td><td class="val">$425M upfront,<br>up to $1B</td></tr>
           </tbody>
         </table>
       </div>
 
       <h3 style="margin:22px 0 8px">Options to acquire</h3>
+      <div class="sort-bar"><label for="sort1">Sort</label><select id="sort1" class="deal-sort"><option value="date-desc">Date: newest first</option><option value="date-asc">Date: oldest first</option><option value="value-desc">Value: highest first</option><option value="value-asc">Value: lowest first</option></select></div>
       <div class="table-wrap">
         <table>
           <thead><tr><th>Date</th><th>Option holder</th><th>Company</th><th>Technology</th><th>Lead use</th><th>Stage at deal</th><th>Value</th></tr></thead>
           <tbody>
-            <tr><td>Jul 2026</td><td>Johnson &amp; Johnson</td><td><strong>Sail Biomedicines</strong></td><td>"Endless" RNA with programmable nanoparticles (SAIL-0839)</td><td>Autoimmune disease</td><td><span class="pill warn">Preclinical</span></td><td class="val">$785M upfront (incl. $465M equity);<br>option to buy for $2.58B</td></tr>
-            <tr><td>Jan 2024</td><td>AbbVie</td><td><strong>Umoja Biopharma</strong></td><td>Lentiviral in situ CAR-T (UB-VV111, CD19)</td><td>Blood cancers</td><td><span class="pill warn">IND-enabling</span></td><td class="val">Up to $1.44B<br>(option + milestones)</td></tr>
+            <tr data-date="2026-07" data-value="2580"><td>Jul 2026</td><td>Johnson &amp; Johnson</td><td><strong>Sail Biomedicines</strong></td><td>"Endless" RNA with programmable nanoparticles (SAIL-0839)</td><td>Autoimmune disease</td><td><span class="pill warn">Preclinical</span></td><td class="val">$785M upfront (incl. $465M equity);<br>option to buy for $2.58B</td></tr>
+            <tr data-date="2024-01" data-value="1440"><td>Jan 2024</td><td>AbbVie</td><td><strong>Umoja Biopharma</strong></td><td>Lentiviral in situ CAR-T (UB-VV111, CD19)</td><td>Blood cancers</td><td><span class="pill warn">IND-enabling</span></td><td class="val">Up to $1.44B<br>(option + milestones)</td></tr>
           </tbody>
         </table>
       </div>
@@ -384,28 +389,30 @@
       <p class="deal-note">Related licensing deal: Kite and Pregene, Oct 2025, $120M upfront, up to $1.64B. Orna had itself bought ReNAgade Therapeutics in 2024 to strengthen its delivery technology before Lilly acquired it.</p>
 
       <div class="group-label">2 · Macrophage-targeted cancer therapy</div>
+      <div class="sort-bar"><label for="sort2">Sort</label><select id="sort2" class="deal-sort"><option value="date-desc">Date: newest first</option><option value="date-asc">Date: oldest first</option><option value="value-desc">Value: highest first</option><option value="value-asc">Value: lowest first</option></select></div>
       <div class="table-wrap">
         <table>
           <thead><tr><th>Date</th><th>Buyer / partner</th><th>Company</th><th>Technology</th><th>Stage at deal</th><th>Value</th></tr></thead>
           <tbody>
-            <tr><td>Jan 2022</td><td>Moderna <em>(partnership)</em></td><td><strong>Carisma Therapeutics</strong></td><td>In vivo CAR-macrophage (CAR-M), up to 12 cancer targets</td><td><span class="pill warn">Discovery</span></td><td class="val">$45M upfront<br>+ $35M equity</td></tr>
-            <tr><td>Aug 2021</td><td>Pfizer</td><td><strong>Trillium Therapeutics</strong></td><td>CD47 / SIRPα blockers that unleash macrophages to eat cancer cells</td><td><span class="pill good">Phase 1b/2</span></td><td class="val">$2.26B<br>($18.50/share, 118% premium)</td></tr>
-            <tr><td style="color:var(--muted)">Mar 2020</td><td style="color:var(--muted)">Gilead</td><td><strong>Forty Seven</strong> <em style="color:var(--muted)">(earlier landmark)</em></td><td>CD47 antibody (magrolimab); later discontinued in 2024</td><td><span class="pill good">Clinical</span></td><td class="val">$4.9B</td></tr>
+            <tr data-date="2022-01" data-value="80"><td>Jan 2022</td><td>Moderna <em>(partnership)</em></td><td><strong>Carisma Therapeutics</strong></td><td>In vivo CAR-macrophage (CAR-M), up to 12 cancer targets</td><td><span class="pill warn">Discovery</span></td><td class="val">$45M upfront<br>+ $35M equity</td></tr>
+            <tr data-date="2021-08" data-value="2260"><td>Aug 2021</td><td>Pfizer</td><td><strong>Trillium Therapeutics</strong></td><td>CD47 / SIRPα blockers that unleash macrophages to eat cancer cells</td><td><span class="pill good">Phase 1b/2</span></td><td class="val">$2.26B<br>($18.50/share, 118% premium)</td></tr>
+            <tr data-date="2020-03" data-value="4900"><td style="color:var(--muted)">Mar 2020</td><td style="color:var(--muted)">Gilead</td><td><strong>Forty Seven</strong> <em style="color:var(--muted)">(earlier landmark)</em></td><td>CD47 antibody (magrolimab); later discontinued in 2024</td><td><span class="pill good">Clinical</span></td><td class="val">$4.9B</td></tr>
           </tbody>
         </table>
       </div>
       <p class="deal-note">No company that engineers macrophages has been acquired yet. Moderna now holds a fully paid-up license to Carisma's technology. Forty Seven falls just outside the five-year window and is not counted in the totals above.</p>
 
       <div class="group-label">3 · Engineered cell therapy (cells engineered outside the body)</div>
+      <div class="sort-bar"><label for="sort3">Sort</label><select id="sort3" class="deal-sort"><option value="date-desc">Date: newest first</option><option value="date-asc">Date: oldest first</option><option value="value-desc">Value: highest first</option><option value="value-asc">Value: lowest first</option></select></div>
       <div class="table-wrap">
         <table>
           <thead><tr><th>Date</th><th>Acquirer</th><th>Company</th><th>Technology</th><th>Stage at deal</th><th>Value</th></tr></thead>
           <tbody>
-            <tr><td>Feb 2026</td><td>Gilead</td><td><strong>Arcellx</strong></td><td>CAR-T (anito-cel), multiple myeloma</td><td><span class="pill good">Under FDA review</span></td><td class="val">$7.8B<br>($115/share, 79% premium)</td></tr>
-            <tr><td>Nov 2024</td><td>Roche</td><td><strong>Poseida Therapeutics</strong></td><td>Off-the-shelf (allogeneic) CAR-T</td><td><span class="pill good">Phase 1</span></td><td class="val">~$1.0B upfront,<br>up to $1.5B</td></tr>
-            <tr><td>Dec 2023</td><td>AstraZeneca</td><td><strong>Gracell Biotechnologies</strong></td><td>Fast-manufactured CAR-T (FasTCAR)</td><td><span class="pill good">Clinical</span></td><td class="val">Up to $1.2B</td></tr>
-            <tr class="flag"><td>Dec 2022</td><td>Gilead / Kite</td><td><strong>Tmunity Therapeutics</strong></td><td>"Armored" CAR-T for solid tumors, including a <strong>mesothelin</strong> program (Thunder's lead target)</td><td><span class="pill good">Phase 1</span></td><td class="val">Undisclosed</td></tr>
-            <tr><td>Nov 2022</td><td>AstraZeneca</td><td><strong>Neogene Therapeutics</strong></td><td>TCR-T for solid tumors (e.g., mutated KRAS, TP53)</td><td><span class="pill good">Clinical</span></td><td class="val">$200M upfront,<br>up to $320M</td></tr>
+            <tr data-date="2026-02" data-value="7800"><td>Feb 2026</td><td>Gilead</td><td><strong>Arcellx</strong></td><td>CAR-T (anito-cel), multiple myeloma</td><td><span class="pill good">Under FDA review</span></td><td class="val">$7.8B<br>($115/share, 79% premium)</td></tr>
+            <tr data-date="2024-11" data-value="1500"><td>Nov 2024</td><td>Roche</td><td><strong>Poseida Therapeutics</strong></td><td>Off-the-shelf (allogeneic) CAR-T</td><td><span class="pill good">Phase 1</span></td><td class="val">~$1.0B upfront,<br>up to $1.5B</td></tr>
+            <tr data-date="2023-12" data-value="1200"><td>Dec 2023</td><td>AstraZeneca</td><td><strong>Gracell Biotechnologies</strong></td><td>Fast-manufactured CAR-T (FasTCAR)</td><td><span class="pill good">Clinical</span></td><td class="val">Up to $1.2B</td></tr>
+            <tr class="flag" data-date="2022-12" data-value=""><td>Dec 2022</td><td>Gilead / Kite</td><td><strong>Tmunity Therapeutics</strong></td><td>"Armored" CAR-T for solid tumors, including a <strong>mesothelin</strong> program (Thunder's lead target)</td><td><span class="pill good">Phase 1</span></td><td class="val">Undisclosed</td></tr>
+            <tr data-date="2022-11" data-value="320"><td>Nov 2022</td><td>AstraZeneca</td><td><strong>Neogene Therapeutics</strong></td><td>TCR-T for solid tumors (e.g., mutated KRAS, TP53)</td><td><span class="pill good">Clinical</span></td><td class="val">$200M upfront,<br>up to $320M</td></tr>
           </tbody>
         </table>
       </div>
@@ -612,6 +619,23 @@
       el.textContent = (el.closest('td') ? '' : '≈ ') + fmt(lo) + '–' + fmt(hi) + (el.closest('td') ? '' : ' per share');
     });
   })();
+</script>
+<script>
+  // Re-order deal tables by date or value. Undisclosed values always sort last.
+  document.querySelectorAll('.deal-sort').forEach(sel => {
+    const tbody = sel.closest('.sort-bar').nextElementSibling.querySelector('tbody');
+    sel.addEventListener('change', () => {
+      const [key, dir] = sel.value.split('-');
+      const rows = [...tbody.querySelectorAll('tr')];
+      rows.sort((a, b) => {
+        if (key === 'date') return dir === 'asc' ? a.dataset.date.localeCompare(b.dataset.date) : b.dataset.date.localeCompare(a.dataset.date);
+        const va = a.dataset.value === '' ? null : +a.dataset.value, vb = b.dataset.value === '' ? null : +b.dataset.value;
+        if (va === null) return 1; if (vb === null) return -1;
+        return dir === 'asc' ? va - vb : vb - va;
+      });
+      rows.forEach(r => tbody.appendChild(r));
+    });
+  });
 </script>
 </body>
 </html>
