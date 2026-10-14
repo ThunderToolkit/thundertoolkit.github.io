@@ -166,6 +166,15 @@
     details.portfolio summary { cursor: pointer; padding: 16px 20px; font-weight: 600; }
     details.portfolio .table-wrap { border: 0; border-top: 1px solid var(--line); border-radius: 0 0 14px 14px; }
     td.fam { font-weight: 600; background: color-mix(in srgb, var(--accent-soft) 50%, var(--surface)); }
+    .papers { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+    .paper { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 18px 20px; display: flex; flex-direction: column; }
+    .paper .tag { align-self: flex-start; font: 700 11px "Lato", sans-serif; letter-spacing: .08em; text-transform: uppercase; color: var(--accent-dark); background: var(--accent-soft); padding: 3px 9px; border-radius: 99px; margin-bottom: 10px; }
+    .paper h3 { font-size: 17px; margin: 0 0 4px; }
+    .paper .cite { font-size: 13px; color: var(--muted); margin: 0 0 10px; }
+    .paper .why { font-size: 14px; color: var(--muted); margin: 0 0 14px; flex: 1; }
+    .paper .why b { color: var(--text); font-weight: 600; }
+    .paper a.read { align-self: flex-start; font-weight: 600; font-size: 14px; color: var(--accent-dark); text-decoration: none; border: 1px solid var(--accent); border-radius: 99px; padding: 6px 14px; }
+    .paper a.read:hover { background: var(--accent-soft); }
     .faq details { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; margin: 0 0 10px; }
     .faq summary { cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 16px 20px; font-weight: 600; }
     .faq summary::-webkit-details-marker { display: none; }
@@ -187,6 +196,7 @@
       <a href="#deals">Deals</a>
       <a href="#edge">Thunder's Edge</a>
       <a href="#patents">Patents</a>
+      <a href="#research">Research</a>
       <a href="#faq">FAQ</a>
       <a href="#next">Coming Next</a>
       <a href="#sources">Sources</a>
@@ -637,6 +647,50 @@
       </div>
 
       <p style="color:var(--muted);font-size:13px;margin-top:18px">*Estimated expiration dates are Google Patents estimates, not legal determinations. The scope of protection is defined by each patent's claims; descriptions above summarize the patent disclosures.</p>
+    </div>
+  </section>
+
+  <!-- RESEARCH -->
+  <section id="research">
+    <div class="deals-hero">
+      <svg class="motif" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="20" fill="#fff"/><g fill="#fff"><circle cx="24" cy="3.5" r="3"/><circle cx="41" cy="12" r="2.6"/><circle cx="44.5" cy="30" r="2.6"/><circle cx="33" cy="44" r="3"/><circle cx="13" cy="44.5" r="2.4"/><circle cx="3.5" cy="31" r="2.6"/><circle cx="5" cy="13" r="2.4"/></g><circle cx="24" cy="24" r="8.5" fill="#0f6f65"/><circle cx="24" cy="24" r="3.6" fill="#fff"/></svg>
+      <div class="wrap">
+        <div class="eyebrow">Research</div>
+        <h2>The published science behind Thunder's approach</h2>
+        <p class="lede">Peer-reviewed studies that support the specific elements of MOTO-CAR: reprogramming tumor macrophages, TLR4 signaling to switch them to M1, nanoparticle delivery inside the body, and the targets named in Thunder's patents.</p>
+        <div class="hero-stats">
+          <div class="hero-stat"><b>9</b><span>peer-reviewed papers, each linked to the full text</span></div>
+          <div class="hero-stat"><b>5</b><span>elements of Thunder's science they support</span></div>
+          <div class="hero-stat"><b>2017–2025</b><span>from foundational work to first-in-human results</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="wrap">
+      <div class="group-label" style="margin-top:0">The foundation: engineered macrophages fight tumors</div>
+      <div class="papers">
+        <article class="paper"><span class="tag">CAR-macrophages</span><h3>Human chimeric antigen receptor macrophages for cancer immunotherapy</h3><p class="cite">Klichinsky M, … Gill S. <em>Nature Biotechnology</em> 38, 947–953 (2020)</p><p class="why"><b>Why it matters for Thunder:</b> The landmark study showing human macrophages can carry a CAR, stay in the cancer-fighting M1 state, shrink tumors in mice and help activate T cells. It validates the core idea behind MOTO-CAR.</p><a class="read" href="https://doi.org/10.1038/s41587-020-0462-y" target="_blank" rel="noopener">Read the paper →</a></article>
+        <article class="paper"><span class="tag">Why target TAMs</span><h3>Tumour-associated macrophages as treatment targets in oncology</h3><p class="cite">Mantovani A, et al. <em>Nature Reviews Clinical Oncology</em> 14, 399–416 (2017)</p><p class="why"><b>Why it matters for Thunder:</b> A widely cited review of how tumor-associated macrophages help cancers grow and why re-educating them to an anti-tumor, M1-like state is a treatment strategy. This is the problem Thunder’s 1-pager describes.</p><a class="read" href="https://doi.org/10.1038/nrclinonc.2016.217" target="_blank" rel="noopener">Read the paper →</a></article>
+      </div>
+      <div class="group-label">TLR4 signaling: the switch in Thunder’s patents</div>
+      <div class="papers">
+        <article class="paper"><span class="tag">TLR4 · M1 switch</span><h3>A second-generation M1-polarized CAR macrophage with antitumor efficacy</h3><p class="cite">Lei A, Yu H, Lu S, et al. <em>Nature Immunology</em> 25, 102–116 (2024)</p><p class="why"><b>Why it matters for Thunder:</b> Adding the TLR4 signaling domain to a macrophage CAR drove stronger M1 polarization, resistance to the M2 state and better tumor control than first-generation designs. TLR4-based CARs are claimed in Thunder’s patents.</p><a class="read" href="https://doi.org/10.1038/s41590-023-01687-8" target="_blank" rel="noopener">Read the paper →</a></article>
+        <article class="paper"><span class="tag">TLR4 · in vivo LNP</span><h3>Intraperitoneal programming of tailored CAR macrophages via mRNA lipid nanoparticle to boost cancer immunotherapy</h3><p class="cite">Gu K, … Tan W. <em>Nature Communications</em> 17, 941 (2025)</p><p class="why"><b>Why it matters for Thunder:</b> Lipid nanoparticles created CAR-macrophages inside the body. CARs with TLR4 signaling kept macrophages in the anti-tumor state and boosted T-cell responses, combining two elements of Thunder’s approach.</p><a class="read" href="https://doi.org/10.1038/s41467-025-67674-9" target="_blank" rel="noopener">Read the paper →</a></article>
+      </div>
+      <div class="group-label">Nanoparticles can reprogram macrophages inside the body</div>
+      <div class="papers">
+        <article class="paper"><span class="tag">Targeted nanoparticles</span><h3>Genetic programming of macrophages to perform anti-tumor functions using targeted mRNA nanocarriers</h3><p class="cite">Zhang F, … Stephan MT. <em>Nature Communications</em> 10, 3974 (2019)</p><p class="why"><b>Why it matters for Thunder:</b> Macrophage-targeted nanoparticles carrying mRNA switched tumor macrophages to an anti-tumor state and slowed tumors in mouse models of ovarian cancer, melanoma and glioma, without systemic toxicity on repeat dosing. Supports Thunder’s TAM-targeted nanoparticle delivery.</p><a class="read" href="https://doi.org/10.1038/s41467-019-11911-5" target="_blank" rel="noopener">Read the paper →</a></article>
+      </div>
+      <div class="group-label">The targets: mesothelin and TK1</div>
+      <div class="papers">
+        <article class="paper"><span class="tag">Mesothelin</span><h3>A clinical study of autologous chimeric antigen receptor macrophage targeting mesothelin shows safety in ovarian cancer therapy</h3><p class="cite">Li X, … Zhang J. <em>Journal of Hematology &amp; Oncology</em> (2024)</p><p class="why"><b>Why it matters for Thunder:</b> Mesothelin-targeted CAR-macrophages were given to ovarian cancer patients and appeared safe. Mesothelin is the target of Thunder’s lead MOTO-CAR program.</p><a class="read" href="https://doi.org/10.1186/s13045-024-01635-5" target="_blank" rel="noopener">Read the paper →</a></article>
+        <article class="paper"><span class="tag">TK1 · Thunder founder</span><h3>Membrane expression of thymidine kinase 1 and potential clinical relevance in lung, breast, and colorectal malignancies</h3><p class="cite">Weagel EG, … Weber KS, Robison RA, O’Neill KL. <em>Cancer Cell International</em> 18, 135 (2018)</p><p class="why"><b>Why it matters for Thunder:</b> From Thunder founder Kim O’Neill’s lab: TK1 appears on the surface of lung, breast and colorectal cancer cells but very little in healthy tissue, making it a candidate CAR target. TK1 is named in several Thunder patents.</p><a class="read" href="https://doi.org/10.1186/s12935-018-0633-9" target="_blank" rel="noopener">Read the paper →</a></article>
+      </div>
+      <div class="group-label">In patients: CAR-macrophages are safe and reach tumors</div>
+      <div class="papers">
+        <article class="paper"><span class="tag">First-in-human</span><h3>CAR-macrophage therapy for HER2-overexpressing advanced solid tumors: a phase 1 trial</h3><p class="cite">Reiss KA, … Klichinsky M, Condamine T, Abdou Y. <em>Nature Medicine</em> (2025)</p><p class="why"><b>Why it matters for Thunder:</b> In 14 patients, CAR-macrophages caused no dose-limiting toxicity or severe cytokine release, traveled into tumors and expanded CD8 T cells. Early results, but they show the cell type behaves as expected in people.</p><a class="read" href="https://doi.org/10.1038/s41591-025-03495-z" target="_blank" rel="noopener">Read the paper →</a></article>
+        <article class="paper"><span class="tag">Field overview</span><h3>CAR-macrophages in solid tumors: promise, progress, and prospects</h3><p class="cite">Review. <em>npj Precision Oncology</em> (2025)</p><p class="why"><b>Why it matters for Thunder:</b> A current overview of the CAR-macrophage field, including the shift toward in vivo programming and the remaining challenges, for investors who want the wider context.</p><a class="read" href="https://www.nature.com/articles/s41698-025-01170-7" target="_blank" rel="noopener">Read the paper →</a></article>
+      </div>
+      <p class="deal-note" style="margin-top:18px">These are independent studies by other groups, except the TK1 paper from Thunder founder Kim O'Neill's lab. They support the scientific basis for Thunder's approach but are not Thunder's own preclinical data. Links open the publisher's page; some articles may require a subscription.</p>
     </div>
   </section>
 
