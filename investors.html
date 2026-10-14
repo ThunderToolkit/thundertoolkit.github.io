@@ -86,6 +86,14 @@
     .sources { font-size: 13px; color: var(--muted); }
     .sources ol { padding-left: 18px; }
     .sources a { word-break: break-word; }
+    .faq details { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; margin: 0 0 10px; }
+    .faq summary { cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 16px 20px; font-weight: 600; }
+    .faq summary::-webkit-details-marker { display: none; }
+    .faq summary::after { content: "+"; flex: none; font: 400 22px/1 Inter, sans-serif; color: var(--accent-dark); transition: transform .2s; }
+    .faq details[open] summary::after { transform: rotate(45deg); }
+    .faq .a { padding: 0 20px 18px; color: var(--muted); }
+    .faq .a p { margin: 0 0 10px; } .faq .a p:last-child { margin: 0; }
+    .tbd { color: var(--warn); border: 1px dashed currentColor; border-radius: 6px; padding: 1px 6px; font-size: 14px; }
     footer { padding: 28px 0 48px; border-top: 1px solid var(--line); color: var(--muted); font-size: 13px; }
   </style>
 </head>
@@ -97,6 +105,7 @@
       <a href="#landscape">The Landscape</a>
       <a href="#edge">Thunder's Edge</a>
       <a href="#patents">Patents</a>
+      <a href="#faq">FAQ</a>
       <a href="#next">Coming Next</a>
       <a href="#sources">Sources</a>
     </div>
@@ -249,13 +258,86 @@
     </div>
   </section>
 
+  <!-- FAQ -->
+  <section id="faq" class="faq">
+    <div class="wrap">
+      <h2>Investor FAQ</h2>
+      <p class="intro">Short answers to the questions investors ask most. Each links back to the detail above.</p>
+
+      <div class="group-label">The science</div>
+      <details>
+        <summary>What does Thunder Biotech do?</summary>
+        <div class="a"><p>Thunder is developing MOTO-CAR, an immunotherapy that reprograms macrophages, a type of immune cell, to attack solid tumors. Its lead program delivers the instructions directly inside the body using lipid nanoparticles, the same delivery technology used in mRNA vaccines.</p></div>
+      </details>
+      <details>
+        <summary>What is a CAR-macrophage, and how is it different from CAR-T?</summary>
+        <div class="a"><p>Both add a chimeric antigen receptor (CAR) to an immune cell so it can recognize a cancer marker. CAR-T uses T cells and has transformed blood cancers, but it has struggled in solid tumors, which make up most cancer cases.</p><p>Macrophages already gather in solid tumors in large numbers, can engulf tumor cells directly, and recruit T cells to join the attack. They also lack a T-cell receptor, so they cannot cause graft-versus-host disease, and reviews report lower cytokine-release risk than CAR-T. <a href="#science">More in The Science</a></p></div>
+      </details>
+      <details>
+        <summary>How does MOTO-CAR work?</summary>
+        <div class="a"><p>A lipid nanoparticle carries genetic instructions for the CAR to macrophages. When the CAR finds its target on a cancer cell, it flips the macrophage from a tumor-protecting "M2" state into a cancer-fighting "M1" state. The activated macrophage attacks the tumor and brings in T cells, which may build immune memory against recurrence. <a href="#science">See the four steps</a></p></div>
+      </details>
+      <details>
+        <summary>Why target mesothelin?</summary>
+        <div class="a"><p>Mesothelin is a marker found on many cancer types, which gives one program a broad potential reach. It also avoids the crowded HER2 space, which contributed to the first-generation CAR-macrophage company dropping its programs. Thunder's patents describe many other targets as well, including HER2, GPC3, CEA and ROR1. <span class="tbd">[Rob to confirm: lead indication(s), e.g. mesothelioma, ovarian, pancreatic]</span></p></div>
+      </details>
+      <details>
+        <summary>What does "in vivo" mean, and why does it matter?</summary>
+        <div class="a"><p>In vivo means the cells are programmed inside the patient's body. The first wave of CAR-macrophage therapies removed cells, engineered them in a lab and infused them back, which is slow and expensive. Programming cells in the body skips manufacturing altogether. This is where the field and large pharma investment have moved, and it is the approach in Thunder's lead program.</p></div>
+      </details>
+
+      <div class="group-label">The company</div>
+      <details>
+        <summary>What stage is Thunder at?</summary>
+        <div class="a"><p>Preclinical. The mesothelin MOTO-CAR program has shown tumor control in an immunocompetent mouse model, meaning a model with a working immune system, which matters for a therapy that relies on recruiting the immune system. <span class="tbd">[Rob to confirm: next milestones and target timing, e.g. IND-enabling studies, IND filing, first patient]</span></p></div>
+      </details>
+      <details>
+        <summary>What intellectual property does Thunder own?</summary>
+        <div class="a"><p>Three granted US patents (2019, 2021 and 2024) in a family with a May 2017 priority date, filed before any CAR-macrophage therapy had entered human testing. Estimated expirations run to 2037–2038. Two further applications were published in 2025, plus an international (PCT) filing. The patents cover the receptor design, the M1/M2 switch, and a broad set of signaling domains and targets. <a href="#patents">See Patents</a></p></div>
+      </details>
+      <details>
+        <summary>Is cancer the only market?</summary>
+        <div class="a"><p>No. Thunder's patents describe switching macrophages in both directions: toward M1 to fight cancer, and toward M2 to calm inflammation. That supports a second program in inflammatory and autoimmune disease, an area where other macrophage companies such as Resolution Therapeutics are already in clinical trials. <span class="tbd">[Rob to confirm: status of the anti-inflammatory program]</span></p></div>
+      </details>
+      <details>
+        <summary>Who leads the company?</summary>
+        <div class="a"><p>Founder and Chief Scientific Officer Kim O'Neill, PhD, has 40 years of cancer research experience at Brigham Young University, 155 peer-reviewed papers and 9 issued patents. He is the inventor on Thunder's core patent family. <span class="tbd">[Rob to add: CEO, other executives, board and scientific advisors]</span></p></div>
+      </details>
+      <details>
+        <summary>Who are the main competitors?</summary>
+        <div class="a"><p>The closest are CREATE Medicines (formerly Myeloid Therapeutics), which reported early human data for its in vivo approach in 2025, and Moderna, which has a preclinical in vivo CAR-macrophage program. Other macrophage companies work ex vivo or outside oncology. <a href="#landscape">See the full landscape</a></p></div>
+      </details>
+
+      <div class="group-label">Risk and opportunity</div>
+      <details>
+        <summary>The first CAR-macrophage company shut down. Why should investors still believe in the field?</summary>
+        <div class="a"><p>Carisma Therapeutics, which used the ex vivo approach, wound down in 2025 after dropping its HER2 programs. Its challenges were largely tied to that model: costly cell manufacturing, crowded HER2 competition, and tumors losing the HER2 marker.</p><p>The in vivo approach avoids manufacturing entirely, and it is producing the field's first encouraging human signals: in November 2025, CREATE Medicines reported a confirmed partial response and engineered cells inside tumors in a 27-patient Phase 1 study. Those are early results from a small study, not proof of efficacy.</p></div>
+      </details>
+      <details>
+        <summary>Is large pharma interested in this kind of technology?</summary>
+        <div class="a"><p>Yes. AbbVie, AstraZeneca, Gilead/Kite, Bristol Myers Squibb and Eli Lilly each acquired an in vivo CAR company in 2025–2026, in deals worth up to $350 million to $2.4 billion, including at least one at the preclinical stage. Those companies focus on T cells rather than macrophages, but they show the value placed on in vivo CAR platforms. <a href="#landscape">See the deal table</a></p></div>
+      </details>
+      <details>
+        <summary>What are the main risks?</summary>
+        <div class="a"><p>Like any preclinical biotech, results in animals may not carry over to people, and clinical development takes years and significant capital. Specific to the field: engineered macrophages may not persist long enough in the body, nanoparticles tend to accumulate in the liver and spleen, and the degree of cell reprogramming is hard to standardize. Thunder also competes with larger, better-funded companies.</p></div>
+      </details>
+      <details>
+        <summary>How much is Thunder raising, and what will the money fund?</summary>
+        <div class="a"><p><span class="tbd">[Rob to add: round size, instrument, use of proceeds and the milestones it reaches]</span></p></div>
+      </details>
+      <details>
+        <summary>How can I learn more or invest?</summary>
+        <div class="a"><p><span class="tbd">[Rob to add: contact person and email, or a link to schedule a call]</span></p></div>
+      </details>
+    </div>
+  </section>
+
   <!-- NEXT -->
   <section id="next">
     <div class="wrap">
       <h2>Coming Next</h2>
       <div class="grid">
         <div class="card"><h3>Deals &amp; valuations</h3><p>Recent acquisitions in the space, total deal value, and price per share where public.</p></div>
-        <div class="card"><h3>Investor FAQ</h3><p>Answers to the questions investors ask most.</p></div>
         <div class="card"><h3>Pipeline &amp; milestones</h3><p>Programs, stages, and what's next for Thunder.</p></div>
       </div>
     </div>
