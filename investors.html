@@ -86,6 +86,24 @@
     .sources { font-size: 13px; color: var(--muted); }
     .sources ol { padding-left: 18px; }
     .sources a { word-break: break-word; }
+    /* Deals section: branded aqua header band */
+    #deals { padding-top: 0; border-top: 0; }
+    .deals-hero { position: relative; overflow: hidden; color: #fff; padding: 56px 0 44px; margin-bottom: 40px;
+      background: radial-gradient(120% 140% at 100% 0%, #2fc5b2 0%, rgba(47,197,178,0) 55%), linear-gradient(120deg, #0b524b 0%, #0f6f65 45%, #178a7d 100%); }
+    .deals-hero .wrap { position: relative; z-index: 1; }
+    .deals-hero .motif { position: absolute; right: -90px; top: -70px; width: 420px; height: 420px; opacity: .16; pointer-events: none; }
+    .deals-hero .eyebrow { color: #fff; background: rgba(255,255,255,.16); border: 1px solid rgba(255,255,255,.28); }
+    .deals-hero h2 { color: #fff; font-size: clamp(30px, 5.4vw, 46px); line-height: 1.08; margin: 16px 0 12px; max-width: 760px; }
+    .deals-hero .lede { color: rgba(255,255,255,.88); max-width: 700px; }
+    .hero-stats { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); margin-top: 30px; }
+    .hero-stat { background: rgba(0,0,0,.18); border: 1px solid rgba(255,255,255,.18); border-radius: 14px; padding: 16px 18px; }
+    .hero-stat b { display: block; font: 900 32px/1 "Lato", sans-serif; margin-bottom: 6px; }
+    .hero-stat span { font-size: 14px; color: rgba(255,255,255,.86); }
+    .deal-note { color: var(--muted); font-size: 14px; margin: 10px 0 0; }
+    td.val { white-space: nowrap; font-weight: 600; }
+    #deals td:first-child { white-space: nowrap; }
+    tr.flag td { background: color-mix(in srgb, var(--accent-soft) 60%, var(--surface)); }
+    .takeaways { margin-top: 36px; }
     .faq details { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; margin: 0 0 10px; }
     .faq summary { cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 16px 20px; font-weight: 600; }
     .faq summary::-webkit-details-marker { display: none; }
@@ -103,6 +121,7 @@
       <a class="home" href="./" aria-label="Thunder Biotech home"><span class="brand"><svg class="mark" viewBox="0 0 48 48" width="24" height="24" aria-hidden="true"><circle cx="24" cy="24" r="20" fill="var(--accent)"/><g fill="var(--accent)"><circle cx="24" cy="3.5" r="3"/><circle cx="41" cy="12" r="2.6"/><circle cx="44.5" cy="30" r="2.6"/><circle cx="33" cy="44" r="3"/><circle cx="13" cy="44.5" r="2.4"/><circle cx="3.5" cy="31" r="2.6"/><circle cx="5" cy="13" r="2.4"/></g><circle cx="24" cy="24" r="8.5" fill="#fff" opacity=".92"/><circle cx="24" cy="24" r="3.6" fill="var(--accent)"/></svg><span class="wordmark">Thunder<span class="b">Biotech</span></span></span></a>
       <a href="#science">The Science</a>
       <a href="#landscape">The Landscape</a>
+      <a href="#deals">Deals</a>
       <a href="#edge">Thunder's Edge</a>
       <a href="#patents">Patents</a>
       <a href="#faq">FAQ</a>
@@ -149,7 +168,7 @@
       <ul class="clean">
         <li><strong>First generation (ex vivo) stalled.</strong> Carisma Therapeutics, the first company to put a CAR-macrophage into human trials, discontinued its clinical programs and began winding down in 2025.</li>
         <li><strong>In vivo is producing the first human signals.</strong> In November 2025, CREATE Medicines (formerly Myeloid Therapeutics) reported a confirmed partial response and evidence of CAR-positive myeloid cells inside tumors in a 27-patient Phase 1 study of its in vivo mRNA-LNP therapy.</li>
-        <li><strong>Large pharma is buying in vivo platforms.</strong> AbbVie, AstraZeneca, Gilead/Kite, Bristol Myers Squibb and Eli Lilly each acquired an in vivo CAR company in 2025–2026, in deals worth up to $350 million to $2.4 billion.</li>
+        <li><strong>Large pharma is buying in vivo platforms.</strong> AstraZeneca, AbbVie, Gilead/Kite, Bristol Myers Squibb and Eli Lilly (twice) acquired in vivo CAR companies between March 2025 and April 2026, in deals worth $350 million to $7 billion. <a href="#deals">See Deals &amp; Valuations</a></li>
         <li><strong>Remaining challenges.</strong> Short persistence of engineered macrophages, accumulation in the liver and spleen, and standardizing how strongly cells are polarized.</li>
       </ul>
     </div>
@@ -177,20 +196,83 @@
         </table>
       </div>
 
-      <div class="group-label">In vivo CAR companies acquired by large pharma (adjacent, T-cell focused)</div>
+      <p style="color:var(--muted);font-size:14px;margin-top:12px">For the companies large pharma has bought in this space, see <a href="#deals">Deals &amp; Valuations</a>.</p>
+    </div>
+  </section>
+
+  <!-- DEALS -->
+  <section id="deals">
+    <div class="deals-hero">
+      <svg class="motif" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="20" fill="#fff"/><g fill="#fff"><circle cx="24" cy="3.5" r="3"/><circle cx="41" cy="12" r="2.6"/><circle cx="44.5" cy="30" r="2.6"/><circle cx="33" cy="44" r="3"/><circle cx="13" cy="44.5" r="2.4"/><circle cx="3.5" cy="31" r="2.6"/><circle cx="5" cy="13" r="2.4"/></g><circle cx="24" cy="24" r="8.5" fill="#0f6f65"/><circle cx="24" cy="24" r="3.6" fill="#fff"/></svg>
+      <div class="wrap">
+        <div class="eyebrow">Deals &amp; Valuations</div>
+        <h2>What large pharma has paid for engineered immune-cell companies</h2>
+        <p class="lede">Acquisitions announced since August 2021 in three groups: macrophage-targeted cancer therapy, in vivo CAR (programming immune cells inside the body, Thunder's approach), and engineered cell therapy more broadly.</p>
+        <div class="hero-stats">
+          <div class="hero-stat"><b>15</b><span>acquisitions in five years</span></div>
+          <div class="hero-stat"><b>~$28B</b><span>combined headline value of the 13 with disclosed terms</span></div>
+          <div class="hero-stat"><b>6</b><span>in vivo CAR buyouts in 14 months (Mar 2025 – Apr 2026)</span></div>
+          <div class="hero-stat"><b>$350M → $7B</b><span>in vivo deal size, Aug 2025 to Apr 2026</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="wrap">
+      <div class="group-label" style="margin-top:0">1 · In vivo CAR: programming immune cells inside the body</div>
       <div class="table-wrap">
         <table>
-          <thead><tr><th>Acquirer</th><th>Company</th><th>Technology</th><th>Stage at deal</th><th>Value</th><th>Date</th></tr></thead>
+          <thead><tr><th>Date</th><th>Acquirer</th><th>Company</th><th>Technology</th><th>Stage at deal</th><th>Value</th></tr></thead>
           <tbody>
-            <tr><td>AstraZeneca</td><td>EsoBiotec</td><td>Lentiviral in vivo delivery to immune cells</td><td>Early</td><td>$425M upfront, up to $1B</td><td>Mar 2025</td></tr>
-            <tr><td>AbbVie</td><td>Capstan Therapeutics</td><td>Targeted LNP, mRNA CAR-T</td><td>Phase 1</td><td>Up to $2.1B</td><td>Jun–Jul 2025</td></tr>
-            <tr><td>Gilead / Kite</td><td>Interius BioTherapeutics</td><td>In vivo CAR-T / CAR-NK</td><td>Phase 1</td><td>$350M</td><td>Aug 2025</td></tr>
-            <tr><td>Bristol Myers Squibb</td><td>Orbital Therapeutics</td><td>In vivo RNA CAR-T</td><td>Not disclosed</td><td>~$1.5B</td><td>Oct 2025</td></tr>
-            <tr><td>Eli Lilly</td><td>Orna Therapeutics</td><td>Circular RNA in vivo CAR-T</td><td>Preclinical</td><td>Up to $2.4B</td><td>Feb 2026</td></tr>
+            <tr><td>Apr 2026</td><td>Eli Lilly</td><td><strong>Kelonia Therapeutics</strong></td><td>In vivo gene delivery to T cells; lead KLN-1010 (BCMA, multiple myeloma)</td><td><span class="pill good">Phase 1</span></td><td class="val">$3.25B upfront,<br>up to $7B</td></tr>
+            <tr><td>Feb 2026</td><td>Eli Lilly</td><td><strong>Orna Therapeutics</strong></td><td>Circular RNA, in vivo CAR-T</td><td><span class="pill warn">Preclinical</span></td><td class="val">Up to $2.4B</td></tr>
+            <tr><td>Oct 2025</td><td>Bristol Myers Squibb</td><td><strong>Orbital Therapeutics</strong></td><td>Circular RNA in LNP, in vivo CAR-T</td><td><span class="pill muted">Not disclosed</span></td><td class="val">~$1.5B cash</td></tr>
+            <tr><td>Aug 2025</td><td>Gilead / Kite</td><td><strong>Interius BioTherapeutics</strong></td><td>Lentiviral in vivo CAR-T / CAR-NK</td><td><span class="pill good">Phase 1</span></td><td class="val">$350M</td></tr>
+            <tr><td>Jun 2025</td><td>AbbVie</td><td><strong>Capstan Therapeutics</strong></td><td>Targeted LNP, mRNA CAR-T</td><td><span class="pill good">Phase 1</span></td><td class="val">Up to $2.1B</td></tr>
+            <tr><td>Mar 2025</td><td>AstraZeneca</td><td><strong>EsoBiotec</strong></td><td>Lentiviral in vivo delivery to immune cells</td><td><span class="pill warn">Early</span></td><td class="val">$425M upfront,<br>up to $1B</td></tr>
           </tbody>
         </table>
       </div>
-      <p style="color:var(--muted);font-size:14px;margin-top:10px">None of these acquired companies are macrophage-focused. They show what large pharma is paying for in vivo CAR platforms, including at the preclinical stage. A full deal and valuation section is coming next.</p>
+      <p class="deal-note">Related licensing deals (not acquisitions): Kite and Pregene, Oct 2025, $120M upfront, up to $1.64B; AbbVie and Umoja Biopharma option deals, Jan 2024, up to $1.44B.</p>
+
+      <div class="group-label">2 · Macrophage-targeted cancer therapy</div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Date</th><th>Buyer / partner</th><th>Company</th><th>Technology</th><th>Stage at deal</th><th>Value</th></tr></thead>
+          <tbody>
+            <tr><td>Jan 2022</td><td>Moderna <em>(partnership)</em></td><td><strong>Carisma Therapeutics</strong></td><td>In vivo CAR-macrophage (CAR-M), up to 12 cancer targets</td><td><span class="pill warn">Discovery</span></td><td class="val">$45M upfront<br>+ $35M equity</td></tr>
+            <tr><td>Aug 2021</td><td>Pfizer</td><td><strong>Trillium Therapeutics</strong></td><td>CD47 / SIRPα blockers that unleash macrophages to eat cancer cells</td><td><span class="pill good">Phase 1b/2</span></td><td class="val">$2.26B<br>($18.50/share, 118% premium)</td></tr>
+            <tr><td style="color:var(--muted)">Mar 2020</td><td style="color:var(--muted)">Gilead</td><td><strong>Forty Seven</strong> <em style="color:var(--muted)">(earlier landmark)</em></td><td>CD47 antibody (magrolimab); later discontinued in 2024</td><td><span class="pill good">Clinical</span></td><td class="val">$4.9B</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="deal-note">No company that engineers macrophages has been acquired yet. Moderna now holds a fully paid-up license to Carisma's technology. Forty Seven falls just outside the five-year window and is not counted in the totals above.</p>
+
+      <div class="group-label">3 · Engineered cell therapy (cells engineered outside the body)</div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Date</th><th>Acquirer</th><th>Company</th><th>Technology</th><th>Stage at deal</th><th>Value</th></tr></thead>
+          <tbody>
+            <tr><td>Feb 2026</td><td>Gilead</td><td><strong>Arcellx</strong></td><td>CAR-T (anito-cel), multiple myeloma</td><td><span class="pill good">Under FDA review</span></td><td class="val">$7.8B<br>($115/share, 79% premium)</td></tr>
+            <tr><td>Mar 2025</td><td>Bristol Myers Squibb</td><td><strong>2seventy bio</strong></td><td>CAR-T (Abecma), multiple myeloma</td><td><span class="pill good">Approved</span></td><td class="val">$286M</td></tr>
+            <tr><td>Nov 2024</td><td>Roche</td><td><strong>Poseida Therapeutics</strong></td><td>Off-the-shelf (allogeneic) CAR-T</td><td><span class="pill good">Phase 1</span></td><td class="val">~$1.0B upfront,<br>up to $1.5B</td></tr>
+            <tr><td>Dec 2023</td><td>AstraZeneca</td><td><strong>Gracell Biotechnologies</strong></td><td>Fast-manufactured CAR-T (FasTCAR)</td><td><span class="pill good">Clinical</span></td><td class="val">Up to $1.2B</td></tr>
+            <tr class="flag"><td>Dec 2022</td><td>Gilead / Kite</td><td><strong>Tmunity Therapeutics</strong></td><td>"Armored" CAR-T for solid tumors, including a <strong>mesothelin</strong> program (Thunder's lead target)</td><td><span class="pill good">Phase 1</span></td><td class="val">Undisclosed</td></tr>
+            <tr><td>Nov 2022</td><td>AstraZeneca</td><td><strong>Neogene Therapeutics</strong></td><td>TCR-T for solid tumors (e.g., mutated KRAS, TP53)</td><td><span class="pill good">Clinical</span></td><td class="val">$200M upfront,<br>up to $320M</td></tr>
+            <tr><td>Jun 2022</td><td>Galapagos</td><td><strong>CellPoint + AboundBio</strong></td><td>Point-of-care CAR-T manufacturing; antibody discovery</td><td><span class="pill good">Clinical</span></td><td class="val">€125M + $14M</td></tr>
+            <tr><td>Oct 2021</td><td>Takeda</td><td><strong>GammaDelta Therapeutics</strong></td><td>Off-the-shelf γδ T cells, solid and blood cancers</td><td><span class="pill warn">Early clinical</span></td><td class="val">Undisclosed</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="deal-note">"Up to" values include milestone payments that are only paid if development, regulatory or sales goals are met. Headline totals use the full "up to" figure.</p>
+
+      <div class="group-label takeaways">What the deals show</div>
+      <div class="grid">
+        <div class="card"><h3>Buyers pay before human data</h3><p>Lilly paid up to $2.4B for Orna while it was preclinical, and EsoBiotec was early-stage when AstraZeneca bought it. Platform technology alone has commanded large prices.</p></div>
+        <div class="card"><h3>Prices are climbing fast</h3><p>In vivo CAR deal sizes rose from $350M (Interius, Aug 2025) to as much as $7B (Kelonia, Apr 2026) in eight months, as more large companies competed for a limited number of platforms.</p></div>
+        <div class="card"><h3>Macrophages are the next frontier</h3><p>Every in vivo company bought so far targets T cells. No macrophage-engineering company has been acquired, and the only in vivo CAR-macrophage human data so far comes from CREATE Medicines, which remains independent.</p></div>
+        <div class="card"><h3>Mesothelin has been bought before</h3><p>Kite's purchase of Tmunity included a Phase 1 mesothelin-targeted CAR-T for solid tumors, the same target as Thunder's lead MOTO-CAR program.</p></div>
+      </div>
+      <p class="deal-note" style="margin-top:16px">Past transactions are not a prediction of any future transaction or valuation for Thunder Biotech.</p>
     </div>
   </section>
 
@@ -315,7 +397,7 @@
       </details>
       <details>
         <summary>Is large pharma interested in this kind of technology?</summary>
-        <div class="a"><p>Yes. AbbVie, AstraZeneca, Gilead/Kite, Bristol Myers Squibb and Eli Lilly each acquired an in vivo CAR company in 2025–2026, in deals worth up to $350 million to $2.4 billion, including at least one at the preclinical stage. Those companies focus on T cells rather than macrophages, but they show the value placed on in vivo CAR platforms. <a href="#landscape">See the deal table</a></p></div>
+        <div class="a"><p>Yes. Fifteen companies developing engineered immune-cell therapies were acquired between August 2021 and April 2026, with about $28 billion in combined headline value. The fastest-moving group is in vivo CAR: AstraZeneca, AbbVie, Gilead/Kite, Bristol Myers Squibb and Eli Lilly (twice) bought six in vivo companies in 14 months, in deals worth $350 million to $7 billion, including at least one at the preclinical stage. Those companies focus on T cells rather than macrophages, but they show the value placed on in vivo platforms. <a href="#deals">See Deals &amp; Valuations</a></p></div>
       </details>
       <details>
         <summary>What are the main risks?</summary>
@@ -337,7 +419,6 @@
     <div class="wrap">
       <h2>Coming Next</h2>
       <div class="grid">
-        <div class="card"><h3>Deals &amp; valuations</h3><p>Recent acquisitions in the space, total deal value, and price per share where public.</p></div>
         <div class="card"><h3>Pipeline &amp; milestones</h3><p>Programs, stages, and what's next for Thunder.</p></div>
       </div>
     </div>
@@ -347,7 +428,7 @@
   <section id="sources">
     <div class="wrap sources">
       <h2 style="font-size:22px">Sources</h2>
-      <p>Research current as of October 13, 2026.</p>
+      <p>Research current as of October 14, 2026.</p>
       <ol>
         <li><a href="https://thunderbiotech.com/our-science/">Thunder Biotech — Our Science</a>, <a href="https://thunderbiotech.com/pipeline/">Pipeline</a>, <a href="https://thunderbiotech.com/our-team/">Our Team</a></li>
         <li><a href="https://patents.google.com/patent/US10415017B2/en">US 10,415,017 B2</a> · <a href="https://patents.google.com/patent/US10889803">US 10,889,803 B2</a> · <a href="https://patents.google.com/patent/US12024719">US 12,024,719 B2</a> (Google Patents)</li>
@@ -360,7 +441,10 @@
         <li><a href="https://targetedonc.com/view/sirpant-m-receives-fda-orphan-drug-designation-for-t-cell-lymphoma">Targeted Oncology — SIRPant-M orphan designation</a></li>
         <li><a href="https://www.clinicaltrialsarena.com/news/resolution-scores-83m-to-develop-macrophage-cell-therapies/">Clinical Trials Arena — Resolution Therapeutics Series B</a></li>
         <li><a href="https://www.biospace.com/cellorigin-biotech-announces-global-strategic-collaboration-with-qilu-pharma-to-develop-and-quot-off-the-shelf-and-quot-car-imac-cell-therapy">BioSpace — CellOrigin / Qilu collaboration</a></li>
-        <li><a href="https://www.morningstar.co.uk/uk/news/AN_1747727726234611500/astrazeneca-completes-esobiotec-acquisition-for-up-to-usd1-billion.aspx">AstraZeneca / EsoBiotec</a> · <a href="https://synapse.patsnap.com/article/abbvie-acquires-capstan-for-21b-targets-in-vivo-car-t-market">AbbVie / Capstan</a> · <a href="https://www.fiercebiotech.com/biotech/gileads-kite-sails-vivo-car-t-space-350m-interius-buyout">Gilead / Interius</a> · <a href="https://www.apexonco.com/node/1635">BMS / Orbital</a> · <a href="https://biocentury.com/article/658369/lilly-s-orna-deal-marks-fifth-takeout-of-an-in-vivo-car-t-play-in-two-years">Lilly / Orna</a></li>
+        <li><a href="https://www.morningstar.co.uk/uk/news/AN_1747727726234611500/astrazeneca-completes-esobiotec-acquisition-for-up-to-usd1-billion.aspx">AstraZeneca / EsoBiotec</a> · <a href="https://synapse.patsnap.com/article/abbvie-acquires-capstan-for-21b-targets-in-vivo-car-t-market">AbbVie / Capstan</a> · <a href="https://www.fiercebiotech.com/biotech/gileads-kite-sails-vivo-car-t-space-350m-interius-buyout">Gilead / Interius</a> · <a href="https://www.apexonco.com/node/1635">BMS / Orbital</a> · <a href="https://biocentury.com/article/658369/lilly-s-orna-deal-marks-fifth-takeout-of-an-in-vivo-car-t-play-in-two-years">Lilly / Orna</a> · <a href="https://www.biopharmadive.com/news/lilly-kelonia-acquire-in-vivo-cell-therapy-multiple-myeloma/817953/">Lilly / Kelonia</a> · <a href="https://www.fiercebiotech.com/biotech/frenzied-feeding-playing-defense-and-disruption-lillys-kelonia-acquisition-and-future-vivo">Fierce Biotech — in vivo deal landscape (Apr 2026)</a></li>
+        <li><a href="https://www.fiercebiotech.com/biotech/kite-puts-16b-line-pair-chinas-pregene-another-vivo-car-t-deal">Kite / Pregene</a> · <a href="https://news.abbvie.com/2024-01-04-AbbVie-and-Umoja-Biopharma-Announce-Strategic-Collaboration-to-Develop-Novel-In-Situ-CAR-T-Cell-Therapies">AbbVie / Umoja</a> · <a href="https://www.fiercebiotech.com/biotech/moderna-finds-carisma-s-macrophage-tech-compelling-enough-for-45m-cancer-research-deal">Moderna / Carisma (Jan 2022)</a></li>
+        <li><a href="https://www.pharmtech.com/view/pfizer-to-acquire-trillium-therapeutics-in-2-26-billion-deal">Pfizer / Trillium</a> · <a href="https://eureka.patsnap.com/blog/life-science/cd47-competitive-landscape-analysis/">CD47 deal history incl. Gilead / Forty Seven</a></li>
+        <li><a href="https://biopharmadive.com/news/gilead-arcellx-acquire-multiple-myeloma-cell-therapy-anito-cel/812798">Gilead / Arcellx</a> · <a href="https://www.alacrita.com/whitepapers/cell-therapy-financing-beyond-car-t">Alacrita — cell therapy M&amp;A (BMS / 2seventy, Roche / Poseida, AstraZeneca / Gracell)</a> · <a href="https://www.roche.com/media/releases/med-cor-2024-11-26b">Roche / Poseida</a> · <a href="https://pharmaphorum.com/news/gileads-kite-takes-control-of-car-t-partner-tmunity/">Kite / Tmunity</a> · <a href="https://www.businesswire.com/news/home/20221128005852/en/AstraZeneca-to-Acquire-Neogene-Therapeutics-Accelerating-Ambition-in-Oncology-Cell-Therapy">AstraZeneca / Neogene</a> · <a href="https://bioprocessintl.com/deal-making/galapagos-makes-surprising-cell-therapy-pivot-via-cellpoint-and-aboundbio-buy">Galapagos / CellPoint + AboundBio</a> · <a href="https://www.geneonline.com/takeda-snags-uk-based-cell-therapy-collaborator-to-boost-immuno-oncology-portfolio/">Takeda / GammaDelta</a></li>
       </ol>
     </div>
   </section>
