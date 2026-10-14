@@ -175,10 +175,11 @@
     .paper .why b { color: var(--text); font-weight: 600; }
     .paper a.read { align-self: flex-start; font-weight: 600; font-size: 14px; color: var(--accent-dark); text-decoration: none; border: 1px solid var(--accent); border-radius: 99px; padding: 6px 14px; }
     .paper a.read:hover { background: var(--accent-soft); }
-    .disclaimer-top { background: #fff4e5; color: #4a2c06; border-bottom: 1px solid #f0d2a8; font-size: 14px; line-height: 1.5; }
-    .disclaimer-top .wrap { padding-top: 12px; padding-bottom: 12px; }
+    .disclaimer-top { background: linear-gradient(90deg, #0b524b 0%, #0f6f65 60%, #178a7d 100%); color: #fff; border-bottom: 3px solid #2fc5b2; font-size: 14px; line-height: 1.5; }
+    .disclaimer-top .wrap { display: flex; gap: 12px; align-items: flex-start; padding-top: 12px; padding-bottom: 12px; }
+    .disclaimer-top .tag { flex: none; font: 900 11px/1 "Lato", sans-serif; letter-spacing: .12em; text-transform: uppercase; background: #fff; color: #0b524b; padding: 5px 9px; border-radius: 99px; margin-top: 1px; }
     .disclaimer-top p { margin: 0; font-weight: 700; }
-    @media (prefers-color-scheme: dark) { .disclaimer-top { background: #3a2a12; color: #ffe2bf; border-bottom-color: #5a421f; } }
+    @media (max-width: 640px) { .disclaimer-top .wrap { flex-direction: column; gap: 8px; } }
     .faq details { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; margin: 0 0 10px; }
     .faq summary { cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 16px 20px; font-weight: 600; }
     .faq summary::-webkit-details-marker { display: none; }
@@ -192,7 +193,7 @@
 </head>
 <body>
   <div class="disclaimer-top" role="note">
-    <div class="wrap"><p>For illustrative purposes only. This is not an offer to sell, or a solicitation of an offer to buy, any securities or investment. It is intended solely to provide a glimpse of the market and Thunder Biotech's position within the overall landscape.</p></div>
+    <div class="wrap"><span class="tag">Disclaimer</span><p>For illustrative purposes only. This is not an offer to sell, or a solicitation of an offer to buy, any securities or investment. It is intended solely to provide a glimpse of the market and Thunder Biotech's position within the overall landscape.</p></div>
   </div>
   <nav class="top">
     <div class="wrap">
