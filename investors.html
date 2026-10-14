@@ -86,6 +86,46 @@
     .sources { font-size: 13px; color: var(--muted); }
     .sources ol { padding-left: 18px; }
     .sources a { word-break: break-word; }
+    /* Valuation scenarios */
+    :root { --s1: #8fd6ca; --s2: #2fae9e; --s3: #0f6f65; }
+    @media (prefers-color-scheme: dark) { :root { --s1: #1f6b62; --s2: #2fc5b2; --s3: #a8ece2; } }
+    .vbar { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 22px 22px 16px; margin: 6px 0 26px; }
+    .vbar-title { font: 700 15px "Lato", sans-serif; margin: 0 0 4px; }
+    .vbar-sub { color: var(--muted); font-size: 13px; margin: 0 0 18px; }
+    .vrow { display: grid; grid-template-columns: 150px 1fr; gap: 14px; align-items: center; margin: 0 0 12px; }
+    .vrow .lbl { font-size: 14px; font-weight: 600; }
+    .vrow .lbl small { display: block; font-weight: 400; color: var(--muted); font-size: 12px; }
+    .track { position: relative; height: 26px; }
+    .track .grid { position: absolute; top: -4px; bottom: -4px; width: 1px; background: var(--line); }
+    .band { position: absolute; top: 3px; height: 20px; border-radius: 4px; cursor: default; outline-offset: 2px; }
+    .band.s1 { background: var(--s1); } .band.s2 { background: var(--s2); } .band.s3 { background: var(--s3); }
+    .band-val { position: absolute; top: 3px; line-height: 20px; font-size: 13px; font-weight: 600; white-space: nowrap; padding-left: 8px; }
+    .comp-track { position: relative; height: 54px; border-top: 1px dashed var(--line); margin-top: 4px; }
+    .comp { position: absolute; top: -6px; transform: translateX(-50%); width: 12px; height: 12px; border-radius: 50%; background: var(--muted); border: 2px solid var(--surface); cursor: default; }
+    .comp-lbl { position: absolute; transform: translateX(-50%); font-size: 11px; color: var(--muted); white-space: nowrap; text-align: center; line-height: 1.25; }
+    .comp-lbl.up { top: 12px; } .comp-lbl.dn { top: 28px; }
+    .axis { position: relative; height: 18px; font-size: 12px; color: var(--muted); }
+    .axis span { position: absolute; transform: translateX(-50%); }
+    .axis span:first-child { transform: none; } .axis span:last-child { transform: translateX(-100%); }
+    [data-tip] { position: relative; }
+    [data-tip]:hover::after, [data-tip]:focus-visible::after { content: attr(data-tip); position: absolute; bottom: calc(100% + 8px); left: 50%; transform: translateX(-50%); z-index: 3; width: max-content; max-width: 260px; white-space: normal; background: var(--text); color: var(--bg); font: 500 12px/1.4 Inter, sans-serif; padding: 7px 10px; border-radius: 8px; pointer-events: none; }
+    .vlegend { display: flex; flex-wrap: wrap; gap: 14px; font-size: 12px; color: var(--muted); margin-top: 8px; }
+    .vlegend i { display: inline-block; width: 12px; height: 12px; border-radius: 3px; vertical-align: -2px; margin-right: 6px; }
+    .scen { border-top: 4px solid var(--s2); }
+    .scen.s1 { border-top-color: var(--s1); } .scen.s3 { border-top-color: var(--s3); }
+    .scen .range { font: 900 26px/1.1 "Lato", sans-serif; margin: 6px 0 2px; }
+    .pershare { margin: 2px 0 0; font: 700 15px "Lato", sans-serif; color: var(--accent-dark); }
+    .ps.pending { font-weight: 500; font-size: 13px; color: var(--warn); }
+    .scen .up { font-size: 13px; color: var(--muted); margin: 0 0 12px; }
+    .scen dl { margin: 0; font-size: 14px; }
+    .scen dt { font-weight: 600; margin-top: 10px; }
+    .scen dd { margin: 2px 0 0; color: var(--muted); }
+    .vrow .lbl .rng { display: block; font: 900 15px "Lato", sans-serif; color: var(--accent-dark); }
+    .comp-list { display: none; font-size: 12px; color: var(--muted); margin: 6px 0 0; }
+    .stage-dot { position: absolute; top: 7px; transform: translateX(-50%); width: 12px; height: 12px; border-radius: 50%; background: var(--muted); border: 2px solid var(--surface); z-index: 1; }
+    .stage-dot:hover, .stage-dot:focus-visible { z-index: 4; }
+    @media (max-width: 640px) { .comp-lbl { display: none; } .comp-track { height: 14px; } .comp-list { display: block; } }
+    @media (max-width: 640px) { .vrow { grid-template-columns: 1fr; gap: 4px; } .vbar { padding: 18px 14px 12px; } .comp-lbl { font-size: 10px; } }
     /* Deals section: branded aqua header band */
     #deals { padding-top: 0; border-top: 0; }
     .deals-hero { position: relative; overflow: hidden; color: #fff; padding: 56px 0 44px; margin-bottom: 40px;
@@ -121,6 +161,7 @@
       <a class="home" href="./" aria-label="Thunder Biotech home"><span class="brand"><svg class="mark" viewBox="0 0 48 48" width="24" height="24" aria-hidden="true"><circle cx="24" cy="24" r="20" fill="var(--accent)"/><g fill="var(--accent)"><circle cx="24" cy="3.5" r="3"/><circle cx="41" cy="12" r="2.6"/><circle cx="44.5" cy="30" r="2.6"/><circle cx="33" cy="44" r="3"/><circle cx="13" cy="44.5" r="2.4"/><circle cx="3.5" cy="31" r="2.6"/><circle cx="5" cy="13" r="2.4"/></g><circle cx="24" cy="24" r="8.5" fill="#fff" opacity=".92"/><circle cx="24" cy="24" r="3.6" fill="var(--accent)"/></svg><span class="wordmark">Thunder<span class="b">Biotech</span></span></span></a>
       <a href="#science">The Science</a>
       <a href="#landscape">The Landscape</a>
+      <a href="#value">Value</a>
       <a href="#deals">Deals</a>
       <a href="#edge">Thunder's Edge</a>
       <a href="#patents">Patents</a>
@@ -197,6 +238,99 @@
       </div>
 
       <p style="color:var(--muted);font-size:14px;margin-top:12px">For the companies large pharma has bought in this space, see <a href="#deals">Deals &amp; Valuations</a>.</p>
+    </div>
+  </section>
+
+  <!-- VALUE -->
+  <section id="value">
+    <div class="wrap">
+      <div class="eyebrow">Valuation scenarios</div>
+      <h2 style="margin-top:14px">What could Thunder be worth after its next studies?</h2>
+      <p class="intro">Thunder plans 3 to 5 mouse efficacy studies of about 100 mice each. Below are illustrative ranges for what a buyer or partner might pay under three possible outcomes, based on the prices paid in the deals listed below.</p>
+
+      <div class="vbar" role="img" aria-label="Value bar: somewhat favorable $40M to $150M, very favorable $150M to $450M, exceptional $450M to $1.2B, compared with past deals from $80M to $2.4B">
+        <p class="vbar-title">Illustrative deal value by study outcome</p>
+        <p class="vbar-sub">Total headline value including milestones, log scale. Grey dots are past deals for comparison. Hover or tap for detail.</p>
+
+        <div class="vrow"><div class="lbl">Somewhat favorable <b class="rng">$40M–$150M</b><small>Partnership or license</small></div>
+          <div class="track"><div class="grid" style="left:19.26%"></div><div class="grid" style="left:40.37%"></div><div class="grid" style="left:59.63%"></div><div class="grid" style="left:80.74%"></div><div class="band s1" style="left:24.3%;width:23.18%" tabindex="0" data-tip="Somewhat favorable: $40M–$150M headline, roughly $5M–$25M upfront"></div></div></div>
+        <div class="vrow"><div class="lbl">Very favorable <b class="rng">$150M–$450M</b><small>License with buyout option, or small acquisition</small></div>
+          <div class="track"><div class="grid" style="left:19.26%"></div><div class="grid" style="left:40.37%"></div><div class="grid" style="left:59.63%"></div><div class="grid" style="left:80.74%"></div><div class="band s2" style="left:47.48%;width:19.26%" tabindex="0" data-tip="Very favorable: $150M–$450M headline, roughly $25M–$100M upfront"></div></div></div>
+        <div class="vrow"><div class="lbl">Exceptional <b class="rng">$450M–$1.2B</b><small>Acquisition, competitive interest</small></div>
+          <div class="track"><div class="grid" style="left:19.26%"></div><div class="grid" style="left:40.37%"></div><div class="grid" style="left:59.63%"></div><div class="grid" style="left:80.74%"></div><div class="band s3" style="left:66.74%;width:17.2%" tabindex="0" data-tip="Exceptional: $450M–$1.2B headline, roughly $100M–$350M upfront"></div></div></div>
+
+        <div class="vrow" style="margin-bottom:0"><div class="lbl" style="color:var(--muted);font-weight:500">Past deals</div>
+          <div class="comp-track">
+            <span class="comp" style="left:36.46%" tabindex="0" data-tip="Moderna–Carisma (2022): $45M upfront + $35M equity, discovery-stage CAR-macrophage"></span><span class="comp-lbl up" style="left:36.46%">Carisma<br>$80M</span>
+            <span class="comp" style="left:62.33%" tabindex="0" data-tip="Gilead–Interius (2025): $350M, Phase 1 in vivo CAR"></span><span class="comp-lbl up" style="left:62.33%">Interius<br>$350M</span>
+            <span class="comp" style="left:80.74%" tabindex="0" data-tip="AstraZeneca–EsoBiotec (2025): $425M upfront, up to $1B, early clinical"></span><span class="comp-lbl up" style="left:80.74%">EsoBiotec<br>$1B</span>
+            <span class="comp" style="left:87.85%" tabindex="0" data-tip="BMS–Orbital (2025): ~$1.5B, preclinical"></span><span class="comp-lbl dn" style="left:87.85%">Orbital $1.5B</span>
+            <span class="comp" style="left:96.09%" tabindex="0" data-tip="Lilly–Orna (2026): up to $2.4B, preclinical, trial-ready"></span><span class="comp-lbl up" style="left:96.09%">Orna<br>$2.4B</span>
+          </div></div>
+        <div class="vrow"><div></div><div class="axis"><span style="left:0">$10M</span><span style="left:19.26%">$30M</span><span style="left:40.37%">$100M</span><span style="left:59.63%">$300M</span><span style="left:80.74%">$1B</span><span style="left:100%">$3B</span></div></div>
+        <p class="comp-list">Past deals: Carisma $80M · Interius $350M · EsoBiotec $1B · Orbital $1.5B · Orna $2.4B</p>
+        <div class="vlegend"><span><i style="background:var(--s1)"></i>Somewhat favorable</span><span><i style="background:var(--s2)"></i>Very favorable</span><span><i style="background:var(--s3)"></i>Exceptional</span><span><i style="background:var(--muted);border-radius:50%"></i>Past deal</span></div>
+      </div>
+
+      <div class="grid">
+        <div class="card scen s1">
+          <h3>Somewhat favorable</h3>
+          <div class="range">$40M–$150M</div><p class="pershare"><span class="ps" data-lo="40" data-hi="150"></span></p><p class="up">Roughly $5M–$25M upfront</p>
+          <dl>
+            <dt>What the studies show</dt><dd>MOTO-CAR slows tumor growth versus controls in the mesothelin model, the result repeats in most studies, and no major safety problems appear.</dd>
+            <dt>Likely deal</dt><dd>A research partnership or license, with most of the value tied to future milestones.</dd>
+            <dt>Closest comparison</dt><dd>Moderna and Carisma, 2022: $45M upfront plus $35M equity for discovery-stage CAR-macrophage work.</dd>
+          </dl>
+        </div>
+        <div class="card scen s2">
+          <h3>Very favorable</h3>
+          <div class="range">$150M–$450M</div><p class="pershare"><span class="ps" data-lo="150" data-hi="450"></span></p><p class="up">Roughly $25M–$100M upfront</p>
+          <dl>
+            <dt>What the studies show</dt><dd>Consistent, statistically clear tumor shrinkage and longer survival across studies; engineered macrophages found in tumors and T cells recruited; activity in more than one tumor model.</dd>
+            <dt>Likely deal</dt><dd>A license with an option to acquire, or a smaller acquisition.</dd>
+            <dt>Closest comparisons</dt><dd>Gilead and Interius, $350M (Phase 1). AbbVie and Umoja, up to $1.44B in an option deal (IND-enabling).</dd>
+          </dl>
+        </div>
+        <div class="card scen s3">
+          <h3>Exceptional</h3>
+          <div class="range">$450M–$1.2B</div><p class="pershare"><span class="ps" data-lo="450" data-hi="1200"></span></p><p class="up">Roughly $100M–$350M upfront</p>
+          <dl>
+            <dt>What the studies show</dt><dd>Complete tumor regression in a meaningful share of mice, lasting cures that resist a second tumor challenge (immune memory), activity across several tumor types, and clean safety with delivery focused on macrophages.</dd>
+            <dt>Likely deal</dt><dd>An acquisition, especially if more than one buyer is interested.</dd>
+            <dt>Closest comparisons</dt><dd>AstraZeneca and EsoBiotec, $425M upfront and up to $1B. Orbital ($1.5B) and Orna ($2.4B) sold preclinical but with far more data and funding behind them.</dd>
+          </dl>
+        </div>
+      </div>
+
+
+      <h3 style="margin:34px 0 6px">Another view: value by stage at the time of sale</h3>
+      <p style="color:var(--muted);max-width:720px;margin:0 0 14px">Buyers pay more the further a program has advanced, because each stage removes risk. This shows illustrative ranges for Thunder if it sold at each stage, alongside what was paid for companies at that stage.</p>
+      <div class="vbar" role="img" aria-label="Value by stage of sale: preclinical $40M to $1.2B, in clinical trials $300M to $2.5B, under FDA review $2B to $8B">
+        <p class="vbar-title">Illustrative deal value by stage of sale</p>
+        <p class="vbar-sub">Bars are illustrative ranges for Thunder; grey dots are past deals at that stage. Log scale. Hover or tap a dot for the deal.</p>
+        <div class="vrow"><div class="lbl">Preclinical <b class="rng">$40M–$1.2B</b><small>After the mouse studies</small></div>
+          <div class="track"><div class="grid" style="left:15.9%"></div><div class="grid" style="left:33.33%"></div><div class="grid" style="left:49.24%"></div><div class="grid" style="left:66.67%"></div><div class="grid" style="left:82.57%"></div><div class="band s1" style="left:20.07%;width:49.24%" tabindex="0" data-tip="Preclinical: $40M–$1.2B, depending on study results"></div><span class="stage-dot" style="left:30.1%" tabindex="0" data-tip="Moderna–Carisma (2022): $80M partnership, discovery stage"></span><span class="stage-dot" style="left:72.54%" tabindex="0" data-tip="BMS–Orbital (2025): ~$1.5B"></span><span class="stage-dot" style="left:79.34%" tabindex="0" data-tip="Lilly–Orna (2026): up to $2.4B"></span><span class="stage-dot" style="left:80.39%" tabindex="0" data-tip="J&amp;J–Sail (2026): option to buy for $2.58B plus $785M upfront"></span></div></div>
+        <div class="vrow"><div class="lbl">In clinical trials <b class="rng">$300M–$2.5B</b><small>With early human data</small></div>
+          <div class="track"><div class="grid" style="left:15.9%"></div><div class="grid" style="left:33.33%"></div><div class="grid" style="left:49.24%"></div><div class="grid" style="left:66.67%"></div><div class="grid" style="left:82.57%"></div><div class="band s2" style="left:49.24%;width:30.69%" tabindex="0" data-tip="In clinical trials: $300M–$2.5B with encouraging Phase 1 data"></div><span class="stage-dot" style="left:50.17%" tabindex="0" data-tip="AstraZeneca–Neogene (2022): up to $320M"></span><span class="stage-dot" style="left:51.47%" tabindex="0" data-tip="Gilead–Interius (2025): $350M"></span><span class="stage-dot" style="left:66.67%" tabindex="0" data-tip="AstraZeneca–EsoBiotec (2025): up to $1B"></span><span class="stage-dot" style="left:69.31%" tabindex="0" data-tip="AstraZeneca–Gracell (2023): up to $1.2B"></span><span class="stage-dot" style="left:72.54%" tabindex="0" data-tip="Roche–Poseida (2024): up to $1.5B"></span><span class="stage-dot" style="left:77.41%" tabindex="0" data-tip="AbbVie–Capstan (2025): up to $2.1B"></span><span class="stage-dot" style="left:78.47%" tabindex="0" data-tip="Pfizer–Trillium (2021): $2.26B"></span><span class="stage-dot" style="left:94.84%" tabindex="0" data-tip="Lilly–Kelonia (2026): up to $7B"></span></div></div>
+        <div class="vrow"><div class="lbl">Under FDA review <b class="rng">$2B–$8B</b><small>Approval application filed</small></div>
+          <div class="track"><div class="grid" style="left:15.9%"></div><div class="grid" style="left:33.33%"></div><div class="grid" style="left:49.24%"></div><div class="grid" style="left:66.67%"></div><div class="grid" style="left:82.57%"></div><div class="band s3" style="left:76.7%;width:20.07%" tabindex="0" data-tip="Under FDA review: $2B–$8B"></div><span class="stage-dot" style="left:96.4%" tabindex="0" data-tip="Gilead–Arcellx (2026): $7.8B, under FDA review"></span></div></div>
+        <div class="vrow"><div></div><div class="axis"><span style="left:0">$10M</span><span style="left:15.9%">$30M</span><span style="left:33.33%">$100M</span><span style="left:49.24%">$300M</span><span style="left:66.67%">$1B</span><span style="left:82.57%">$3B</span><span style="left:100%">$10B</span></div></div>
+        <div class="vlegend"><span><i style="background:var(--s1)"></i>Preclinical</span><span><i style="background:var(--s2)"></i>In clinical trials</span><span><i style="background:var(--s3)"></i>Under FDA review</span><span><i style="background:var(--muted);border-radius:50%"></i>Past deal at that stage</span></div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Stage at sale</th><th>Illustrative range for Thunder</th><th>Per share*</th><th>Past deals at this stage</th><th>What it takes to get there</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Preclinical</strong></td><td class="val">$40M–$1.2B</td><td class="val"><span class="ps" data-lo="40" data-hi="1200"></span></td><td>Carisma $80M (partnership), Orbital ~$1.5B, Orna up to $2.4B, Sail $2.58B option</td><td>The planned 3–5 mouse studies. Where in the range depends on the results (see above).</td></tr>
+            <tr><td><strong>In clinical trials</strong></td><td class="val">$300M–$2.5B</td><td class="val"><span class="ps" data-lo="300" data-hi="2500"></span></td><td>8 deals from $320M (Neogene) to $7B (Kelonia); middle value about $1.35B</td><td>Safety studies, manufacturing, an FDA IND filing and a first-in-human trial: typically several years and substantial new capital.</td></tr>
+            <tr><td><strong>Under FDA review</strong></td><td class="val">$2B–$8B</td><td class="val"><span class="ps" data-lo="2000" data-hi="8000"></span></td><td>Arcellx $7.8B (only close example in the period)</td><td>Successful later-stage trials and an approval filing: typically many years and very large investment. Most cancer drugs that enter human trials never reach this stage.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="deal-note">*Per-share figures divide the sale price by today's fully diluted share count. They are a simplification: actual proceeds per share also depend on preferred-stock terms, debt, deal costs and any convertible notes or SAFEs. Reaching later stages would require issuing new shares, so per-share values at those stages would be lower than shown.</p>
+      <p class="deal-note">Later stages command higher prices, but reaching them takes years, requires raising more money (which dilutes existing shareholders), and carries a real chance the program fails along the way.</p>
+      <div class="callout" style="margin-top:22px"><p><strong>How these ranges were set.</strong> They start from what buyers paid for the closest past deals, then are discounted because Thunder would still be at the mouse-study stage, while most of those companies had human data or were ready to start trials, and had raised far more capital. Two factors work in Thunder's favor: no macrophage-engineering company has been acquired yet, and its patent family dates to 2017. The next large step up in value typically comes with IND-enabling safety studies and the first human data.</p></div>
+      <p class="deal-note">These are illustrative scenarios, not a valuation, forecast or offer. Actual outcomes depend on study results, market conditions, buyer interest and many other factors, and Thunder may not be acquired or partnered at all. "Headline" values include milestone payments that may never be paid.</p>
     </div>
   </section>
 
@@ -467,5 +601,17 @@
   <footer>
     <div class="wrap">This guide is for informational purposes only and is not an offer to sell or a solicitation of an offer to buy any securities. Forward-looking statements involve risks and uncertainties. Thunder's programs are preclinical.</div>
   </footer>
+<script>
+  // Fully diluted shares outstanding. Set this number and per-share values fill in everywhere.
+  const SHARES_OUTSTANDING = null;
+  (function () {
+    const fmt = v => v >= 10 ? '$' + Math.round(v).toLocaleString('en-US') : '$' + v.toFixed(2);
+    document.querySelectorAll('.ps').forEach(el => {
+      if (!SHARES_OUTSTANDING) { el.textContent = 'Per share: pending share count'; el.classList.add('pending'); return; }
+      const lo = el.dataset.lo * 1e6 / SHARES_OUTSTANDING, hi = el.dataset.hi * 1e6 / SHARES_OUTSTANDING;
+      el.textContent = (el.closest('td') ? '' : '≈ ') + fmt(lo) + '–' + fmt(hi) + (el.closest('td') ? '' : ' per share');
+    });
+  })();
+</script>
 </body>
 </html>
