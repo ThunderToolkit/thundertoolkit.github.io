@@ -160,6 +160,30 @@
     figure.mech { margin: 18px 0 8px; background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 14px; overflow-x: auto; }
     figure.mech img { display: block; width: 100%; min-width: 620px; height: auto; }
     figure.mech figcaption { color: #5d6270; font-size: 13px; margin-top: 8px; }
+    .sci-jump { display: flex; flex-wrap: wrap; gap: 8px; margin: 22px 0 0; }
+    .sci-jump a { display: inline-flex; align-items: center; gap: 7px; text-decoration: none; font: 600 13px/1.2 Inter, sans-serif; color: var(--text); background: var(--surface); border: 1px solid var(--line); border-radius: 99px; padding: 6px 12px 6px 6px; }
+    .sci-jump a:hover { border-color: var(--accent); }
+    .sci-jump a span, .sci-ch .n { display: inline-grid; place-items: center; flex: none; width: 22px; height: 22px; border-radius: 50%; background: var(--accent); color: #fff; font: 700 12px "Lato", sans-serif; }
+    .sci-ch { display: flex; align-items: center; gap: 12px; margin: 40px 0 10px; padding-top: 24px; border-top: 1px solid var(--line); }
+    .sci-ch .n { width: 32px; height: 32px; font-size: 15px; }
+    .sci-ch h3 { margin: 0; font-size: 22px; line-height: 1.25; }
+    .sci-ch + p.sub { color: var(--muted); margin: 0 0 12px; }
+    .tm-compare { display: flex; flex-wrap: wrap; gap: 14px; margin: 16px 0 0; }
+    .tm-compare > div { flex: 1 1 300px; min-width: 0; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 16px 18px; }
+    .tm-compare .tam { border-top: 4px solid var(--bad); }
+    .tm-compare .m1 { border-top: 4px solid #6a4fb6; }
+    .tm-compare h4 { margin: 0 0 2px; font: 700 17px "Lato", sans-serif; }
+    .tm-compare .tam h4 { color: var(--bad); }
+    .tm-compare .m1 h4 { color: #6a4fb6; }
+    @media (prefers-color-scheme: dark) { .tm-compare .m1 h4 { color: #b49cf0; } }
+    .tm-compare .tag { font-size: 13px; color: var(--muted); margin: 0 0 8px; }
+    .tm-compare ul { margin: 0; padding-left: 18px; font-size: 15px; }
+    .tm-compare li { margin: 5px 0; }
+    .tm-compare li small { color: var(--muted); }
+    .tm-compare .res { margin: 10px 0 0; font-weight: 700; font-size: 15px; }
+    .tm-compare .tam .res { color: var(--bad); } .tm-compare .m1 .res { color: #6a4fb6; }
+    @media (prefers-color-scheme: dark) { .tm-compare .m1 .res { color: #b49cf0; } }
+    .pat-note { margin: 14px 0 0; padding: 12px 16px; border-radius: 12px; background: var(--accent-soft); border: 1px solid color-mix(in srgb, var(--accent) 40%, transparent); font-size: 15px; }
     .pitch { display: grid; gap: 12px; margin: 26px 0 0; }
     .pitch div { display: grid; grid-template-columns: 34px 1fr; gap: 12px; align-items: start; background: rgba(0,0,0,.16); border: 1px solid rgba(255,255,255,.18); border-radius: 12px; padding: 14px 16px; }
     .pitch b.n { width: 30px; height: 30px; border-radius: 50%; background: #fff; color: #0f6f65; display: grid; place-items: center; font: 900 15px "Lato", sans-serif; }
@@ -288,10 +312,66 @@
         <div class="card"><div class="stat">3 ways to kill</div><p>Macrophages engulf tumor cells, present tumor antigens to T cells, and release signals that recruit the rest of the immune system.</p></div>
       </div>
 
-      <h3 style="margin-top:32px">The problem: tumors recruit macrophages to protect them</h3>
-      <p style="color:var(--muted);">Inside a solid tumor, many macrophages are switched into an "M2" state that suppresses the immune system and helps the tumor grow. These are called tumor-associated macrophages (TAMs). Flipping them into the "M1" state turns them into cancer killers.</p>
+      <nav class="sci-jump" aria-label="In this section">
+        <a href="#sci-problem"><span>1</span>The problem treating solid tumors</a>
+        <a href="#sci-solution"><span>2</span>Thunder’s solution: MOTO-CAR</a>
+        <a href="#sci-how"><span>3</span>How it gets there</a>
+        <a href="#sci-remodel"><span>4</span>What it does in the tumor</a>
+        <a href="#sci-field"><span>5</span>Where the field stands</a>
+      </nav>
 
-      <h3 style="margin-top:28px">How MOTO-CAR works</h3>
+      <div class="sci-ch" id="sci-problem"><span class="n">1</span><h3>The problem treating solid tumors</h3></div>
+      <p style="margin:0 0 8px">When a patient develops cancer, the patient’s immune system has already failed to recognize and destroy tumor cells. Solid tumors often create an environment that protects them from elimination by the immune system.</p>
+      <p style="color:var(--muted);">Macrophages, a type of immune cell, are prevalent in solid tumors and can contribute to a tumor’s immunosuppression and growth. These are called Tumor Associated Macrophages (TAMs), and they sit in an "M2" state that helps the tumor. Paradoxically, macrophages, including TAMs, can help activate the immune system to destroy tumors if given the right inputs. MOTO-CAR technology delivers the right inputs to turn a TAM into a cancer fighter.</p>
+
+      <div class="sci-ch" id="sci-solution"><span class="n">2</span><h3>Thunder Biotech's solution: MOTO-CAR</h3></div>
+      <p class="sub">MOTO-CARs convert tumor-supporting TAMs to a pro-inflammatory M1 cancer-killing macrophage, which can recruit T cells to the tumor to eliminate it. In addition, the T-cell response will provide the body with immune memory preventing tumor recurrence.</p>
+      <div class="group-label" style="margin-top:6px">What a MOTO-CAR is</div>
+      <p style="margin:0 0 4px">MOTO-CARs are armed with engineered receptors that bind to tumor antigens and activate TAMs to be pro-inflammatory M1 macrophages. Chimeric antigen receptor cancer targets in Thunder Biotech’s pipeline: mesothelin, which is expressed in many cancer types.</p>
+      <figure class="mech" style="margin:12px 0 0">
+        <a href="assets/moto-car-receptor.jpg" target="_blank" rel="noopener" title="Open full size"><img src="assets/moto-car-receptor.jpg" alt="An M2 tumor-associated macrophage or monocyte receives a chimeric antigen receptor made of an scFv, hinge domain, transmembrane domain and activation domain, becoming a MOTO-CAR M1 macrophage covered in these receptors." loading="lazy"></a>
+        <figcaption>From Thunder Biotech’s Our Science page: an M2 Tumor Associated Macrophage (TAM) or monocyte receives the Chimeric Antigen Receptor and becomes a MOTO-CAR (M1 macrophage). Tap the image to open it full size.</figcaption>
+      </figure>
+      <div class="goals" style="margin:12px 0 26px">
+        <div class="goal"><b>scFv</b><span>The "hand" on the outside of the cell that grabs the cancer marker. In Thunder's lead program, that marker is mesothelin, found in many cancer types.</span></div>
+        <div class="goal"><b>Hinge domain</b><span>A flexible stalk that lets the hand reach the cancer cell.</span></div>
+        <div class="goal"><b>Transmembrane domain</b><span>Anchors the receptor in the macrophage's outer membrane.</span></div>
+        <div class="goal"><b>Activation domain</b><span>The switch inside the cell. When the hand grabs its target, this signal (TLR4 in Thunder's design) flips the macrophage to M1.</span></div>
+      </div>
+      <div class="group-label">From TAM to M1: what changes</div>
+      <figure class="mech" style="margin:0">
+        <a href="assets/tam-to-m1.jpg" target="_blank" rel="noopener" title="Open full size"><img src="assets/tam-to-m1.jpg" alt="Thunder Biotech's solution. Left: tumor-associated macrophages (TAMs) suppress the immune system, promote invasion and metastasis, remodel tissue, support cancer-cell growth and build new blood vessels, leading to tumor growth. Center: MOTO-CAR converts TAMs to M1, patented as US 11,052,138, using a TLR4 activation domain, patented as US 11,352,439. Right: classically activated M1 macrophages eat and kill cancer cells, activate dendritic, NK and T cells, help antigen-presenting cells mature and drive antibody-dependent killing, leading to tumor attack and reduction." loading="lazy"></a>
+        <figcaption>From Thunder Biotech’s Our Science page: how Tumor Associated Macrophages encourage tumor growth and how MOTO-CAR macrophages attack tumors. Center: MOTO-CAR M1 conversion through a TLR4 activation domain. Tap the image to open it full size.</figcaption>
+      </figure>
+      <div class="tm-compare">
+        <div class="tam">
+          <h4>Before: tumor-associated macrophages</h4>
+          <p class="tag">Working for the tumor</p>
+          <ul>
+            <li>Shut down dendritic, NK and T cells <small>(TGF-β, IL-10, IL-4, IL-13)</small></li>
+            <li>Help cancer invade and spread <small>(metastasis)</small></li>
+            <li>Remodel tissue and drive fibrosis <small>(MMPs, cathepsins)</small></li>
+            <li>Feed cancer-cell growth and survival <small>(EGF, FGF, PDGF)</small></li>
+            <li>Build new blood vessels to supply the tumor <small>(VEGF, FGF, CXCL8)</small></li>
+          </ul>
+          <p class="res">Result: the tumor grows</p>
+        </div>
+        <div class="m1">
+          <h4>After: MOTO-CAR M1 macrophages</h4>
+          <p class="tag">Working against the tumor</p>
+          <ul>
+            <li>Eat cancer cells <small>(phagocytosis)</small></li>
+            <li>Kill cancer cells directly <small>(ROS, TNF-α, nitric oxide)</small></li>
+            <li>Activate dendritic, NK and T cells <small>(TNF-α, IL-23, IL-1β, CXCL10, IFN-γ)</small></li>
+            <li>Help other immune cells mature into tumor fighters <small>(IL-12)</small></li>
+            <li>Destroy antibody-tagged cancer cells <small>(ADCC / ADCP)</small></li>
+          </ul>
+          <p class="res">Result: the tumor is attacked and shrinks</p>
+        </div>
+      </div>
+      <p class="pat-note"><strong>Patented.</strong> Thunder's graphic cites two issued US patents for this switch: <strong>US 11,052,138</strong> for MOTO-CAR M1 conversion and <strong>US 11,352,439</strong> for the TLR4 activation domain, the signaling piece inside the CAR that flips the macrophage to M1. <a class="cx" href="#patents">See Patents &amp; IP →</a></p>
+
+      <div class="sci-ch" id="sci-how"><span class="n">3</span><h3>How MOTO-CAR works: in vivo manufacturing</h3></div>
       <figure class="mech">
         <img src="assets/moto-car-mechanism.png" alt="MOTO-CAR mechanism: a TAM-targeting nanoparticle carrying MOTO-CAR genetic instructions is given by IV injection, travels to the tumor, is taken up by tumor-associated macrophages, which then express MOTO-CARs, leading to tumor reduction while the MOTO-CARs are short-lived." loading="lazy">
         <figcaption>From Thunder Biotech's science overview: IV injection → nanoparticles travel to the tumor → taken up by tumor macrophages (TAMs) → TAMs express MOTO-CARs → tumor reduction, with short-lived MOTO-CARs.</figcaption>
@@ -305,11 +385,11 @@
 
       <div class="callout"><p><strong>Why in vivo matters.</strong> Most early CAR-macrophage therapies took cells out of the patient, engineered them in a lab, and infused them back. That is slow and expensive, and macrophages are hard to engineer and don't multiply. Programming macrophages inside the body with an LNP avoids cell manufacturing altogether. This is the direction the field has moved, and it is the approach in Thunder's lead program.</p></div>
 
-      <h3 style="margin-top:28px">How MOTO-CARs remodel the tumor</h3>
+      <div class="sci-ch" id="sci-remodel"><span class="n">4</span><h3>How MOTO-CARs remodel the tumor</h3></div>
       <p style="color:var(--muted);margin:0 0 12px">Once switched on, MOTO-CAR macrophages change the tumor environment so the immune system can attack the cancer effectively, by:</p>
       <figure class="mech" style="margin:0 0 16px">
         <a href="assets/moto-car-tme.jpg" target="_blank" rel="noopener" title="Open full size"><img src="assets/moto-car-tme.jpg" alt="MOTO-CAR immune cycle. Left, antigen presentation: DNA damage creates mutated proteins (neoantigens) in cancer cells; MOTO-CARs take in cancer cells, process the neoantigens and present them to T cells, which activate, expand and attack the tumor. Right, tumor microenvironment remodeling: MOTO-CARs shift tumor-associated macrophages from anti-inflammatory to pro-inflammatory, driving immune activation of dendritic cells, NK cells and T cells, antibody-dependent cellular cytotoxicity and phagocytosis, and maturation of antigen-presenting cells." loading="lazy"></a>
-        <figcaption>From Thunder Biotech's website. Left: MOTO-CARs eat cancer cells and show the tumor's mutated proteins (neoantigens) to T cells, which multiply and attack. Right: MOTO-CARs flip the tumor's macrophages from anti-inflammatory to pro-inflammatory, calling in dendritic, NK and T cells and helping other immune cells mature. Tap the image to open it full size.</figcaption>
+        <figcaption>From Thunder Biotech’s website. Left: MOTO-CARs eat cancer cells and show the tumor's mutated proteins (neoantigens) to T cells, which multiply and attack. Right: MOTO-CARs flip the tumor's macrophages from anti-inflammatory to pro-inflammatory, calling in dendritic, NK and T cells and helping other immune cells mature. Tap the image to open it full size.</figcaption>
       </figure>
       <div class="grid">
         <div class="card"><h3>Targeting the tumor</h3><p>Recognizing a tumor-specific antigen, such as mesothelin.</p></div>
@@ -322,7 +402,7 @@
 
       <div class="callout"><p><strong>Short-lived by design.</strong> MOTO-CARs are expressed only temporarily. They do their work in the tumor and then fade, which is intended to limit long-term side effects while the immune response they start, including T-cell memory, carries on.</p></div>
 
-      <h3 style="margin-top:28px">Where the field stands in 2026</h3>
+      <div class="sci-ch" id="sci-field"><span class="n">5</span><h3>Where the field stands in 2026</h3></div>
       <ul class="clean">
         <li><strong>First generation (ex vivo) stalled.</strong> Carisma Therapeutics, the first company to put a CAR-macrophage into human trials, discontinued its clinical programs and began winding down in 2025. <a href="#carisma-why">Why Carisma failed</a> <a class="cx" href="#appendix-carisma">Carisma vs. Thunder →</a></li>
         <li><strong>In vivo is producing the first human signals.</strong> In November 2025, CREATE Medicines (formerly Myeloid Therapeutics) reported a confirmed partial response and evidence of CAR-positive myeloid cells inside tumors in a 27-patient Phase 1 study of its in vivo mRNA-LNP therapy.</li>
