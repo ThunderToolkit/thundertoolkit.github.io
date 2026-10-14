@@ -154,6 +154,18 @@
     figure.mech { margin: 18px 0 8px; background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 14px; overflow-x: auto; }
     figure.mech img { display: block; width: 100%; min-width: 620px; height: auto; }
     figure.mech figcaption { color: #5d6270; font-size: 13px; margin-top: 8px; }
+    .pitch { display: grid; gap: 12px; margin: 26px 0 0; }
+    .pitch div { display: grid; grid-template-columns: 34px 1fr; gap: 12px; align-items: start; background: rgba(0,0,0,.16); border: 1px solid rgba(255,255,255,.18); border-radius: 12px; padding: 14px 16px; }
+    .pitch b.n { width: 30px; height: 30px; border-radius: 50%; background: #fff; color: #0f6f65; display: grid; place-items: center; font: 900 15px "Lato", sans-serif; }
+    .pitch strong { display: block; font: 700 16px "Lato", sans-serif; margin-bottom: 2px; }
+    .pitch span { color: rgba(255,255,255,.88); font-size: 15px; }
+    .cover { display: grid; gap: 10px; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+    .cover div { background: var(--accent-soft); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; font-weight: 600; }
+    .cover div small { display: block; font-weight: 400; color: var(--muted); font-size: 13px; margin-top: 4px; }
+    details.portfolio { margin-top: 18px; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; }
+    details.portfolio summary { cursor: pointer; padding: 16px 20px; font-weight: 600; }
+    details.portfolio .table-wrap { border: 0; border-top: 1px solid var(--line); border-radius: 0 0 14px 14px; }
+    td.fam { font-weight: 600; background: color-mix(in srgb, var(--accent-soft) 50%, var(--surface)); }
     .faq details { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; margin: 0 0 10px; }
     .faq summary { cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 16px 20px; font-weight: 600; }
     .faq summary::-webkit-details-marker { display: none; }
@@ -364,7 +376,7 @@
       </div>
       <p class="deal-note">*Per-share figures divide the sale price by today's fully diluted share count. They are a simplification: actual proceeds per share also depend on preferred-stock terms, debt, deal costs and any convertible notes or SAFEs. Reaching later stages would require issuing new shares, so per-share values at those stages would be lower than shown.</p>
       <p class="deal-note">Later stages command higher prices, but reaching them takes years, requires raising more money (which dilutes existing shareholders), and carries a real chance the program fails along the way.</p>
-      <div class="callout" style="margin-top:22px"><p><strong>How these ranges were set.</strong> They start from what buyers paid for the closest past deals, then are discounted because Thunder would still be at the mouse-study stage, while most of those companies had human data or were ready to start trials, and had raised far more capital. Two factors work in Thunder's favor: no macrophage-engineering company has been acquired yet, and its patent family dates to 2017. The next large step up in value typically comes with IND-enabling safety studies and the first human data.</p></div>
+      <div class="callout" style="margin-top:22px"><p><strong>How these ranges were set.</strong> They start from what buyers paid for the closest past deals, then are discounted because Thunder would still be at the mouse-study stage, while most of those companies had human data or were ready to start trials, and had raised far more capital. Two factors work in Thunder's favor: no macrophage-engineering company has been acquired yet, and its patent portfolio dates to 2015 with 18 issued patents. The next large step up in value typically comes with IND-enabling safety studies and the first human data.</p></div>
       <p class="deal-note">These are illustrative scenarios, not a valuation, forecast or offer. Actual outcomes depend on study results, market conditions, buyer interest and many other factors, and Thunder may not be acquired or partnered at all. "Headline" values include milestone payments that may never be paid.</p>
     </div>
   </section>
@@ -468,7 +480,7 @@
       <h2>What Sets Thunder Apart</h2>
       <p class="intro">Thunder is an early-stage company in a field where the first movers stumbled and the money is moving to in vivo approaches. Here is where it stands out.</p>
       <div class="grid">
-        <div class="card"><h3>Early, foundational patents</h3><p>Thunder's patent family has a priority date of May 17, 2017, before any CAR-macrophage therapy had entered human testing. Three US patents have been granted, and the family is still growing.</p></div>
+        <div class="card"><h3>Early, foundational patents</h3><p>Thunder's macrophage-CAR filings date back to 2015, years before any CAR-macrophage therapy entered human testing. The portfolio now spans 28 filings in 10 jurisdictions, with 18 issued (9 in the US) and 10 still pending.</p></div>
         <div class="card"><h3>Built for in vivo</h3><p>Thunder's lead program uses lipid nanoparticles, the same delivery approach behind the field's first in vivo human data and behind several of the large pharma acquisitions above.</p></div>
         <div class="card"><h3>Both directions of the switch</h3><p>Thunder's patents describe pushing macrophages toward M1 to fight cancer and toward M2 to calm inflammation. That supports two markets: solid tumors and inflammatory/autoimmune disease.</p></div>
         <div class="card"><h3>Learned from the first wave</h3><p>Carisma, the leading ex vivo company, dropped its HER2 programs amid crowded HER2 competition and tumors losing the HER2 marker. Thunder's in vivo approach avoids cell manufacturing, and its lead target, mesothelin, is expressed across many cancer types.</p></div>
@@ -480,8 +492,103 @@
 
   <!-- PATENTS -->
   <section id="patents">
+    <div class="deals-hero">
+      <svg class="motif" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="20" fill="#fff"/><g fill="#fff"><circle cx="24" cy="3.5" r="3"/><circle cx="41" cy="12" r="2.6"/><circle cx="44.5" cy="30" r="2.6"/><circle cx="33" cy="44" r="3"/><circle cx="13" cy="44.5" r="2.4"/><circle cx="3.5" cy="31" r="2.6"/><circle cx="5" cy="13" r="2.4"/></g><circle cx="24" cy="24" r="8.5" fill="#0f6f65"/><circle cx="24" cy="24" r="3.6" fill="#fff"/></svg>
+      <div class="wrap">
+        <div class="eyebrow">Patents &amp; IP</div>
+        <h2>A defensive and expansive patent portfolio</h2>
+        <p class="lede">Thunder's patents protect the composition, uses, manufacturing and future applications of macrophage-based CAR therapy, in cancer and, looking ahead, in autoimmune and inflammatory disease.</p>
+        <div class="hero-stats">
+          <div class="hero-stat"><b>28</b><span>patent filings in 4 families</span></div>
+          <div class="hero-stat"><b>18</b><span>issued, including 9 US patents</span></div>
+          <div class="hero-stat"><b>10</b><span>jurisdictions: US, Europe, China, Japan, Korea, India and more</span></div>
+          <div class="hero-stat"><b>2015</b><span>earliest priority date</span></div>
+        </div>
+
+        <h3 style="color:#fff;margin:34px 0 0;font-size:20px">Why it's hard to compete around Thunder</h3>
+        <div class="pitch">
+          <div><b class="n">1</b><p style="margin:0"><strong>Early.</strong><span>Thunder's macrophage-CAR filings go back to 2015, years before the first CAR-macrophage was dosed in a person (2021) and before the in vivo wave that large pharma is now paying billions for.</span></p></div>
+          <div><b class="n">2</b><p style="margin:0"><strong>Broad.</strong><span>Issued US patent 12,076,378 claims a CAR with a targeting domain and a signaling domain that switches a macrophage to the cancer-fighting M1 state, without limiting it to any single tumor target.</span></p></div>
+          <div><b class="n">3</b><p style="margin:0"><strong>Layered.</strong><span>Four families cover the receptor itself, switching macrophages in both directions (M1 for cancer, M2 for inflammation), methods of treatment, and nanoparticle delivery to macrophages. A competitor would need to avoid all of them.</span></p></div>
+          <div><b class="n">4</b><p style="margin:0"><strong>Global.</strong><span>Issued in the US, Japan, Korea, Canada, Australia, India and South Africa, with applications pending in Europe, China and Singapore.</span></p></div>
+          <div><b class="n">5</b><p style="margin:0"><strong>Still growing.</strong><span>Ten applications remain pending, including US continuations. Open continuations let Thunder pursue new claims as the field develops, including claims aimed at how competitors build their products.</span></p></div>
+        </div>
+        <p style="margin:18px 0 0;color:rgba(255,255,255,.92);font-size:15px"><strong>Bottom line:</strong> for a company serious about macrophage-CAR therapy, acquiring or licensing Thunder may be more practical than trying to design around this portfolio. <span class="tbd" style="color:#ffd9b0">[Rob: attribute to patent counsel only with their written approval]</span></p>
+      </div>
+    </div>
+
     <div class="wrap">
-      <h2>Patents</h2>
+      <div class="group-label" style="margin-top:0">What the portfolio protects</div>
+      <div class="cover">
+        <div>CARs that switch macrophages to M1<small>Cancer-fighting, plus the nucleic acids encoding these CARs</small></div>
+        <div>CARs that switch macrophages to M2<small>Anti-inflammatory, plus the nucleic acids encoding these CARs</small></div>
+        <div>Methods of treatment<small>Giving patients monocytes that carry a TLR4-based CAR</small></div>
+        <div>Nanoparticle delivery systems<small>Targeting CAR genes to monocytes and macrophages inside the body</small></div>
+      </div>
+
+      <div class="group-label">The four patent families</div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Family</th><th>Earliest priority</th><th>Issued</th><th>Pending</th><th>Why it matters</th></tr></thead>
+          <tbody>
+            <tr><td><strong>CAR and BiTE technology targeting TK1</strong></td><td>May 2015</td><td>5 (US)</td><td>1 (US)</td><td>Despite the title, issued US 12,076,378 claims M1-switching macrophage CARs broadly. The pending US application seeks similar claims with added co-stimulatory domains.</td></tr>
+            <tr><td><strong>Macrophage CARs (MOTO-CAR) in immunotherapy</strong></td><td>Aug 2015</td><td>5 (US, Australia, Canada, India, South Africa)</td><td>4 (US, China, Korea, Singapore)</td><td>The MOTO-CAR platform family: macrophage CARs using Toll-like receptor signaling.</td></tr>
+            <tr><td><strong>Transgenic macrophages, CARs and methods</strong></td><td>May 2017</td><td>8 (US ×3, Japan, Korea, Canada, Australia, South Africa)</td><td>4 (US, Europe, China, India)</td><td>The receptor design and the M1/M2 switch, with the widest international coverage. Named Utah Patent of the Month (Aug 2024).</td></tr>
+            <tr><td><strong>Method of targeting cells</strong></td><td>Jun 2021</td><td>–</td><td>1 (US)</td><td>Nanoparticle delivery of CAR genes to monocytes and macrophages in the body, the basis of in vivo treatment. If granted, could run to about 2042.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="group-label">Pending US applications and what each adds</div>
+      <div class="grid">
+        <div class="card"><h3>US 18/821,168</h3><p><strong>Broad M1 claims, 2015 priority.</strong> Seeks claims to macrophage CARs with an M1-switching signal, including versions with co-stimulatory domains (CD28, OX40, 4-1BB, CD3-zeta). Would add to the broad coverage of US 12,076,378.</p></div>
+        <div class="card"><h3>US 17/833,149</h3><p><strong>MOTO-CAR continuation.</strong> Follows issued US 11,352,439 and keeps the MOTO-CAR family open for further claims on macrophage CARs with Toll-like receptor signaling.</p></div>
+        <div class="card"><h3>US 18/731,958</h3><p><strong>Transgenic-macrophage continuation.</strong> Published as US 2025/0075181. Extends the family behind US 10,415,017, 10,889,803 and 12,024,719.</p></div>
+        <div class="card"><h3>US 18/573,239</h3><p><strong>In vivo delivery.</strong> Published as US 2025/0082679. Covers nanoparticles that deliver CAR genes to monocytes, optionally with a ligand that switches the CAR on and an inhibitor that slows CAR breakdown, steering macrophages to M1 or M2.</p></div>
+      </div>
+      <p class="deal-note">Also pending abroad: Europe (EP 17731332.7), China (two applications), India, Korea and Singapore.</p>
+
+      <details class="portfolio">
+        <summary>See the full portfolio: all 28 filings</summary>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Family</th><th>Number</th><th>Country</th><th>Status</th><th>Date</th></tr></thead>
+            <tbody>
+              <tr><td class="fam" rowspan="6">CAR and BiTE technology targeting TK1</td><td>10,434,153</td><td>US</td><td><span class="pill good">Issued</span></td><td>10/8/19</td></tr>
+              <tr><td>10,821,162</td><td>US</td><td><span class="pill good">Issued</span></td><td>11/3/20</td></tr>
+              <tr><td>10,828,355</td><td>US</td><td><span class="pill good">Issued</span></td><td>11/10/20</td></tr>
+              <tr><td>11,052,138</td><td>US</td><td><span class="pill good">Issued</span></td><td>7/6/21</td></tr>
+              <tr><td>12,076,378</td><td>US</td><td><span class="pill good">Issued</span></td><td>9/3/24</td></tr>
+              <tr><td>18/821,168</td><td>US</td><td><span class="pill warn">Pending</span></td><td>7/3/25</td></tr>
+              <tr><td class="fam" rowspan="12">Transgenic macrophages, CARs and associated methods</td><td>2017414703</td><td>Australia</td><td><span class="pill good">Issued</span></td><td>5/22/25</td></tr>
+              <tr><td>3,062,978</td><td>Canada</td><td><span class="pill good">Issued</span></td><td>11/25/25</td></tr>
+              <tr><td>2017800909355</td><td>China</td><td><span class="pill warn">Pending</span></td><td>6/26/24</td></tr>
+              <tr><td>17731332.7</td><td>Europe</td><td><span class="pill warn">Pending</span></td><td>6/11/26</td></tr>
+              <tr><td>201947052174</td><td>India</td><td><span class="pill warn">Pending</span></td><td>12/2/25</td></tr>
+              <tr><td>7164598</td><td>Japan</td><td><span class="pill good">Issued</span></td><td>10/24/22</td></tr>
+              <tr><td>102508182</td><td>Korea</td><td><span class="pill good">Issued</span></td><td>3/6/23</td></tr>
+              <tr><td>201908245</td><td>South Africa</td><td><span class="pill good">Issued</span></td><td>12/23/20</td></tr>
+              <tr><td>10,415,017</td><td>US</td><td><span class="pill good">Issued</span></td><td>9/17/19</td></tr>
+              <tr><td>10,889,803</td><td>US</td><td><span class="pill good">Issued</span></td><td>1/12/21</td></tr>
+              <tr><td>12,024,719</td><td>US</td><td><span class="pill good">Issued</span></td><td>7/2/24</td></tr>
+              <tr><td>18/731,958</td><td>US</td><td><span class="pill warn">Pending</span></td><td>3/6/25</td></tr>
+              <tr><td class="fam" rowspan="9">Macrophage CARs (MOTO-CAR) in immunotherapy</td><td>2016305353</td><td>Australia</td><td><span class="pill good">Issued</span></td><td>1/27/23</td></tr>
+              <tr><td>2,998,406</td><td>Canada</td><td><span class="pill good">Issued</span></td><td>8/12/25</td></tr>
+              <tr><td>2016800597787</td><td>China</td><td><span class="pill warn">Pending</span></td><td>–</td></tr>
+              <tr><td>411790</td><td>India</td><td><span class="pill good">Issued</span></td><td>11/18/22</td></tr>
+              <tr><td>10-2025-7006193</td><td>Korea</td><td><span class="pill warn">Pending</span></td><td>2/25/25</td></tr>
+              <tr><td>10201914138W</td><td>Singapore</td><td><span class="pill warn">Pending</span></td><td>3/30/20</td></tr>
+              <tr><td>201801636</td><td>South Africa</td><td><span class="pill good">Issued</span></td><td>6/26/19</td></tr>
+              <tr><td>11,352,439</td><td>US</td><td><span class="pill good">Issued</span></td><td>6/7/22</td></tr>
+              <tr><td>17/833,149</td><td>US</td><td><span class="pill warn">Pending</span></td><td>11/24/22</td></tr>
+              <tr><td class="fam" rowspan="1">Method of targeting cells and associated compositions</td><td>18/573,239</td><td>US</td><td><span class="pill warn">Pending</span></td><td>3/13/25</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+      <p class="deal-note">Portfolio from Thunder Biotech's IP summary. Claim descriptions and priority dates are drawn from Google Patents records, which are not legal determinations; patent counsel should confirm them. Pending claims may change before they are granted.</p>
+
+      <h2 style="margin-top:40px">The transgenic-macrophage family in detail</h2>
       <p class="intro">Thunder Biotech's core patent family, "Transgenic macrophages, chimeric antigen receptors, and associated methods," is assigned to Thunder Biotech, Inc., with Kim O'Neill as inventor.</p>
 
       <div class="grid">
@@ -515,12 +622,18 @@
 
       <div class="group-label">Timeline</div>
       <div class="timeline">
-        <div><b>May 2017</b><span>First patent application filed (priority date)</span></div>
-        <div><b>Sep 2019</b><span>First US patent granted</span></div>
+        <div><b>May 2015</b><span>First provisional filing: CAR technology family (TK1)</span></div>
+        <div><b>Aug 2015</b><span>MOTO-CAR family first filed</span></div>
+        <div><b>May 2017</b><span>Transgenic macrophages family filed (priority date for US 10,415,017)</span></div>
+        <div><b>Sep 2019</b><span>First US patent granted (US 10,415,017)</span></div>
+        <div><b>Jan 2021</b><span>US 10,889,803 granted</span></div>
         <div><b>2021</b><span>First CAR-macrophage therapy dosed in humans (Carisma, NCT04660929)</span></div>
-        <div><b>Jan 2021</b><span>Second US patent granted</span></div>
-        <div><b>Jul 2024</b><span>Third US patent granted; named Utah Patent of the Month (Aug 2024)</span></div>
+        <div><b>Jun 2021</b><span>Nanoparticle delivery ("Method of targeting cells") family first filed</span></div>
+        <div><b>Jun 2022</b><span>MOTO-CAR US patent 11,352,439 granted</span></div>
+        <div><b>Jul 2024</b><span>US 12,024,719 granted; named Utah Patent of the Month (Aug 2024)</span></div>
+        <div><b>Sep 2024</b><span>US 12,076,378 granted: broad claims to M1-switching macrophage CARs</span></div>
         <div><b>Mar 2025</b><span>Two further applications published</span></div>
+      </div>
       </div>
 
       <p style="color:var(--muted);font-size:13px;margin-top:18px">*Estimated expiration dates are Google Patents estimates, not legal determinations. The scope of protection is defined by each patent's claims; descriptions above summarize the patent disclosures.</p>
@@ -566,7 +679,7 @@
       </details>
       <details>
         <summary>What intellectual property does Thunder own?</summary>
-        <div class="a"><p>Three granted US patents (2019, 2021 and 2024) in a family with a May 2017 priority date, filed before any CAR-macrophage therapy had entered human testing. Estimated expirations run to 2037–2038. Two further applications were published in 2025, plus an international (PCT) filing. The patents cover the receptor design, the M1/M2 switch, and a broad set of signaling domains and targets. <a href="#patents">See Patents</a></p></div>
+        <div class="a"><p>28 patent filings in four families across 10 jurisdictions: 18 issued, including 9 US patents, and 10 pending. The earliest priority dates go back to 2015, years before any CAR-macrophage therapy entered human testing, and estimated expirations run into the late 2030s. Issued US patent 12,076,378 claims M1-switching macrophage CARs without limiting them to a single tumor target. The patents cover the receptor design, the M1/M2 switch, methods of treatment and nanoparticle delivery to macrophages. <a href="#patents">See Patents</a></p></div>
       </details>
       <details>
         <summary>Is cancer the only market?</summary>
@@ -622,6 +735,7 @@
       <p>Research current as of October 14, 2026.</p>
       <ol>
         <li><a href="https://thunderbiotech.com/our-science/">Thunder Biotech — Our Science</a>, <a href="https://thunderbiotech.com/pipeline/">Pipeline</a>, <a href="https://thunderbiotech.com/our-team/">Our Team</a> · Thunder Biotech Science 1-Pager (company document, 2026)</li>
+        <li>Thunder Biotech IP Portfolio 1-Pager (company document, 2026) · <a href="https://patents.google.com/patent/US12076378B2/en">US 12,076,378</a> · <a href="https://patents.google.com/patent/US11352439B2/en">US 11,352,439</a> · <a href="https://patents.google.com/patent/US10434153B1/en">US 10,434,153</a> · <a href="https://patents.google.com/patent/US20250215075A1/en">US 18/821,168</a> · <a href="https://patents.google.com/patent/US20220372170A1/en">US 17/833,149</a> · <a href="https://patents.google.com/patent/US20250075181A1/en">US 18/731,958</a> · <a href="https://patents.google.com/patent/US20250082679A1/en">US 18/573,239</a></li>
         <li><a href="https://patents.google.com/patent/US10415017B2/en">US 10,415,017 B2</a> · <a href="https://patents.google.com/patent/US10889803">US 10,889,803 B2</a> · <a href="https://patents.google.com/patent/US12024719">US 12,024,719 B2</a> (Google Patents)</li>
         <li><a href="https://trea.com/industry/macrophages/937f281e-3ecb-45d5-b9ab-b840c225ef5a">Trea — macrophage patent filings</a></li>
         <li><a href="https://www.swansonreed.com/?p=36398">Swanson Reed — Utah Patent of the Month, August 2024</a></li>
