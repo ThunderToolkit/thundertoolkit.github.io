@@ -5,20 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Thunder Biotech Investor Guide</title>
   <meta name="description" content="The science, the macrophage therapy landscape, and Thunder Biotech's patent position.">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='13' fill='%231faf9e'/><circle cx='16' cy='16' r='5.5' fill='%23fff' opacity='.9'/><g fill='%231faf9e'><circle cx='16' cy='16' r='2.5'/></g></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #f6f5f1; --surface: #ffffff; --text: #16181d; --muted: #5d6270;
-      --line: #e3e1da; --accent: #e8a800; --accent-soft: #fff4d1; --accent-ink: #16181d;
-      --good: #1f7a4d; --warn: #a3520b; --bad: #a62b2b;
+      --bg: #f5f7f6; --surface: #ffffff; --text: #2b2f36; --muted: #5d6270;
+      --line: #e2e7e5; --accent: #1faf9e; --accent-dark: #178a7d; --accent-soft: #e6f6f3; --accent-ink: #ffffff;
+      --blue: #0170b9;
+      --good: #178a7d; --warn: #a3520b; --bad: #a62b2b;
     }
     @media (prefers-color-scheme: dark) {
       :root {
-        --bg: #111318; --surface: #1a1d24; --text: #f1f0ec; --muted: #9ba0ad;
-        --line: #2a2e38; --accent: #ffc72c; --accent-soft: #2b2611; --accent-ink: #111318;
-        --good: #5fd39a; --warn: #f0a35e; --bad: #f08080;
+        --bg: #10161a; --surface: #182024; --text: #eef2f0; --muted: #9ba7a3;
+        --line: #273138; --accent: #2fc5b2; --accent-dark: #1faf9e; --accent-soft: #16302c; --accent-ink: #06201c;
+        --blue: #4aa8e0;
+        --good: #5fd3bf; --warn: #f0a35e; --bad: #f08080;
       }
     }
     * { box-sizing: border-box; }
@@ -33,24 +35,31 @@
     nav.top .wrap { display: flex; gap: 6px; align-items: center; overflow-x: auto; padding-top: 10px; padding-bottom: 10px; }
     nav.top a { text-decoration: none; font-size: 14px; font-weight: 500; color: var(--muted); padding: 6px 12px; border-radius: 99px; white-space: nowrap; }
     nav.top a:hover { color: var(--text); background: var(--surface); }
-    nav.top a.home { font: 700 14px "Space Grotesk", sans-serif; color: var(--text); margin-right: 6px; }
-    header { padding: 56px 0 28px; }
-    .eyebrow { font: 700 13px "Space Grotesk", sans-serif; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
-    h1 { font: 700 clamp(32px, 6vw, 54px)/1.08 "Space Grotesk", sans-serif; letter-spacing: -.02em; margin: 14px 0 14px; }
-    h2 { font: 700 clamp(24px, 4vw, 32px)/1.2 "Space Grotesk", sans-serif; letter-spacing: -.01em; margin: 0 0 10px; }
-    h3 { font: 700 18px/1.3 "Space Grotesk", sans-serif; margin: 0 0 6px; }
+    nav.top a.home { display: inline-flex; align-items: center; gap: 8px; margin-right: 6px; padding: 4px 8px; text-decoration: none; }
+    .brand { display: inline-flex; align-items: center; gap: 10px; }
+    .brand .mark { flex: none; display: block; }
+    .brand .wordmark { font: 900 var(--brand-size, 18px)/1 "Lato", sans-serif; letter-spacing: -.01em; color: var(--text); white-space: nowrap; }
+    .brand .wordmark .b { color: var(--accent-dark); }
+    .brand .tagline { font: 700 9px/1 "Lato", sans-serif; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin-top: 4px; }
+    header { padding: 52px 0 28px; position: relative; }
+    .brand-logo { margin-bottom: 24px; --brand-size: 30px; }
+    .brand-logo .mark { width: 42px; height: 42px; }
+    .eyebrow { display: inline-block; font: 700 12px "Lato", sans-serif; letter-spacing: .12em; text-transform: uppercase; color: var(--accent-dark); background: var(--accent-soft); padding: 5px 12px; border-radius: 99px; }
+    h1 { font: 900 clamp(32px, 6vw, 54px)/1.08 "Lato", sans-serif; letter-spacing: -.02em; margin: 16px 0 14px; }
+    h2 { font: 700 clamp(24px, 4vw, 32px)/1.2 "Lato", sans-serif; letter-spacing: -.01em; margin: 0 0 10px; }
+    h3 { font: 700 18px/1.3 "Lato", sans-serif; margin: 0 0 6px; }
     .lede { color: var(--muted); font-size: 18px; max-width: 680px; margin: 0; }
     section { padding: 48px 0; border-top: 1px solid var(--line); }
     section > .wrap > p.intro { color: var(--muted); max-width: 720px; margin: 0 0 24px; }
     .grid { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
     .card { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 20px; }
     .card p { margin: 0; color: var(--muted); font-size: 15px; }
-    .stat { font: 700 30px/1 "Space Grotesk", sans-serif; margin-bottom: 6px; }
+    .stat { font: 900 30px/1 "Lato", sans-serif; color: var(--accent-dark); margin-bottom: 6px; }
     .callout { background: var(--accent-soft); border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: 10px; padding: 16px 18px; margin: 20px 0; }
     .callout p { margin: 0; }
     .steps { counter-reset: s; display: grid; gap: 12px; }
     .step { display: grid; grid-template-columns: 40px 1fr; gap: 14px; align-items: start; }
-    .step::before { counter-increment: s; content: counter(s); width: 36px; height: 36px; border-radius: 50%; background: var(--accent); color: var(--accent-ink); display: grid; place-items: center; font: 700 16px "Space Grotesk", sans-serif; }
+    .step::before { counter-increment: s; content: counter(s); width: 36px; height: 36px; border-radius: 50%; background: var(--accent); color: var(--accent-ink); display: grid; place-items: center; font: 700 16px "Lato", sans-serif; }
     .step p { margin: 2px 0 0; color: var(--muted); }
     .table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 14px; background: var(--surface); }
     table { width: 100%; border-collapse: collapse; font-size: 14px; min-width: 760px; }
@@ -61,18 +70,18 @@
     td strong { font-weight: 600; }
     .pill { display: inline-block; font-size: 12px; font-weight: 600; padding: 2px 9px; border-radius: 99px; border: 1px solid currentColor; white-space: nowrap; }
     .pill.good { color: var(--good); } .pill.warn { color: var(--warn); } .pill.bad { color: var(--bad); } .pill.muted { color: var(--muted); }
-    .group-label { font: 700 13px "Space Grotesk", sans-serif; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin: 28px 0 10px; }
+    .group-label { font: 700 13px "Lato", sans-serif; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin: 28px 0 10px; }
     ul.clean { margin: 0; padding-left: 18px; color: var(--muted); }
     ul.clean li { margin: 4px 0; }
     .patent { display: grid; grid-template-columns: 1fr auto; gap: 4px 16px; }
-    .patent .num { font: 700 20px "Space Grotesk", sans-serif; }
+    .patent .num { font: 700 20px "Lato", sans-serif; }
     .patent dl { grid-column: 1 / -1; display: grid; grid-template-columns: max-content 1fr; gap: 4px 14px; margin: 10px 0 0; font-size: 14px; }
     .patent dt { color: var(--muted); }
     .patent dd { margin: 0; }
     .timeline { position: relative; margin: 8px 0 0; padding-left: 22px; border-left: 2px solid var(--line); }
     .timeline div { position: relative; margin: 0 0 16px; }
     .timeline div::before { content: ""; position: absolute; left: -29px; top: 7px; width: 12px; height: 12px; border-radius: 50%; background: var(--accent); }
-    .timeline b { font-family: "Space Grotesk", sans-serif; }
+    .timeline b { font-family: "Lato", sans-serif; }
     .timeline span { color: var(--muted); display: block; font-size: 15px; }
     .sources { font-size: 13px; color: var(--muted); }
     .sources ol { padding-left: 18px; }
@@ -83,7 +92,7 @@
 <body>
   <nav class="top">
     <div class="wrap">
-      <a class="home" href="./">⚡ ThunderToolKit</a>
+      <a class="home" href="./" aria-label="Thunder Biotech home"><span class="brand"><svg class="mark" viewBox="0 0 48 48" width="24" height="24" aria-hidden="true"><circle cx="24" cy="24" r="20" fill="var(--accent)"/><g fill="var(--accent)"><circle cx="24" cy="3.5" r="3"/><circle cx="41" cy="12" r="2.6"/><circle cx="44.5" cy="30" r="2.6"/><circle cx="33" cy="44" r="3"/><circle cx="13" cy="44.5" r="2.4"/><circle cx="3.5" cy="31" r="2.6"/><circle cx="5" cy="13" r="2.4"/></g><circle cx="24" cy="24" r="8.5" fill="#fff" opacity=".92"/><circle cx="24" cy="24" r="3.6" fill="var(--accent)"/></svg><span class="wordmark">Thunder<span class="b">Biotech</span></span></span></a>
       <a href="#science">The Science</a>
       <a href="#landscape">The Landscape</a>
       <a href="#edge">Thunder's Edge</a>
@@ -95,7 +104,8 @@
 
   <header>
     <div class="wrap">
-      <div class="eyebrow">Thunder Biotech · Investor Guide</div>
+      <div class="brand-logo"><span class="brand"><svg class="mark" viewBox="0 0 48 48" width="42" height="42" aria-hidden="true"><circle cx="24" cy="24" r="20" fill="var(--accent)"/><g fill="var(--accent)"><circle cx="24" cy="3.5" r="3"/><circle cx="41" cy="12" r="2.6"/><circle cx="44.5" cy="30" r="2.6"/><circle cx="33" cy="44" r="3"/><circle cx="13" cy="44.5" r="2.4"/><circle cx="3.5" cy="31" r="2.6"/><circle cx="5" cy="13" r="2.4"/></g><circle cx="24" cy="24" r="8.5" fill="#fff" opacity=".92"/><circle cx="24" cy="24" r="3.6" fill="var(--accent)"/></svg><span><span class="wordmark">Thunder<span class="b">Biotech</span></span><div class="tagline">Research &amp; Discovery</div></span></span></div>
+      <div class="eyebrow">Investor Guide</div>
       <h1>Turning the tumor's own macrophages against it.</h1>
       <p class="lede">Thunder Biotech is a Provo, Utah company developing MOTO-CAR, a macrophage-based immunotherapy for solid tumors. This guide covers the science, who else is working in the field, where Thunder fits, and the patents behind it.</p>
     </div>
