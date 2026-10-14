@@ -24,7 +24,7 @@
       }
     }
     * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+    html { scroll-behavior: smooth; scroll-padding-top: 110px; }
     body { margin: 0; background: var(--bg); color: var(--text); font: 16px/1.65 Inter, system-ui, sans-serif; }
     .wrap { max-width: 980px; margin: 0 auto; padding: 0 16px; }
     a { color: inherit; }
@@ -32,10 +32,11 @@
       position: sticky; top: 0; z-index: 5; background: color-mix(in srgb, var(--bg) 92%, transparent);
       backdrop-filter: blur(8px); border-bottom: 1px solid var(--line);
     }
-    nav.top .wrap { display: flex; gap: 6px; align-items: center; overflow-x: auto; padding-top: 10px; padding-bottom: 10px; }
-    nav.top a { text-decoration: none; font-size: 14px; font-weight: 500; color: var(--muted); padding: 6px 12px; border-radius: 99px; white-space: nowrap; }
+    nav.top .wrap { max-width: 1240px; display: flex; flex-wrap: wrap; justify-content: center; gap: 4px 2px; align-items: center; padding-top: 8px; padding-bottom: 8px; }
+    @media (max-width: 760px) { nav.top .wrap { flex-wrap: nowrap; overflow-x: auto; } }
+    nav.top a { text-decoration: none; font-size: 14px; font-weight: 500; color: var(--muted); padding: 6px 8px; border-radius: 99px; white-space: nowrap; }
     nav.top a:hover { color: var(--text); background: var(--surface); }
-    nav.top a.home { display: inline-flex; align-items: center; gap: 8px; margin-right: 6px; padding: 4px 8px; text-decoration: none; }
+    nav.top a.home { display: inline-flex; align-items: center; gap: 8px; margin-right: 4px; padding: 4px 6px; text-decoration: none; }
     .brand { display: inline-flex; align-items: center; gap: 10px; }
     .brand .mark { flex: none; display: block; }
     .brand .wordmark { font: 900 var(--brand-size, 18px)/1 "Lato", sans-serif; letter-spacing: -.01em; color: var(--text); white-space: nowrap; }
@@ -48,9 +49,9 @@
     h1 { font: 900 clamp(32px, 6vw, 54px)/1.08 "Lato", sans-serif; letter-spacing: -.02em; margin: 16px 0 14px; }
     h2 { font: 700 clamp(24px, 4vw, 32px)/1.2 "Lato", sans-serif; letter-spacing: -.01em; margin: 0 0 10px; }
     h3 { font: 700 18px/1.3 "Lato", sans-serif; margin: 0 0 6px; }
-    .lede { color: var(--muted); font-size: 18px; max-width: 680px; margin: 0; }
+    .lede { color: var(--muted); font-size: 18px; margin: 0; }
     section { padding: 48px 0; border-top: 1px solid var(--line); }
-    section > .wrap > p.intro { color: var(--muted); max-width: 720px; margin: 0 0 24px; }
+    section > .wrap > p.intro { color: var(--muted); margin: 0 0 24px; }
     .grid { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
     .card { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 20px; }
     .card p { margin: 0; color: var(--muted); font-size: 15px; }
@@ -133,8 +134,8 @@
     .deals-hero .wrap { position: relative; z-index: 1; }
     .deals-hero .motif { position: absolute; right: -90px; top: -70px; width: 420px; height: 420px; opacity: .16; pointer-events: none; }
     .deals-hero .eyebrow { color: #fff; background: rgba(255,255,255,.16); border: 1px solid rgba(255,255,255,.28); }
-    .deals-hero h2 { color: #fff; font-size: clamp(30px, 5.4vw, 46px); line-height: 1.08; margin: 16px 0 12px; max-width: 760px; }
-    .deals-hero .lede { color: rgba(255,255,255,.88); max-width: 700px; }
+    .deals-hero h2 { color: #fff; font-size: clamp(30px, 5.4vw, 46px); line-height: 1.08; margin: 16px 0 12px; }
+    .deals-hero .lede { color: rgba(255,255,255,.88); }
     .hero-stats { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); margin-top: 30px; }
     .hero-stat { background: rgba(0,0,0,.18); border: 1px solid rgba(255,255,255,.18); border-radius: 14px; padding: 16px 18px; }
     .hero-stat b { display: block; font: 900 32px/1 "Lato", sans-serif; margin-bottom: 6px; }
@@ -278,7 +279,7 @@
       </div>
 
       <h3 style="margin-top:32px">The problem: tumors recruit macrophages to protect them</h3>
-      <p style="color:var(--muted);max-width:720px">Inside a solid tumor, many macrophages are switched into an "M2" state that suppresses the immune system and helps the tumor grow. These are called tumor-associated macrophages (TAMs). Flipping them into the "M1" state turns them into cancer killers.</p>
+      <p style="color:var(--muted);">Inside a solid tumor, many macrophages are switched into an "M2" state that suppresses the immune system and helps the tumor grow. These are called tumor-associated macrophages (TAMs). Flipping them into the "M1" state turns them into cancer killers.</p>
 
       <h3 style="margin-top:28px">How MOTO-CAR works</h3>
       <figure class="mech">
@@ -295,7 +296,7 @@
       <div class="callout"><p><strong>Why in vivo matters.</strong> Most early CAR-macrophage therapies took cells out of the patient, engineered them in a lab, and infused them back. That is slow and expensive, and macrophages are hard to engineer and don't multiply. Programming macrophages inside the body with an LNP avoids cell manufacturing altogether. This is the direction the field has moved, and it is the approach in Thunder's lead program.</p></div>
 
       <h3 style="margin-top:28px">How MOTO-CARs remodel the tumor</h3>
-      <p style="color:var(--muted);max-width:720px;margin:0 0 12px">Once switched on, MOTO-CAR macrophages change the tumor environment so the immune system can attack the cancer effectively, by:</p>
+      <p style="color:var(--muted);margin:0 0 12px">Once switched on, MOTO-CAR macrophages change the tumor environment so the immune system can attack the cancer effectively, by:</p>
       <div class="grid">
         <div class="card"><h3>Targeting the tumor</h3><p>Recognizing a tumor-specific antigen, such as mesothelin.</p></div>
         <div class="card"><h3>Killing directly</h3><p>Engulfing and destroying tumor cells.</p></div>
@@ -334,7 +335,7 @@
       <h2>The Landscape</h2>
 
       <h3 style="margin:6px 0 6px">A market measured in hundreds of billions</h3>
-      <p style="color:var(--muted);max-width:720px;margin:0 0 16px">Cancer is one of the largest and fastest-growing areas of healthcare spending, and the largest focus of drug development.</p>
+      <p style="color:var(--muted);margin:0 0 16px">Cancer is one of the largest and fastest-growing areas of healthcare spending, and the largest focus of drug development.</p>
       <div class="market-stats">
         <div class="mstat"><b>$252B</b><span>spent worldwide on cancer medicines in 2024</span></div>
         <div class="mstat"><b>$441B</b><span>forecast annual spending on cancer medicines by 2029</span></div>
@@ -452,7 +453,7 @@
 
 
       <h3 style="margin:34px 0 6px">Another view: value by stage at the time of sale</h3>
-      <p style="color:var(--muted);max-width:720px;margin:0 0 14px">Buyers pay more the further a program has advanced, because each stage removes risk. This shows illustrative ranges for Thunder if it sold at each stage, alongside what was paid for companies at that stage.</p>
+      <p style="color:var(--muted);margin:0 0 14px">Buyers pay more the further a program has advanced, because each stage removes risk. This shows illustrative ranges for Thunder if it sold at each stage, alongside what was paid for companies at that stage.</p>
       <div class="vbar" role="img" aria-label="Value by stage of sale: preclinical $40M to $1.2B, in clinical trials $300M to $2.5B, under FDA review $2B to $8B">
         <p class="vbar-title">Illustrative deal value by stage of sale</p>
         <p class="vbar-sub">Bars are illustrative ranges for Thunder; grey dots are past deals at that stage. Log scale. Hover or tap a dot for the deal.</p>
@@ -885,7 +886,7 @@
     </div>
     <div class="wrap">
       <div class="group-label" style="margin-top:0">The short answer</div>
-      <p style="max-width:760px;margin:0 0 6px">Carisma's therapy was <strong>safe</strong>, and it did what the science predicted: the engineered macrophages reached tumors, reshaped the tumor environment and expanded cancer-fighting T cells. Carisma did not fail because macrophages don't work. It failed because of <strong>how</strong> it made its therapy, <strong>what</strong> it aimed it at, and <strong>how fast it spent its money</strong>.</p>
+      <p style="margin:0 0 6px">Carisma's therapy was <strong>safe</strong>, and it did what the science predicted: the engineered macrophages reached tumors, reshaped the tumor environment and expanded cancer-fighting T cells. Carisma did not fail because macrophages don't work. It failed because of <strong>how</strong> it made its therapy, <strong>what</strong> it aimed it at, and <strong>how fast it spent its money</strong>.</p>
 
       <div class="group-label">Side by side</div>
       <div class="table-wrap">
