@@ -200,6 +200,13 @@
     .rank b { font-weight: 600; }
     .rank small { color: var(--muted); }
     @media (max-width: 760px) { .map-grid { grid-template-columns: 1fr; } }
+    .why-fail { margin: 22px 0 0; background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--bad); border-radius: 12px; padding: 18px 20px; }
+    .why-fail h3 { margin: 0 0 4px; }
+    .why-fail > p { color: var(--muted); margin: 0 0 14px; font-size: 15px; }
+    .why-fail .reasons { display: grid; gap: 10px; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+    .why-fail .reasons div { background: var(--bg); border-radius: 10px; padding: 12px 14px; font-size: 14px; color: var(--muted); }
+    .why-fail .reasons b { display: block; color: var(--text); font: 700 15px "Lato", sans-serif; margin-bottom: 3px; }
+    .why-fail .lesson { margin: 14px 0 0; padding: 12px 14px; background: var(--accent-soft); border-radius: 10px; font-size: 14px; }
     .faq details { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; margin: 0 0 10px; }
     .faq summary { cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 16px 20px; font-weight: 600; }
     .faq summary::-webkit-details-marker { display: none; }
@@ -292,11 +299,22 @@
 
       <h3 style="margin-top:28px">Where the field stands in 2026</h3>
       <ul class="clean">
-        <li><strong>First generation (ex vivo) stalled.</strong> Carisma Therapeutics, the first company to put a CAR-macrophage into human trials, discontinued its clinical programs and began winding down in 2025.</li>
+        <li><strong>First generation (ex vivo) stalled.</strong> Carisma Therapeutics, the first company to put a CAR-macrophage into human trials, discontinued its clinical programs and began winding down in 2025. <a href="#carisma-why">Why Carisma failed</a></li>
         <li><strong>In vivo is producing the first human signals.</strong> In November 2025, CREATE Medicines (formerly Myeloid Therapeutics) reported a confirmed partial response and evidence of CAR-positive myeloid cells inside tumors in a 27-patient Phase 1 study of its in vivo mRNA-LNP therapy.</li>
         <li><strong>Large pharma is buying in vivo platforms.</strong> AstraZeneca, AbbVie, Gilead/Kite, Bristol Myers Squibb and Eli Lilly (twice) acquired in vivo CAR companies between March 2025 and April 2026, in deals worth $350 million to $7 billion. <a href="#deals">See Deals &amp; Valuations</a></li>
         <li><strong>Remaining challenges.</strong> Short persistence of engineered macrophages, accumulation in the liver and spleen, and standardizing how strongly cells are polarized.</li>
       </ul>
+      <div class="why-fail" id="carisma-why">
+        <h3>Why Carisma failed, and what it means for Thunder</h3>
+        <p>Carisma's therapy was safe and did what the science predicted: the engineered macrophages reached tumors, reshaped the tumor environment and expanded cancer-fighting T cells. The company failed on its business model, its target and its funding, not on the macrophage concept.</p>
+        <div class="reasons">
+          <div><b>1. Costly, slow cell manufacturing</b>Each dose was made from the patient's own cells in a lab and infused back (ex vivo). Macrophages don't multiply, so every patient required a full manufacturing run. Carisma replaced CT-0508 with CT-0525, designed in part to cut manufacturing time.</div>
+          <div><b>2. Early results were modest</b>In its 14-patient Phase 1 trial, there were no dose-limiting side effects, but no tumors shrank enough to count as a response. The best result was stable disease in 4 of 9 patients with high HER2.</div>
+          <div><b>3. A crowded, unstable target</b>Carisma said it dropped CT-0525 (Dec 2024) because of the competitive landscape: newly approved HER2 drugs, and tumors losing or reducing HER2 so the therapy had less to target.</div>
+          <div><b>4. It ran out of money</b>Costs rose after its 2023 reverse merger with Sesen Bio. Cash fell from $77.6M (end of 2023) to $2.8M (Sep 2025) through three rounds of layoffs. A planned merger collapsed in Sep 2025 when the partner couldn't raise its financing, and Nasdaq delisted the stock in Oct 2025.</div>
+        </div>
+        <p class="lesson"><strong>Where Thunder differs:</strong> Thunder's lead program reprograms macrophages inside the body (in vivo), so there is no per-patient manufacturing. Its lead target, mesothelin, is found across many cancer types rather than in a crowded HER2 market. Carisma itself was pivoting to in vivo delivery when its money ran out, and it shelved a mesothelin program for lack of financing, not because of data. Its in vivo technology now sits with Moderna, which holds a fully paid-up license.</p>
+      </div>
     </div>
   </section>
 
@@ -859,7 +877,7 @@
         <li><a href="https://www.swansonreed.com/?p=36398">Swanson Reed — Utah Patent of the Month, August 2024</a></li>
         <li><a href="https://www.nature.com/articles/s41698-025-01170-7">npj Precision Oncology (Nov 2025) — CAR-macrophages in solid tumors: promise, progress, and prospects</a></li>
         <li><a href="https://www.1stoncology.com/blog/?p=106829">CREATE Medicines — MT-302 first-in-human results (Nov 2025)</a></li>
-        <li><a href="https://www.stocktitan.net/overview/CARM">Carisma Therapeutics — company status</a> · <a href="https://www.fiercebiotech.com/biotech/carisma-axes-sole-clinical-cell-therapy-candidate-lays-23-workers">Fierce Biotech (Dec 2024)</a></li>
+        <li><a href="https://www.stocktitan.net/overview/CARM">Carisma Therapeutics — company status</a> · <a href="https://www.fiercebiotech.com/biotech/carisma-axes-sole-clinical-cell-therapy-candidate-lays-23-workers">Fierce Biotech (Dec 2024)</a> · <a href="https://www.fiercebiotech.com/biotech/carisma-lets-go-37-staff-car-m-candidate-stretch-cash-runway">Fierce Biotech (Apr 2024)</a> · <a href="https://www.sec.gov/Archives/edgar/data/1485003/000110465925110444/tmb-20250930x10q.htm">Carisma Q3 2025 Form 10-Q</a> · <a href="https://doi.org/10.1038/s41591-025-03495-z">CT-0508 Phase 1, Nature Medicine 2025</a></li>
         <li><a href="https://www.fiercebiotech.com/research/carismas-moderna-powered-vivo-macrophage-cell-therapy-shrinks-lung-and-liver-tumors-mice">Fierce Biotech — Carisma/Moderna in vivo CAR-M (Nov 2024)</a></li>
         <li><a href="https://targetedonc.com/view/sirpant-m-receives-fda-orphan-drug-designation-for-t-cell-lymphoma">Targeted Oncology — SIRPant-M orphan designation</a></li>
         <li><a href="https://www.clinicaltrialsarena.com/news/resolution-scores-83m-to-develop-macrophage-cell-therapies/">Clinical Trials Arena — Resolution Therapeutics Series B</a></li>
