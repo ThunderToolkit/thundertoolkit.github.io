@@ -52,7 +52,10 @@
     .lede { color: var(--muted); font-size: 18px; margin: 0; }
     section { padding: 48px 0; border-top: 1px solid var(--line); }
     section > .wrap > p.intro { color: var(--muted); margin: 0 0 24px; }
-    .grid { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+    .grid { display: flex; flex-wrap: wrap; gap: 14px; }
+    .grid > * { flex: 1 1 240px; min-width: 0; }
+    .grid.grid-wide > * { flex-basis: 320px; }
+    .grid.grid-pair > * { flex-basis: 380px; }
     .card { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 20px; }
     .card p { margin: 0; color: var(--muted); font-size: 15px; }
     .stat { font: 900 30px/1 "Lato", sans-serif; color: var(--accent-dark); margin-bottom: 6px; }
@@ -136,7 +139,8 @@
     .deals-hero .eyebrow { color: #fff; background: rgba(255,255,255,.16); border: 1px solid rgba(255,255,255,.28); }
     .deals-hero h2 { color: #fff; font-size: clamp(30px, 5.4vw, 46px); line-height: 1.08; margin: 16px 0 12px; }
     .deals-hero .lede { color: rgba(255,255,255,.88); }
-    .hero-stats { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); margin-top: 30px; }
+    .hero-stats { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+    .hero-stats > * { flex: 1 1 190px; min-width: 0; }
     .hero-stat { background: rgba(0,0,0,.18); border: 1px solid rgba(255,255,255,.18); border-radius: 14px; padding: 16px 18px; }
     .hero-stat b { display: block; font: 900 32px/1 "Lato", sans-serif; margin-bottom: 6px; }
     .hero-stat span { font-size: 14px; color: rgba(255,255,255,.86); }
@@ -148,7 +152,8 @@
     #deals td:first-child { white-space: nowrap; }
     tr.flag td { background: color-mix(in srgb, var(--accent-soft) 60%, var(--surface)); }
     .takeaways { margin-top: 36px; }
-    .goals { display: grid; gap: 10px; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); margin: 0 0 26px; }
+    .goals { display: flex; flex-wrap: wrap; gap: 10px; margin: 0 0 26px; }
+    .goals > * { flex: 1 1 170px; min-width: 0; }
     .goal { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; }
     .goal b { display: block; font: 700 16px "Lato", sans-serif; color: var(--accent-dark); margin-bottom: 2px; }
     .goal span { font-size: 14px; color: var(--muted); }
@@ -160,14 +165,16 @@
     .pitch b.n { width: 30px; height: 30px; border-radius: 50%; background: #fff; color: #0f6f65; display: grid; place-items: center; font: 900 15px "Lato", sans-serif; }
     .pitch strong { display: block; font: 700 16px "Lato", sans-serif; margin-bottom: 2px; }
     .pitch span { color: rgba(255,255,255,.88); font-size: 15px; }
-    .cover { display: grid; gap: 10px; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+    .cover { display: flex; flex-wrap: wrap; gap: 10px; }
+    .cover > * { flex: 1 1 200px; min-width: 0; }
     .cover div { background: var(--accent-soft); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; font-weight: 600; }
     .cover div small { display: block; font-weight: 400; color: var(--muted); font-size: 13px; margin-top: 4px; }
     details.portfolio { margin-top: 18px; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; }
     details.portfolio summary { cursor: pointer; padding: 16px 20px; font-weight: 600; }
     details.portfolio .table-wrap { border: 0; border-top: 1px solid var(--line); border-radius: 0 0 14px 14px; }
     td.fam { font-weight: 600; background: color-mix(in srgb, var(--accent-soft) 50%, var(--surface)); }
-    .papers { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+    .papers { display: flex; flex-wrap: wrap; gap: 14px; }
+    .papers > * { flex: 1 1 300px; min-width: 0; }
     .paper { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 18px 20px; display: flex; flex-direction: column; }
     .paper .tag { align-self: flex-start; font: 700 11px "Lato", sans-serif; letter-spacing: .08em; text-transform: uppercase; color: var(--accent-dark); background: var(--accent-soft); padding: 3px 9px; border-radius: 99px; margin-bottom: 10px; }
     .paper h3 { font-size: 17px; margin: 0 0 4px; }
@@ -184,7 +191,8 @@
     @media (max-width: 640px) { .disclaimer-top .wrap { flex-direction: column; gap: 8px; } }
     :root { --m1: #8fd6ca; --m2: #2fae9e; --m3: #0f6f65; --mnd: #e3e8e6; }
     @media (prefers-color-scheme: dark) { :root { --m1: #1f6b62; --m2: #2fc5b2; --m3: #a8ece2; --mnd: #273138; } }
-    .market-stats { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); margin: 0 0 22px; }
+    .market-stats { display: flex; flex-wrap: wrap; gap: 12px; margin: 0 0 22px; }
+    .market-stats > * { flex: 1 1 200px; min-width: 0; }
     .mstat { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 16px 18px; }
     .mstat b { display: block; font: 900 30px/1 "Lato", sans-serif; color: var(--accent-dark); margin-bottom: 6px; }
     .mstat span { font-size: 14px; color: var(--muted); }
@@ -205,7 +213,8 @@
     .why-fail { margin: 22px 0 0; background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--bad); border-radius: 12px; padding: 18px 20px; }
     .why-fail h3 { margin: 0 0 4px; }
     .why-fail > p { color: var(--muted); margin: 0 0 14px; font-size: 15px; }
-    .why-fail .reasons { display: grid; gap: 10px; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+    .why-fail .reasons { display: flex; flex-wrap: wrap; gap: 10px; }
+    .why-fail .reasons > * { flex: 1 1 300px; min-width: 0; }
     .why-fail .reasons div { background: var(--bg); border-radius: 10px; padding: 12px 14px; font-size: 14px; color: var(--muted); }
     .why-fail .reasons b { display: block; color: var(--text); font: 700 15px "Lato", sans-serif; margin-bottom: 3px; }
     .why-fail .lesson { margin: 14px 0 0; padding: 12px 14px; background: var(--accent-soft); border-radius: 10px; font-size: 14px; }
@@ -643,7 +652,7 @@
       </div>
 
       <div class="group-label">Pending US applications and what each adds</div>
-      <div class="grid">
+      <div class="grid grid-pair">
         <div class="card"><h3>US 18/821,168</h3><p><strong>Broad M1 claims, 2015 priority.</strong> Seeks claims to macrophage CARs with an M1-switching signal, including versions with co-stimulatory domains (CD28, OX40, 4-1BB, CD3-zeta). Would add to the broad coverage of US 12,076,378.</p></div>
         <div class="card"><h3>US 17/833,149</h3><p><strong>MOTO-CAR continuation.</strong> Follows issued US 11,352,439 and keeps the MOTO-CAR family open for further claims on macrophage CARs with Toll-like receptor signaling.</p></div>
         <div class="card"><h3>US 18/731,958</h3><p><strong>Transgenic-macrophage continuation.</strong> Published as US 2025/0075181. Extends the family behind US 10,415,017, 10,889,803 and 12,024,719.</p></div>
@@ -918,7 +927,7 @@
       </ul>
 
       <div class="group-label">Why the same story is unlikely to repeat at Thunder</div>
-      <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(320px,1fr))">
+      <div class="grid grid-wide">
         <div class="card"><h3>No manufacturing bottleneck</h3><p>Carisma's biggest structural cost, making cells for every patient, does not exist in Thunder's in vivo model.</p></div>
         <div class="card"><h3>A better target</h3><p>Mesothelin avoids the crowded HER2 market and the antigen-loss problem Carisma cited when it dropped CT-0525.</p></div>
         <div class="card"><h3>Already where the field moved</h3><p>Carisma was pivoting to in vivo delivery when it ran out of money. Thunder started there, and in vivo is where large pharma is now buying.</p></div>
