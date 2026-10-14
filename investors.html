@@ -881,7 +881,7 @@
   // Fully diluted shares outstanding. Set this number and per-share values fill in everywhere.
   const SHARES_OUTSTANDING = 114368473;
   (function () {
-    const fmt = v => v >= 10 ? '$' + Math.round(v).toLocaleString('en-US') : '$' + v.toFixed(2);
+    const fmt = v => v >= 100 ? '$' + Math.round(v).toLocaleString('en-US') : '$' + v.toFixed(2);
     document.querySelectorAll('.ps').forEach(el => {
       if (!SHARES_OUTSTANDING) { el.textContent = 'Per share: pending share count'; el.classList.add('pending'); return; }
       const lo = el.dataset.lo * 1e6 / SHARES_OUTSTANDING, hi = el.dataset.hi * 1e6 / SHARES_OUTSTANDING;
