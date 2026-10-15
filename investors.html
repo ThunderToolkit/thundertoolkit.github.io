@@ -152,6 +152,10 @@
     #deals td:first-child { white-space: nowrap; }
     tr.flag td { background: color-mix(in srgb, var(--accent-soft) 60%, var(--surface)); }
     .takeaways { margin-top: 36px; }
+    .disc-inline { display: flex; gap: 12px; align-items: flex-start; margin: 22px 0 0; padding: 12px 16px; border-radius: 12px; background: linear-gradient(90deg, #0b524b 0%, #0f6f65 60%, #178a7d 100%); color: #fff; border-bottom: 3px solid #2fc5b2; font-size: 14px; line-height: 1.5; }
+    .disc-inline .tag { flex: none; font: 900 11px/1 "Lato", sans-serif; letter-spacing: .12em; text-transform: uppercase; background: #fff; color: #0b524b; padding: 5px 9px; border-radius: 99px; margin-top: 1px; }
+    .disc-inline p { margin: 0; }
+    @media (max-width: 640px) { .disc-inline { flex-direction: column; gap: 8px; } }
     .dark-cards .card { background: linear-gradient(135deg, #0b524b 0%, #0f6f65 55%, #178a7d 100%); border-color: #0b524b; box-shadow: 0 6px 18px -10px rgba(11,82,75,.6); }
     .dark-cards .card h3 { color: #fff; }
     .dark-cards .card p { color: rgba(255,255,255,.86); }
@@ -651,7 +655,7 @@
         <div class="card"><h3>Autoimmune is a major draw</h3><p>Four of the eight in vivo deals (Capstan, Orbital, Orna and Sail) are aimed at autoimmune disease, not cancer. Thunder's M2 program, which calms inflammation, points at the same market.</p></div>
         <div class="card"><h3>Mesothelin has been bought before</h3><p>Kite's purchase of Tmunity included a Phase 1 mesothelin-targeted CAR-T for solid tumors, the same target as Thunder's lead MOTO-CAR program.</p></div>
       </div>
-      <p class="deal-note" style="margin-top:16px">Past transactions are not a prediction of any future transaction or valuation for Thunder Biotech.</p>
+      <div class="disc-inline" role="note"><span class="tag">Disclaimer</span><p><strong>Past transactions are not a prediction of any future transaction or valuation for Thunder Biotech.</strong></p></div>
     </div>
   </section>
 
