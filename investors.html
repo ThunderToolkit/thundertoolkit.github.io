@@ -195,6 +195,11 @@
     .cover div small { display: block; font-weight: 400; color: var(--muted); font-size: 13px; margin-top: 4px; }
     details.portfolio { margin-top: 18px; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; }
     details.portfolio summary { cursor: pointer; padding: 16px 20px; font-weight: 600; }
+    details.fold { margin-top: 22px; }
+    details.fold > summary { font-size: 16px; }
+    details.fold > summary small { display: block; font-weight: 400; color: var(--muted); font-size: 13px; margin-top: 2px; }
+    details.fold > .fold-body { padding: 4px 20px 20px; border-top: 1px solid var(--line); }
+    details.fold > .fold-body .table-wrap { border: 1px solid var(--line); border-radius: 12px; }
     details.portfolio .table-wrap { border: 0; border-top: 1px solid var(--line); border-radius: 0 0 14px 14px; }
     td.fam { font-weight: 600; background: color-mix(in srgb, var(--accent-soft) 50%, var(--surface)); }
     .papers { display: flex; flex-wrap: wrap; gap: 14px; }
@@ -396,10 +401,7 @@
       <div class="market-stats">
         <div class="mstat"><b>$252B</b><span>spent worldwide on cancer medicines in 2024</span></div>
         <div class="mstat"><b>$441B</b><span>forecast annual spending on cancer medicines by 2029</span></div>
-        <div class="mstat"><b>~46%</b><span>of that spending is in the US (about $120B in 2024)</span></div>
         <div class="mstat"><b>41%</b><span>of all clinical trials worldwide are in oncology</span></div>
-        <div class="mstat"><b>$51.4B</b><span>in public and charitable cancer research grants, 2016–2023 (about $6.4B a year)</span></div>
-        <div class="mstat"><b>$25.2T</b><span>projected global economic cost of cancer, 2020–2050 (about $840B a year)</span></div>
       </div>
 
       <div class="mapbox">
@@ -591,6 +593,9 @@
 
       <p class="deal-note">Related licensing deal: Kite and Pregene, Oct 2025, $120M upfront, up to $1.64B. Orna had itself bought ReNAgade Therapeutics in 2024 to strengthen its delivery technology before Lilly acquired it.</p>
 
+      <details class="portfolio fold">
+        <summary>More comparable deals: macrophage-targeted therapy and engineered cell therapy<small>8 deals, including Pfizer's $2.26B Trillium purchase and Gilead's $7.8B Arcellx deal. Tap to open.</small></summary>
+        <div class="fold-body">
       <div class="group-label">2 · Macrophage-targeted cancer therapy</div>
       <div class="sort-bar"><label for="sort2">Sort</label><select id="sort2" class="deal-sort"><option value="date-desc">Date: newest first</option><option value="date-asc">Date: oldest first</option><option value="value-desc">Value: highest first</option><option value="value-asc">Value: lowest first</option></select></div>
       <div class="table-wrap">
@@ -620,6 +625,8 @@
         </table>
       </div>
       <p class="deal-note">"Up to" values include milestone payments that are only paid if development, regulatory or sales goals are met. Headline totals use the full "up to" figure.</p>
+        </div>
+      </details>
 
       <div class="group-label takeaways">What the deals show</div>
       <div class="grid">
@@ -698,6 +705,9 @@
         </table>
       </div>
 
+      <details class="portfolio fold">
+        <summary>Full patent detail<small>Pending applications, all 28 filings, the core family in detail, and the timeline. Tap to open.</small></summary>
+        <div class="fold-body">
       <div class="group-label">Pending US applications and what each adds</div>
       <div class="grid grid-pair">
         <div class="card"><h3>US 18/821,168</h3><p><strong>Broad M1 claims, 2015 priority.</strong> Seeks claims to macrophage CARs with an M1-switching signal, including versions with co-stimulatory domains (CD28, OX40, 4-1BB, CD3-zeta). Would add to the broad coverage of US 12,076,378.</p></div>
@@ -707,8 +717,7 @@
       </div>
       <p class="deal-note">Also pending abroad: Europe (EP 17731332.7), China (two applications), India, Korea and Singapore.</p>
 
-      <details class="portfolio">
-        <summary>See the full portfolio: all 28 filings</summary>
+      <div class="group-label">All 28 filings</div>
         <div class="table-wrap">
           <table>
             <thead><tr><th>Family</th><th>Number</th><th>Country</th><th>Status</th><th>Date</th></tr></thead>
@@ -744,7 +753,6 @@
             </tbody>
           </table>
         </div>
-      </details>
       <p class="deal-note">Portfolio from Thunder Biotech's IP summary. Claim descriptions and priority dates are drawn from Google Patents records, which are not legal determinations; patent counsel should confirm them. Pending claims may change before they are granted.</p>
 
       <h2 style="margin-top:40px">The transgenic-macrophage family in detail</h2>
@@ -793,6 +801,8 @@
         <div><b>Sep 2024</b><span>US 12,076,378 granted: broad claims to M1-switching macrophage CARs</span></div>
         <div><b>Mar 2025</b><span>Two further applications published</span></div>
       </div>
+        </div>
+      </details>
       </div>
 
       <p style="color:var(--muted);font-size:13px;margin-top:18px">*Estimated expiration dates are Google Patents estimates, not legal determinations. The scope of protection is defined by each patent's claims; descriptions above summarize the patent disclosures.</p>
@@ -862,7 +872,7 @@
         <summary>How does MOTO-CAR work?</summary>
         <div class="a"><p>A lipid nanoparticle carries genetic instructions for the CAR to macrophages. When the CAR finds its target on a cancer cell, it flips the macrophage from a tumor-protecting "M2" state into a cancer-fighting "M1" state. The activated macrophage attacks the tumor and brings in T cells, which may build immune memory against recurrence. <a href="#science">See the four steps</a></p></div>
       </details>
-      <details>
+      <details hidden>
         <summary>How is MOTO-CAR given, and does it stay in the body?</summary>
         <div class="a"><p>It is designed to be given by IV injection as an off-the-shelf product, with no need to collect and engineer a patient's cells. The nanoparticles travel to the tumor and are taken up by tumor macrophages. MOTO-CARs are short-lived: they are expressed temporarily, which is intended to limit long-term side effects, while the immune response they trigger, including T-cell memory, can last. <a href="#science">See the mechanism diagram</a></p></div>
       </details>
@@ -870,7 +880,7 @@
         <summary>Why target mesothelin?</summary>
         <div class="a"><p>Mesothelin is a marker found on many cancer types, which gives one program a broad potential reach. It also avoids the crowded HER2 space, which contributed to the first-generation CAR-macrophage company dropping its programs. Thunder's patents describe many other targets as well, including HER2, GPC3, CEA and ROR1. <span class="tbd">[Rob to confirm: lead indication(s), e.g. mesothelioma, ovarian, pancreatic]</span></p></div>
       </details>
-      <details>
+      <details hidden>
         <summary>What does "in vivo" mean, and why does it matter?</summary>
         <div class="a"><p>In vivo means the cells are programmed inside the patient's body. The first wave of CAR-macrophage therapies removed cells, engineered them in a lab and infused them back, which is slow and expensive. Programming cells in the body skips manufacturing altogether. This is where the field and large pharma investment have moved, and it is the approach in Thunder's lead program.</p></div>
       </details>
@@ -892,7 +902,7 @@
         <summary>Who leads the company?</summary>
         <div class="a"><p>Founder and Chief Scientific Officer Kim O'Neill, PhD, has 40 years of cancer research experience at Brigham Young University, 155 peer-reviewed papers and 9 issued patents. He is the inventor on Thunder's core patent family. <span class="tbd">[Rob to add: CEO, other executives, board and scientific advisors]</span></p></div>
       </details>
-      <details>
+      <details hidden>
         <summary>Who are the main competitors?</summary>
         <div class="a"><p>The closest are CREATE Medicines (formerly Myeloid Therapeutics), which reported early human data for its in vivo approach in 2025, and Moderna, which has a preclinical in vivo CAR-macrophage program. Other macrophage companies work ex vivo or outside oncology. <a href="#landscape">See the full landscape</a></p></div>
       </details>
@@ -910,11 +920,11 @@
         <summary>What are the main risks?</summary>
         <div class="a"><p>Like any preclinical biotech, results in animals may not carry over to people, and clinical development takes years and significant capital. Specific to the field: engineered macrophages may not persist long enough in the body, nanoparticles tend to accumulate in the liver and spleen, and the degree of cell reprogramming is hard to standardize. Thunder also competes with larger, better-funded companies.</p></div>
       </details>
-      <details>
+      <details hidden>
         <summary>How much is Thunder raising, and what will the money fund?</summary>
         <div class="a"><p><span class="tbd">[Rob to add: round size, instrument, use of proceeds and the milestones it reaches]</span></p></div>
       </details>
-      <details>
+      <details hidden>
         <summary>How can I learn more or invest?</summary>
         <div class="a"><p><span class="tbd">[Rob to add: contact person and email, or a link to schedule a call]</span></p></div>
       </details>
