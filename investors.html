@@ -292,6 +292,15 @@
     .faq .a p { margin: 0 0 10px; } .faq .a p:last-child { margin: 0; }
     .tbd { color: var(--warn); border: 1px dashed currentColor; border-radius: 6px; padding: 1px 6px; font-size: 14px; }
     footer { padding: 28px 0 48px; border-top: 1px solid var(--line); color: var(--muted); font-size: 13px; }
+    .lb { position: fixed; inset: 0; z-index: 50; background: rgba(6,16,15,.97); display: none; overflow: auto; -webkit-overflow-scrolling: touch; }
+    .lb.open { display: block; }
+    .lb-inner { min-height: 100%; display: flex; align-items: center; justify-content: center; padding: 56px 12px 24px; box-sizing: border-box; }
+    .lb img { display: block; max-width: 100%; max-height: calc(100vh - 90px); height: auto; background: #fff; border-radius: 10px; cursor: zoom-in; }
+    .lb.zoom .lb-inner { display: block; }
+    .lb.zoom img { max-width: none; max-height: none; width: auto; cursor: zoom-out; margin: 0 auto; }
+    .lb-close { position: fixed; top: 12px; right: 12px; z-index: 51; font: 700 15px Inter, sans-serif; color: #0b524b; background: #fff; border: 0; border-radius: 99px; padding: 8px 14px; cursor: pointer; }
+    .lb-hint { position: fixed; top: 18px; left: 16px; color: rgba(255,255,255,.75); font: 500 13px Inter, sans-serif; }
+    figure.mech a[data-lb] { cursor: zoom-in; }
   </style>
 </head>
 <body>
@@ -1081,6 +1090,24 @@
       p.addEventListener('mouseleave', () => tip.style.opacity = 0);
     });
   })();
+</script>
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Full-size image"><button class="lb-close" type="button">Close ✕</button><span class="lb-hint">Tap the image to zoom</span><div class="lb-inner"><img alt=""></div></div>
+<script>
+(function(){
+  var lb=document.getElementById('lb'), im=lb.querySelector('img'), last=null;
+  function close(){ lb.classList.remove('open','zoom'); document.body.style.overflow=''; if(last) last.focus(); }
+  document.querySelectorAll('figure.mech a[href^="assets/"]').forEach(function(a){
+    a.setAttribute('data-lb','');
+    a.addEventListener('click', function(e){
+      e.preventDefault(); last=a; var src=a.querySelector('img');
+      im.src=src.currentSrc||src.src; im.alt=src.alt; lb.classList.add('open'); lb.scrollTop=0;
+      document.body.style.overflow='hidden'; lb.querySelector('.lb-close').focus();
+    });
+  });
+  im.addEventListener('click', function(e){ e.stopPropagation(); lb.classList.toggle('zoom'); });
+  lb.addEventListener('click', function(e){ if(e.target===lb||e.target.classList.contains('lb-inner')||e.target.classList.contains('lb-close')) close(); });
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape'&&lb.classList.contains('open')) close(); });
+})();
 </script>
 </body>
 </html>
