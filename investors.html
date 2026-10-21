@@ -150,6 +150,18 @@
     .dark-cards .card { background: linear-gradient(135deg, #0b524b 0%, #0f6f65 55%, #178a7d 100%); border-color: #0b524b; box-shadow: 0 6px 18px -10px rgba(11,82,75,.6); }
     .dark-cards .card h3 { color: #fff; }
     .dark-cards .card p { color: rgba(255,255,255,.86); }
+    .imodel { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 22px; margin: 6px 0 0; }
+    .imodel label { font-weight: 600; font-size: 14px; display: block; margin-bottom: 8px; }
+    .imodel .field { display: flex; align-items: center; border: 1.5px solid var(--line); border-radius: 10px; background: var(--bg); padding: 0 14px; max-width: 340px; }
+    .imodel .field:focus-within { border-color: var(--accent); }
+    .imodel .field span { color: var(--muted); font: 700 20px "Lato", sans-serif; }
+    .imodel .field input { flex: 1; min-width: 0; border: 0; background: transparent; color: var(--text); font: 700 22px "Lato", sans-serif; padding: 12px 8px; }
+    .imodel .field input:focus { outline: none; }
+    .imodel .presets { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0 2px; }
+    .imodel .presets button { font: 600 13px Inter, sans-serif; color: var(--accent-dark); background: var(--accent-soft); border: 1px solid var(--accent); border-radius: 99px; padding: 7px 14px; cursor: pointer; }
+    .imodel .presets button:hover { background: var(--accent); color: #fff; }
+    .imodel .res-note { color: var(--muted); font-size: 13px; margin: 12px 0 0; }
+    .imodel td strong { color: var(--accent-dark); }
     .faq details { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; margin: 0 0 10px; }
     .faq summary { cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 16px 20px; font-weight: 600; }
     .faq summary::-webkit-details-marker { display: none; }
@@ -178,6 +190,7 @@
       <a href="#landscape">The Landscape</a>
       <a href="#value">Value</a>
       <a href="#deals">Deals</a>
+      <a href="#model">New Investment</a>
       <a href="#edge">Thunder's Edge</a>
       <a href="#patents">Patents</a>
       <a href="#faq">FAQ</a>
@@ -437,6 +450,50 @@
       <p class="deal-note" style="margin-top:16px">Past transactions are not a prediction of any future transaction or valuation for Thunder Biotech.</p>
     </div>
   </section>
+
+  <!-- MODEL A NEW INVESTMENT -->
+  <section id="model">
+    <div class="wrap">
+      <h2>What a new investment could be worth</h2>
+      <p class="intro">For an investor coming in at this round's price of $0.30 per share, enter an amount below to see the shares it buys today and what they could be worth if Thunder is acquired at different stages. These are illustrative scenarios, not a prediction or an offer — see the disclaimer at the top of the page.</p>
+      <div class="imodel">
+        <label for="imAmt">Investment amount, at $0.30 per share</label>
+        <div class="field"><span>$</span><input id="imAmt" type="text" inputmode="numeric" autocomplete="off" value="100,000" aria-label="Investment amount in dollars"></div>
+        <div class="presets">
+          <button type="button" data-amt="25000">$25K</button><button type="button" data-amt="50000">$50K</button><button type="button" data-amt="100000">$100K</button><button type="button" data-amt="250000">$250K</button><button type="button" data-amt="500000">$500K</button><button type="button" data-amt="1000000">$1M</button>
+        </div>
+        <div class="table-wrap" style="margin-top:16px"><table>
+          <thead><tr><th>If Thunder is acquired at…</th><th>Price per share</th><th>Your investment could be worth</th><th>Return</th></tr></thead>
+          <tbody id="imRows"></tbody>
+        </table></div>
+        <p class="res-note" id="imNote"></p>
+      </div>
+    </div>
+  </section>
+
+  <script>
+  (function(){
+    var FD=114368473, PRICE=0.30;
+    var scen=[["Somewhat favorable results",40e6,150e6],["Favorable results",150e6,450e6],["Very favorable results",450e6,1.2e9],["A large, competitive exit",1.2e9,2.5e9]];
+    function fmt(n){return '$'+Math.round(n).toLocaleString();}
+    function big(n){return n>=1e9?('$'+(n/1e9).toFixed(2).replace(/\.?0+$/,'')+'B'):('$'+Math.round(n/1e6)+'M');}
+    var input=document.getElementById('imAmt');
+    function parse(){return Math.max(0, parseFloat((input.value||'').replace(/[^0-9.]/g,''))||0);}
+    function render(){
+      var amt=parse(), shares=amt/PRICE, rows='';
+      scen.forEach(function(s){
+        var psLo=s[1]/FD, psHi=s[2]/FD, vLo=shares*psLo, vHi=shares*psHi, mLo=amt?vLo/amt:0, mHi=amt?vHi/amt:0;
+        rows+='<tr><td><strong>'+s[0]+'</strong><br><span style="color:var(--muted);font-size:13px">'+big(s[1])+' – '+big(s[2])+' sale</span></td><td>$'+psLo.toFixed(2)+' – $'+psHi.toFixed(2)+'</td><td><strong>'+fmt(vLo)+' – '+fmt(vHi)+'</strong></td><td>'+mLo.toFixed(1)+'× – '+mHi.toFixed(1)+'×</td></tr>';
+      });
+      document.getElementById('imRows').innerHTML=rows;
+      document.getElementById('imNote').textContent = amt?('At $0.30 per share, '+fmt(amt)+' buys about '+Math.round(shares).toLocaleString()+' shares — roughly '+(shares/FD*100).toFixed(2)+'% of the company today, before any future financing or dilution.'):'Enter an amount above to see the numbers.';
+    }
+    input.addEventListener('input',render);
+    input.addEventListener('blur',function(){var v=parse();input.value=v?v.toLocaleString():'';render();});
+    document.querySelectorAll('#model .presets button').forEach(function(b){b.addEventListener('click',function(){input.value=parseInt(b.getAttribute('data-amt'),10).toLocaleString();render();});});
+    render();
+  })();
+  </script>
 
   <!-- EDGE -->
   <section id="edge">
