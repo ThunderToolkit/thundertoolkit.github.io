@@ -1,0 +1,647 @@
+<!doctype html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Thunder Investor Guide · Sample Investor</title>
+  <meta name="description" content="The science, the macrophage therapy landscape, and Thunder Biotech's patent position.">
+  <link rel="icon" href="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'&gt;&lt;circle cx='16' cy='16' r='13' fill='%231faf9e'/&gt;&lt;circle cx='16' cy='16' r='5.5' fill='%23fff' opacity='.9'/&gt;&lt;g fill='%231faf9e'&gt;&lt;circle cx='16' cy='16' r='2.5'/&gt;&lt;/g&gt;&lt;/svg&gt;">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f5f7f6; --surface: #ffffff; --text: #2b2f36; --muted: #5d6270;
+      --line: #e2e7e5; --accent: #1faf9e; --accent-dark: #178a7d; --accent-soft: #e6f6f3; --accent-ink: #ffffff;
+      --blue: #0170b9;
+      --good: #178a7d; --warn: #a3520b; --bad: #a62b2b;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #10161a; --surface: #182024; --text: #eef2f0; --muted: #9ba7a3;
+        --line: #273138; --accent: #2fc5b2; --accent-dark: #1faf9e; --accent-soft: #16302c; --accent-ink: #06201c;
+        --blue: #4aa8e0;
+        --good: #5fd3bf; --warn: #f0a35e; --bad: #f08080;
+      }
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+    body { margin: 0; background: var(--bg); color: var(--text); font: 16px/1.65 Inter, system-ui, sans-serif; }
+    .wrap { max-width: 980px; margin: 0 auto; padding: 0 16px; }
+    a { color: inherit; }
+    nav.top {
+      position: sticky; top: 0; z-index: 5; background: color-mix(in srgb, var(--bg) 92%, transparent);
+      backdrop-filter: blur(8px); border-bottom: 1px solid var(--line);
+    }
+    nav.top .wrap { display: flex; gap: 6px; align-items: center; overflow-x: auto; padding-top: 10px; padding-bottom: 10px; }
+    nav.top a { text-decoration: none; font-size: 14px; font-weight: 500; color: var(--muted); padding: 6px 12px; border-radius: 99px; white-space: nowrap; }
+    nav.top a:hover { color: var(--text); background: var(--surface); }
+    nav.top a.home { display: inline-flex; align-items: center; gap: 8px; margin-right: 6px; padding: 4px 8px; text-decoration: none; }
+    .brand { display: inline-flex; align-items: center; gap: 10px; }
+    .brand .mark { flex: none; display: block; }
+    .brand .wordmark { font: 900 var(--brand-size, 18px)/1 "Lato", sans-serif; letter-spacing: -.01em; color: var(--text); white-space: nowrap; }
+    .brand .wordmark .b { color: var(--accent-dark); }
+    .brand .tagline { font: 700 9px/1 "Lato", sans-serif; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin-top: 4px; }
+    header { padding: 52px 0 28px; position: relative; }
+    .brand-logo { margin-bottom: 24px; --brand-size: 30px; }
+    .brand-logo .mark { width: 42px; height: 42px; }
+    .eyebrow { display: inline-block; font: 700 12px "Lato", sans-serif; letter-spacing: .12em; text-transform: uppercase; color: var(--accent-dark); background: var(--accent-soft); padding: 5px 12px; border-radius: 99px; }
+    h1 { font: 900 clamp(32px, 6vw, 54px)/1.08 "Lato", sans-serif; letter-spacing: -.02em; margin: 16px 0 14px; }
+    h2 { font: 700 clamp(24px, 4vw, 32px)/1.2 "Lato", sans-serif; letter-spacing: -.01em; margin: 0 0 10px; }
+    h3 { font: 700 18px/1.3 "Lato", sans-serif; margin: 0 0 6px; }
+    .lede { color: var(--muted); font-size: 18px; max-width: 680px; margin: 0; }
+    section { padding: 48px 0; border-top: 1px solid var(--line); }
+    section > .wrap > p.intro { color: var(--muted); max-width: 720px; margin: 0 0 24px; }
+    .grid { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+    .card { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 20px; }
+    .card p { margin: 0; color: var(--muted); font-size: 15px; }
+    .stat { font: 900 30px/1 "Lato", sans-serif; color: var(--accent-dark); margin-bottom: 6px; }
+    .callout { background: var(--accent-soft); border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: 10px; padding: 16px 18px; margin: 20px 0; }
+    .callout p { margin: 0; }
+    .steps { counter-reset: s; display: grid; gap: 12px; }
+    .step { display: grid; grid-template-columns: 40px 1fr; gap: 14px; align-items: start; }
+    .step::before { counter-increment: s; content: counter(s); width: 36px; height: 36px; border-radius: 50%; background: var(--accent); color: var(--accent-ink); display: grid; place-items: center; font: 700 16px "Lato", sans-serif; }
+    .step p { margin: 2px 0 0; color: var(--muted); }
+    .table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 14px; background: var(--surface); }
+    table { width: 100%; border-collapse: collapse; font-size: 14px; min-width: 760px; }
+    th, td { text-align: left; padding: 12px 14px; border-bottom: 1px solid var(--line); vertical-align: top; }
+    th { font-weight: 600; color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: .05em; background: color-mix(in srgb, var(--surface) 70%, var(--bg)); }
+    tr:last-child td { border-bottom: 0; }
+    tr.thunder td { background: var(--accent-soft); }
+    td strong { font-weight: 600; }
+    .pill { display: inline-block; font-size: 12px; font-weight: 600; padding: 2px 9px; border-radius: 99px; border: 1px solid currentColor; white-space: nowrap; }
+    .pill.good { color: var(--good); } .pill.warn { color: var(--warn); } .pill.bad { color: var(--bad); } .pill.muted { color: var(--muted); }
+    .group-label { font: 700 13px "Lato", sans-serif; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin: 28px 0 10px; }
+    ul.clean { margin: 0; padding-left: 18px; color: var(--muted); }
+    ul.clean li { margin: 4px 0; }
+    .patent { display: grid; grid-template-columns: 1fr auto; gap: 4px 16px; }
+    .patent .num { font: 700 20px "Lato", sans-serif; }
+    .patent dl { grid-column: 1 / -1; display: grid; grid-template-columns: max-content 1fr; gap: 4px 14px; margin: 10px 0 0; font-size: 14px; }
+    .patent dt { color: var(--muted); }
+    .patent dd { margin: 0; }
+    .timeline { position: relative; margin: 8px 0 0; padding-left: 22px; border-left: 2px solid var(--line); }
+    .timeline div { position: relative; margin: 0 0 16px; }
+    .timeline div::before { content: ""; position: absolute; left: -29px; top: 7px; width: 12px; height: 12px; border-radius: 50%; background: var(--accent); }
+    .timeline b { font-family: "Lato", sans-serif; }
+    .timeline span { color: var(--muted); display: block; font-size: 15px; }
+    .sources { font-size: 13px; color: var(--muted); }
+    .sources ol { padding-left: 18px; }
+    .sources a { word-break: break-word; }
+    /* Valuation scenarios */
+    :root { --s1: #8fd6ca; --s2: #2fae9e; --s3: #0f6f65; }
+    @media (prefers-color-scheme: dark) { :root { --s1: #1f6b62; --s2: #2fc5b2; --s3: #a8ece2; } }
+    .vbar { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 22px 22px 16px; margin: 6px 0 26px; }
+    .vbar-title { font: 700 15px "Lato", sans-serif; margin: 0 0 4px; }
+    .vbar-sub { color: var(--muted); font-size: 13px; margin: 0 0 18px; }
+    .vrow { display: grid; grid-template-columns: 150px 1fr; gap: 14px; align-items: center; margin: 0 0 12px; }
+    .vrow .lbl { font-size: 14px; font-weight: 600; }
+    .vrow .lbl small { display: block; font-weight: 400; color: var(--muted); font-size: 12px; }
+    .track { position: relative; height: 26px; }
+    .track .grid { position: absolute; top: -4px; bottom: -4px; width: 1px; background: var(--line); }
+    .band { position: absolute; top: 3px; height: 20px; border-radius: 4px; cursor: default; outline-offset: 2px; }
+    .band.s1 { background: var(--s1); } .band.s2 { background: var(--s2); } .band.s3 { background: var(--s3); }
+    .band-val { position: absolute; top: 3px; line-height: 20px; font-size: 13px; font-weight: 600; white-space: nowrap; padding-left: 8px; }
+    .comp-track { position: relative; height: 54px; border-top: 1px dashed var(--line); margin-top: 4px; }
+    .comp { position: absolute; top: -6px; transform: translateX(-50%); width: 12px; height: 12px; border-radius: 50%; background: var(--muted); border: 2px solid var(--surface); cursor: default; }
+    .comp-lbl { position: absolute; transform: translateX(-50%); font-size: 11px; color: var(--muted); white-space: nowrap; text-align: center; line-height: 1.25; }
+    .comp-lbl.up { top: 12px; } .comp-lbl.dn { top: 28px; }
+    .axis { position: relative; height: 18px; font-size: 12px; color: var(--muted); }
+    .axis span { position: absolute; transform: translateX(-50%); }
+    .axis span:first-child { transform: none; } .axis span:last-child { transform: translateX(-100%); }
+    [data-tip] { position: relative; }
+    [data-tip]:hover::after, [data-tip]:focus-visible::after { content: attr(data-tip); position: absolute; bottom: calc(100% + 8px); left: 50%; transform: translateX(-50%); z-index: 3; width: max-content; max-width: 260px; white-space: normal; background: var(--text); color: var(--bg); font: 500 12px/1.4 Inter, sans-serif; padding: 7px 10px; border-radius: 8px; pointer-events: none; }
+    .vlegend { display: flex; flex-wrap: wrap; gap: 14px; font-size: 12px; color: var(--muted); margin-top: 8px; }
+    .vlegend i { display: inline-block; width: 12px; height: 12px; border-radius: 3px; vertical-align: -2px; margin-right: 6px; }
+    .scen { border-top: 4px solid var(--s2); }
+    .scen.s1 { border-top-color: var(--s1); } .scen.s3 { border-top-color: var(--s3); }
+    .scen .range { font: 900 26px/1.1 "Lato", sans-serif; margin: 6px 0 2px; }
+    .pershare { margin: 2px 0 0; font: 700 15px "Lato", sans-serif; color: var(--accent-dark); }
+    .ps.pending { font-weight: 500; font-size: 13px; color: var(--warn); }
+    .scen .up { font-size: 13px; color: var(--muted); margin: 0 0 12px; }
+    .scen dl { margin: 0; font-size: 14px; }
+    .scen dt { font-weight: 600; margin-top: 10px; }
+    .scen dd { margin: 2px 0 0; color: var(--muted); }
+    .vrow .lbl .rng { display: block; font: 900 15px "Lato", sans-serif; color: var(--accent-dark); }
+    .comp-list { display: none; font-size: 12px; color: var(--muted); margin: 6px 0 0; }
+    .stage-dot { position: absolute; top: 7px; transform: translateX(-50%); width: 12px; height: 12px; border-radius: 50%; background: var(--muted); border: 2px solid var(--surface); z-index: 1; }
+    .stage-dot:hover, .stage-dot:focus-visible { z-index: 4; }
+    @media (max-width: 640px) { .comp-lbl { display: none; } .comp-track { height: 14px; } .comp-list { display: block; } }
+    @media (max-width: 640px) { .vrow { grid-template-columns: 1fr; gap: 4px; } .vbar { padding: 18px 14px 12px; } .comp-lbl { font-size: 10px; } }
+    /* Deals section: branded aqua header band */
+    #deals { padding-top: 0; border-top: 0; }
+    .deals-hero { position: relative; overflow: hidden; color: #fff; padding: 56px 0 44px; margin-bottom: 40px;
+      background: radial-gradient(120% 140% at 100% 0%, #2fc5b2 0%, rgba(47,197,178,0) 55%), linear-gradient(120deg, #0b524b 0%, #0f6f65 45%, #178a7d 100%); }
+    .deals-hero .wrap { position: relative; z-index: 1; }
+    .deals-hero .motif { position: absolute; right: -90px; top: -70px; width: 420px; height: 420px; opacity: .16; pointer-events: none; }
+    .deals-hero .eyebrow { color: #fff; background: rgba(255,255,255,.16); border: 1px solid rgba(255,255,255,.28); }
+    .deals-hero h2 { color: #fff; font-size: clamp(30px, 5.4vw, 46px); line-height: 1.08; margin: 16px 0 12px; max-width: 760px; }
+    .deals-hero .lede { color: rgba(255,255,255,.88); max-width: 700px; }
+    .hero-stats { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); margin-top: 30px; }
+    .hero-stat { background: rgba(0,0,0,.18); border: 1px solid rgba(255,255,255,.18); border-radius: 14px; padding: 16px 18px; }
+    .hero-stat b { display: block; font: 900 32px/1 "Lato", sans-serif; margin-bottom: 6px; }
+    .hero-stat span { font-size: 14px; color: rgba(255,255,255,.86); }
+    .deal-note { color: var(--muted); font-size: 14px; margin: 10px 0 0; }
+    td.val { white-space: nowrap; font-weight: 600; }
+    #deals td:first-child { white-space: nowrap; }
+    tr.flag td { background: color-mix(in srgb, var(--accent-soft) 60%, var(--surface)); }
+    .takeaways { margin-top: 36px; }
+    .faq details { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; margin: 0 0 10px; }
+    .faq summary { cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 16px 20px; font-weight: 600; }
+    .faq summary::-webkit-details-marker { display: none; }
+    .faq summary::after { content: "+"; flex: none; font: 400 22px/1 Inter, sans-serif; color: var(--accent-dark); transition: transform .2s; }
+    .faq details[open] summary::after { transform: rotate(45deg); }
+    .faq .a { padding: 0 20px 18px; color: var(--muted); }
+    .faq .a p { margin: 0 0 10px; } .faq .a p:last-child { margin: 0; }
+    .tbd { color: var(--warn); border: 1px dashed currentColor; border-radius: 6px; padding: 1px 6px; font-size: 14px; }
+    footer { padding: 28px 0 48px; border-top: 1px solid var(--line); color: var(--muted); font-size: 13px; }
+  </style>
+</head>
+<body style="padding-bottom: 64px;">
+  <nav class="top">
+    <div class="wrap">
+      <a class="home" href="./" aria-label="Thunder Biotech home"><span class="brand"><svg class="mark" viewBox="0 0 48 48" width="24" height="24" aria-hidden="true"><circle cx="24" cy="24" r="20" fill="var(--accent)"></circle><g fill="var(--accent)"><circle cx="24" cy="3.5" r="3"></circle><circle cx="41" cy="12" r="2.6"></circle><circle cx="44.5" cy="30" r="2.6"></circle><circle cx="33" cy="44" r="3"></circle><circle cx="13" cy="44.5" r="2.4"></circle><circle cx="3.5" cy="31" r="2.6"></circle><circle cx="5" cy="13" r="2.4"></circle></g><circle cx="24" cy="24" r="8.5" fill="#fff" opacity=".92"></circle><circle cx="24" cy="24" r="3.6" fill="var(--accent)"></circle></svg><span class="wordmark">Thunder<span class="b">Biotech</span></span></span></a>
+      <a href="#science">The Science</a>
+      <a href="#landscape">The Landscape</a>
+      <a href="#value">Value</a>
+      <a href="#deals">Deals</a>
+      <a href="#edge">Thunder's Edge</a>
+      <a href="#patents">Patents</a>
+      <a href="#faq">FAQ</a>
+      <a href="#next">Coming Next</a>
+      <a href="#sources">Sources</a>
+    </div>
+  </nav>
+
+  <header>
+    <div class="wrap">
+      <div class="brand-logo"><span class="brand"><svg class="mark" viewBox="0 0 48 48" width="42" height="42" aria-hidden="true"><circle cx="24" cy="24" r="20" fill="var(--accent)"></circle><g fill="var(--accent)"><circle cx="24" cy="3.5" r="3"></circle><circle cx="41" cy="12" r="2.6"></circle><circle cx="44.5" cy="30" r="2.6"></circle><circle cx="33" cy="44" r="3"></circle><circle cx="13" cy="44.5" r="2.4"></circle><circle cx="3.5" cy="31" r="2.6"></circle><circle cx="5" cy="13" r="2.4"></circle></g><circle cx="24" cy="24" r="8.5" fill="#fff" opacity=".92"></circle><circle cx="24" cy="24" r="3.6" fill="var(--accent)"></circle></svg><span><span class="wordmark">Thunder<span class="b">Biotech</span></span><div class="tagline">Research &amp; Discovery</div></span></span></div>
+      <div class="eyebrow">Investor Guide</div>
+      <h1>Turning the patient's immune system against the tumor.</h1>
+      <p class="lede">Thunder Biotech is a Provo, Utah company developing MOTO-CAR, a macrophage-based immunotherapy for solid tumors. This guide covers the science, competitors working in the field, where Thunder fits, and the patents behind it.</p>
+    </div>
+  </header>
+
+  <section id="your-report">
+    <div class="wrap">
+      <div class="eyebrow">Your personal report · Confidential</div>
+      <h2 style="margin-top:14px">Sample Investor</h2>
+      <p class="intro">Your Thunder Biotech position today, and what it could be worth if the company were sold at different stages. Prepared October 21, 2026.</p>
+      <div class="grid">
+        <div class="card"><div class="stat">$200,000</div><p>invested to date</p></div>
+        <div class="card"><div class="stat">600,000</div><p>shares held</p></div>
+        <div class="card"><div class="stat">$0.33</div><p>average cost per share</p></div>
+        <div class="card"><div class="stat">0.52%</div><p>of the company, fully diluted</p></div>
+      </div>
+      <h3 style="margin-top:28px">Accounts in this report</h3>
+      <div class="table-wrap"><table><thead><tr><th>Account</th><th>Holdings</th><th>Cash invested</th></tr></thead><tbody><tr><td><strong>Sample Investor</strong><br><span style="color:var(--muted);font-size:13px">Personal account</span></td><td>500,000 shares</td><td>$150,000</td></tr><tr><td><strong>Sample Investor IRA</strong><br><span style="color:var(--muted);font-size:13px">Retirement account</span></td><td>100,000 shares</td><td>$50,000</td></tr><tr style="font-weight:700"><td>Total</td><td>600,000 shares</td><td>$200,000</td></tr></tbody></table></div>
+      <h3 style="margin-top:28px">What your shares could be worth</h3>
+      <div class="table-wrap"><table><thead><tr><th>Stage at sale</th><th>Company sale value</th><th>Price per share</th><th>Your shares</th><th>Multiple of investment</th></tr></thead><tbody><tr><td><strong>Preclinical (today)</strong></td><td>$40,000,000 – $150,000,000</td><td>$0.35 – $1.31</td><td>$209,848 – $786,930</td><td>1.0× – 3.9×</td></tr><tr><td><strong>Strong mouse data</strong></td><td>$150,000,000 – $450,000,000</td><td>$1.31 – $3.93</td><td>$786,930 – $2,360,790</td><td>3.9× – 11.8×</td></tr><tr><td><strong>IND / first human data</strong></td><td>$450,000,000 – $1,200,000,000</td><td>$3.93 – $10.49</td><td>$2,360,790 – $6,295,441</td><td>11.8× – 31.5×</td></tr><tr><td><strong>Positive Phase 1</strong></td><td>$1,200,000,000 – $2,500,000,000</td><td>$10.49 – $21.86</td><td>$6,295,441 – $13,115,503</td><td>31.5× – 65.6×</td></tr></tbody></table></div>
+      <p style="color:var(--muted);font-size:14px;margin-top:10px">At this round's price of $0.30/share, your holdings are valued at $180,000. Illustrative scenarios only — not a valuation, forecast or offer.</p>
+    </div>
+  </section>
+
+
+  <!-- SCIENCE -->
+  <section id="science">
+    <div class="wrap">
+      <h2>The Science</h2>
+      <p class="intro">CAR-T therapies transformed blood cancers but have struggled in solid tumors, which make up 90% of most cancer cases. Macrophages are emerging as the answer to that problem.</p>
+
+      <div class="grid">
+        <div class="card"><div class="stat">Up to ~50%</div><p>of the immune cells inside some solid tumors are macrophages. They often protect the tumor from the patient's immune system Tumor Associated Macrophages (TAM's), but can be converted to attack the tumor.</p></div>
+        <div class="card"><div class="stat">No GvHD</div><p>Macrophages lack a T-cell receptor, so they cannot cause graft-versus-host disease. Reviews also report lower cytokine-release risk than CAR-T.</p></div>
+        <div class="card"><div class="stat">3 ways to kill</div><p>Activated M1 Macrophages engulf tumor cells, present tumor antigens to T cells, and release signals that recruit the rest of the immune system.</p></div>
+      </div>
+
+      <h3 style="margin-top:32px">The problem: tumors recruit macrophages to protect them</h3>
+      <p style="color:var(--muted);max-width:720px">Inside a solid tumor, many macrophages are switched into an "M2" state that suppresses the immune system and helps the tumor grow. These are called Tumor Associated Macrophages (TAMs). Thunder Biotech's technology converts TAMs from protecting the tumor into the M1 state, which turns them into cancer killers.</p>
+
+      <h3 style="margin-top:28px">How MOTO-CAR works</h3>
+      <div class="steps" style="margin-top:14px">
+        <div class="step"><div><strong>Deliver the instructions</strong><p>A lipid nanoparticle (LNP) delivers in vivo genetic instructions for a Chimeric Antigen Receptor (CAR) to the patient's TAMs and converts them to M1 macrophages that attack and kill the tumor.</p></div></div>
+        <div class="step"><div><strong>Recognize the tumor</strong><p>The MOTO-CAR recognizes a marker on cancer cells. Thunder's lead program targets mesothelin, which is expressed in many different cancer types.</p></div></div>
+        <div class="step"><div><strong>Flip the switch</strong><p>When the MOTO-CAR binds its target, it signals the macrophage to convert toward the cancer-fighting M1 state.</p></div></div>
+        <div class="step"><div><strong>Bring in reinforcements</strong><p>Activated macrophages attack tumor cells and recruit T cells, which may build immune memory against recurrence.</p></div></div>
+      </div>
+
+      <div class="callout"><p><strong>Why in vivo matters.</strong> Most early CAR-macrophage therapies took cells out of the patient, engineered them in a lab, and infused them back into the patient. This process is time consuming, expensive and requires specialized facilities. From previous work we know macrophages are hard to engineer and don't multiply. Reprogramming macrophages inside the body with an LNP avoids cell manufacturing altogether. This is the direction the field has moved, and it is the approach in Thunder's lead program.</p></div>
+
+      <h3 style="margin-top:28px">Where the field stands in 2026</h3>
+      <ul class="clean">
+        <li><strong>First generation (ex vivo) stalled.</strong> Carisma Therapeutics, the first company to put a CAR-macrophage into human trials, discontinued its clinical programs and began winding down in 2025.</li>
+        <li><strong>In vivo is producing the first human signals.</strong> In November 2025, CREATE Medicines (formerly Myeloid Therapeutics) reported a confirmed partial response and evidence of CAR-positive myeloid cells inside tumors in a 27-patient Phase 1 study of its in vivo mRNA-LNP therapy.</li>
+        <li><strong>Large pharma is buying in vivo platforms.</strong> AstraZeneca, AbbVie, Gilead/Kite, Bristol Myers Squibb and Eli Lilly (twice) acquired in vivo CAR companies between March 2025 and April 2026, in deals worth $350 million to $7 billion. <a href="#deals">See Deals &amp; Valuations</a></li>
+        <li><strong>Remaining challenges.</strong> Short persistence of engineered macrophages, accumulation in the liver and spleen, and standardizing how strongly cells are polarized.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- LANDSCAPE -->
+  <section id="landscape">
+    <div class="wrap">
+      <h2>The Landscape</h2>
+      <p class="intro">The companies most relevant to Thunder, grouped by how close they are to what Thunder does. Stage and status reflect the most recent public information.</p>
+
+      <div class="group-label">Engineered macrophage companies</div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Company</th><th>Approach</th><th>Lead program</th><th>Stage</th><th>Latest</th></tr></thead>
+          <tbody>
+            <tr class="thunder"><td><strong>Thunder Biotech</strong><br>Provo, UT · Private</td><td>MOTO-CAR production via LNP; M1 and M2 programs</td><td>Mesothelin MOTO-CAR (LNP), solid tumors</td><td><span class="pill warn">Preclinical</span></td><td>Tumor control in immunocompetent mouse model; patent portfolio of 28 filings, 18 issued (9 US)</td></tr>
+            <tr><td><strong>CREATE Medicines</strong><br>(formerly Myeloid Therapeutics)</td><td>In vivo mRNA-LNP CAR in myeloid cells</td><td>MT-302 (TROP2), solid tumors</td><td><span class="pill good">Phase 1</span></td><td>Nov 2025: 27 patients, 1 confirmed partial response, CAR+ cells found in tumors</td></tr>
+            <tr><td><strong>Moderna</strong></td><td>In vivo mRNA-LNP CAR-M</td><td>Anti-GPC3 CAR-M, liver cancer</td><td><span class="pill warn">Preclinical</span></td><td>Holds a fully paid-up license from Carisma; shrank liver and lung tumors in mice (2024)</td></tr>
+            <tr><td><strong>Carisma Therapeutics</strong></td><td>Ex vivo CAR macrophage / monocyte</td><td>CT-0508, CT-0525 (HER2)</td><td><span class="pill bad">Discontinued</span></td><td>Dropped clinical programs, delisted from Nasdaq Dec 2025, winding down</td></tr>
+            <tr><td><strong>SIRPant Immunotherapeutics</strong></td><td>Ex vivo activated macrophages (non-genetic)</td><td>SIRPant-M, T-cell lymphoma / NHL</td><td><span class="pill good">Phase 1</span></td><td>FDA orphan drug designation (2023)</td></tr>
+            <tr><td><strong>Resolution Therapeutics</strong><br>Edinburgh, UK</td><td>Ex vivo engineered macrophages, anti-fibrotic</td><td>RTX001, end-stage liver disease</td><td><span class="pill good">Phase 1/2</span></td><td>£63.5M Series B (Oct 2024). Overlaps with Thunder's anti-inflammatory program</td></tr>
+            <tr><td><strong>CellOrigin Biotech</strong><br>Hangzhou, China</td><td>iPSC-derived "off-the-shelf" CAR macrophages</td><td>CAR-iMAC, solid tumors</td><td><span class="pill warn">Early</span></td><td>Global collaboration with Qilu Pharmaceutical (2022)</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p style="color:var(--muted);font-size:14px;margin-top:12px">For the companies large pharma has bought in this space, see <a href="#deals">Deals &amp; Valuations</a>.</p>
+    </div>
+  </section>
+
+  <!-- VALUE -->
+  <section id="value">
+    <div class="wrap">
+      <div class="eyebrow">Valuation scenarios</div>
+      <h2 style="margin-top:14px">What could Thunder be worth after its next studies?</h2>
+      <p class="intro">Thunder plans 3 to 5 mouse efficacy studies of about 100 mice each. Below are illustrative ranges for what a buyer or partner might pay under three possible outcomes, based on the prices paid in the deals listed below.</p>
+
+      <div class="vbar" role="img" aria-label="Value bar: somewhat favorable $40M to $150M, very favorable $150M to $450M, exceptional $450M to $1.2B, compared with past deals from $80M to $2.4B">
+        <p class="vbar-title">Illustrative deal value by study outcome</p>
+        <p class="vbar-sub">Total headline value including milestones, log scale. Grey dots are past deals for comparison. Hover or tap for detail.</p>
+
+        <div class="vrow"><div class="lbl">Somewhat favorable <b class="rng">$40M–$150M</b><small>Partnership or license</small></div>
+          <div class="track"><div class="grid" style="left:19.26%"></div><div class="grid" style="left:40.37%"></div><div class="grid" style="left:59.63%"></div><div class="grid" style="left:80.74%"></div><div class="band s1" style="left:24.3%;width:23.18%" tabindex="0" data-tip="Somewhat favorable: $40M–$150M headline, roughly $5M–$25M upfront"></div></div></div>
+        <div class="vrow"><div class="lbl">Favorable <b class="rng">$150M–$450M</b><small>License with buyout option, or small acquisition</small></div>
+          <div class="track"><div class="grid" style="left:19.26%"></div><div class="grid" style="left:40.37%"></div><div class="grid" style="left:59.63%"></div><div class="grid" style="left:80.74%"></div><div class="band s2" style="left:47.48%;width:19.26%" tabindex="0" data-tip="Favorable: $150M–$450M headline, roughly $25M–$100M upfront"></div></div></div>
+        <div class="vrow"><div class="lbl">Very favorable <b class="rng">$450M–$1.2B</b><small>Acquisition, competitive interest</small></div>
+          <div class="track"><div class="grid" style="left:19.26%"></div><div class="grid" style="left:40.37%"></div><div class="grid" style="left:59.63%"></div><div class="grid" style="left:80.74%"></div><div class="band s3" style="left:66.74%;width:17.2%" tabindex="0" data-tip="Very favorable: $450M–$1.2B headline, roughly $100M–$350M upfront"></div></div></div>
+
+        <div class="vrow" style="margin-bottom:0"><div class="lbl" style="color:var(--muted);font-weight:500">Past deals</div>
+          <div class="comp-track">
+            <span class="comp" style="left:36.46%" tabindex="0" data-tip="Moderna–Carisma (2022): $45M upfront + $35M equity, discovery-stage CAR-macrophage"></span><span class="comp-lbl up" style="left:36.46%">Carisma<br>$80M</span>
+            <span class="comp" style="left:62.33%" tabindex="0" data-tip="Gilead–Interius (2025): $350M, Phase 1 in vivo CAR"></span><span class="comp-lbl up" style="left:62.33%">Interius<br>$350M</span>
+            <span class="comp" style="left:80.74%" tabindex="0" data-tip="AstraZeneca–EsoBiotec (2025): $425M upfront, up to $1B, early clinical"></span><span class="comp-lbl up" style="left:80.74%">EsoBiotec<br>$1B</span>
+            <span class="comp" style="left:87.85%" tabindex="0" data-tip="BMS–Orbital (2025): ~$1.5B, preclinical"></span><span class="comp-lbl dn" style="left:87.85%">Orbital $1.5B</span>
+            <span class="comp" style="left:96.09%" tabindex="0" data-tip="Lilly–Orna (2026): up to $2.4B, preclinical, trial-ready"></span><span class="comp-lbl up" style="left:96.09%">Orna<br>$2.4B</span>
+          </div></div>
+        <div class="vrow"><div></div><div class="axis"><span style="left:0">$10M</span><span style="left:19.26%">$30M</span><span style="left:40.37%">$100M</span><span style="left:59.63%">$300M</span><span style="left:80.74%">$1B</span><span style="left:100%">$3B</span></div></div>
+        <p class="comp-list">Past deals: Carisma $80M · Interius $350M · EsoBiotec $1B · Orbital $1.5B · Orna $2.4B</p>
+        <div class="vlegend"><span><i style="background:var(--s1)"></i>Somewhat favorable</span><span><i style="background:var(--s2)"></i>Favorable</span><span><i style="background:var(--s3)"></i>Very favorable</span><span><i style="background:var(--muted);border-radius:50%"></i>Past deal</span></div>
+      </div>
+
+      <div class="grid">
+        <div class="card scen s1">
+          <h3>Somewhat favorable</h3>
+          <div class="range">$40M–$150M</div><p class="pershare"><span class="ps pending" data-lo="40" data-hi="150">Per share: pending share count</span></p><p class="up">Roughly $5M–$25M upfront</p>
+          <dl>
+            <dt>What the studies show</dt><dd>MOTO-CAR slows tumor growth versus controls in the mesothelin model, the result repeats in most studies, and no major safety problems appear.</dd>
+            <dt>Likely deal</dt><dd>A research partnership or license, with most of the value tied to future milestones.</dd>
+            <dt>Closest comparison</dt><dd>Moderna and Carisma, 2022: $45M upfront plus $35M equity for discovery-stage CAR-macrophage work.</dd>
+          </dl>
+        </div>
+        <div class="card scen s2">
+          <h3>Favorable</h3>
+          <div class="range">$150M–$450M</div><p class="pershare"><span class="ps pending" data-lo="150" data-hi="450">Per share: pending share count</span></p><p class="up">Roughly $25M–$100M upfront</p>
+          <dl>
+            <dt>What the studies show</dt><dd>Consistent, statistically clear tumor shrinkage and longer survival across studies; engineered macrophages found in tumors and T cells recruited; activity in more than one tumor model.</dd>
+            <dt>Likely deal</dt><dd>A license with an option to acquire, or a smaller acquisition.</dd>
+            <dt>Closest comparisons</dt><dd>Gilead and Interius, $350M (Phase 1). AbbVie and Umoja, up to $1.44B in an option deal (IND-enabling).</dd>
+          </dl>
+        </div>
+        <div class="card scen s3">
+          <h3>Very favorable</h3>
+          <div class="range">$450M–$1.2B</div><p class="pershare"><span class="ps pending" data-lo="450" data-hi="1200">Per share: pending share count</span></p><p class="up">Roughly $100M–$350M upfront</p>
+          <dl>
+            <dt>What the studies show</dt><dd>Complete tumor regression in mice treated with MOTO-CARs, lasting cures that resist a second tumor challenge (immune memory), activity across several tumor types and with no secondary side effects.</dd>
+            <dt>Likely deal</dt><dd>An acquisition, especially if more than one buyer is interested.</dd>
+            <dt>Closest comparisons</dt><dd>AstraZeneca and EsoBiotec, $425M upfront and up to $1B. Orbital ($1.5B) and Orna ($2.4B) sold preclinical but with far more data and funding behind them.</dd>
+          </dl>
+        </div>
+      </div>
+
+
+      <h3 style="margin:34px 0 6px">Another view: value by stage at the time of sale</h3>
+      <p style="color:var(--muted);max-width:720px;margin:0 0 14px">Buyers pay more the further a program has advanced, because each stage removes risk. This shows illustrative ranges for Thunder if it sold at each stage, alongside what was paid for companies at that stage.</p>
+      <div class="vbar" role="img" aria-label="Value by stage of sale: preclinical $40M to $1.2B, in clinical trials $300M to $2.5B, under FDA review $2B to $8B">
+        <p class="vbar-title">Illustrative deal value by stage of sale</p>
+        <p class="vbar-sub">Bars are illustrative ranges for Thunder; grey dots are past deals at that stage. Log scale. Hover or tap a dot for the deal.</p>
+        <div class="vrow"><div class="lbl">Preclinical <b class="rng">$40M–$1.2B</b><small>After the mouse studies</small></div>
+          <div class="track"><div class="grid" style="left:15.9%"></div><div class="grid" style="left:33.33%"></div><div class="grid" style="left:49.24%"></div><div class="grid" style="left:66.67%"></div><div class="grid" style="left:82.57%"></div><div class="band s1" style="left:20.07%;width:49.24%" tabindex="0" data-tip="Preclinical: $40M–$1.2B, depending on study results"></div><span class="stage-dot" style="left:30.1%" tabindex="0" data-tip="Moderna–Carisma (2022): $80M partnership, discovery stage"></span><span class="stage-dot" style="left:72.54%" tabindex="0" data-tip="BMS–Orbital (2025): ~$1.5B"></span><span class="stage-dot" style="left:79.34%" tabindex="0" data-tip="Lilly–Orna (2026): up to $2.4B"></span><span class="stage-dot" style="left:80.39%" tabindex="0" data-tip="J&amp;J–Sail (2026): option to buy for $2.58B plus $785M upfront"></span></div></div>
+        <div class="vrow"><div class="lbl">In clinical trials <b class="rng">$300M–$2.5B</b><small>With early human data</small></div>
+          <div class="track"><div class="grid" style="left:15.9%"></div><div class="grid" style="left:33.33%"></div><div class="grid" style="left:49.24%"></div><div class="grid" style="left:66.67%"></div><div class="grid" style="left:82.57%"></div><div class="band s2" style="left:49.24%;width:30.69%" tabindex="0" data-tip="In clinical trials: $300M–$2.5B with encouraging Phase 1 data"></div><span class="stage-dot" style="left:50.17%" tabindex="0" data-tip="AstraZeneca–Neogene (2022): up to $320M"></span><span class="stage-dot" style="left:51.47%" tabindex="0" data-tip="Gilead–Interius (2025): $350M"></span><span class="stage-dot" style="left:66.67%" tabindex="0" data-tip="AstraZeneca–EsoBiotec (2025): up to $1B"></span><span class="stage-dot" style="left:69.31%" tabindex="0" data-tip="AstraZeneca–Gracell (2023): up to $1.2B"></span><span class="stage-dot" style="left:72.54%" tabindex="0" data-tip="Roche–Poseida (2024): up to $1.5B"></span><span class="stage-dot" style="left:77.41%" tabindex="0" data-tip="AbbVie–Capstan (2025): up to $2.1B"></span><span class="stage-dot" style="left:78.47%" tabindex="0" data-tip="Pfizer–Trillium (2021): $2.26B"></span><span class="stage-dot" style="left:94.84%" tabindex="0" data-tip="Lilly–Kelonia (2026): up to $7B"></span></div></div>
+        <div class="vrow"><div class="lbl">Under FDA review <b class="rng">$2B–$8B</b><small>Approval application filed</small></div>
+          <div class="track"><div class="grid" style="left:15.9%"></div><div class="grid" style="left:33.33%"></div><div class="grid" style="left:49.24%"></div><div class="grid" style="left:66.67%"></div><div class="grid" style="left:82.57%"></div><div class="band s3" style="left:76.7%;width:20.07%" tabindex="0" data-tip="Under FDA review: $2B–$8B"></div><span class="stage-dot" style="left:96.4%" tabindex="0" data-tip="Gilead–Arcellx (2026): $7.8B, under FDA review"></span></div></div>
+        <div class="vrow"><div></div><div class="axis"><span style="left:0">$10M</span><span style="left:15.9%">$30M</span><span style="left:33.33%">$100M</span><span style="left:49.24%">$300M</span><span style="left:66.67%">$1B</span><span style="left:82.57%">$3B</span><span style="left:100%">$10B</span></div></div>
+        <div class="vlegend"><span><i style="background:var(--s1)"></i>Preclinical</span><span><i style="background:var(--s2)"></i>In clinical trials</span><span><i style="background:var(--s3)"></i>Under FDA review</span><span><i style="background:var(--muted);border-radius:50%"></i>Past deal at that stage</span></div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Stage at sale</th><th>Illustrative range for Thunder</th><th>Per share*</th><th>Past deals at this stage</th><th>What it takes to get there</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Preclinical</strong></td><td class="val">$40M–$1.2B</td><td class="val"><span class="ps pending" data-lo="40" data-hi="1200">Per share: pending share count</span></td><td>Carisma $80M (partnership), Orbital ~$1.5B, Orna up to $2.4B, Sail $2.58B option</td><td>The planned 3–5 mouse studies. Where in the range depends on the results (see above).</td></tr>
+            <tr><td><strong>In clinical trials</strong></td><td class="val">$300M–$2.5B</td><td class="val"><span class="ps pending" data-lo="300" data-hi="2500">Per share: pending share count</span></td><td>8 deals from $320M (Neogene) to $7B (Kelonia); middle value about $1.35B</td><td>Safety studies, manufacturing, an FDA IND filing and a first-in-human trial: typically several years and substantial new capital.</td></tr>
+            <tr><td><strong>Under FDA review</strong></td><td class="val">$2B–$8B</td><td class="val"><span class="ps pending" data-lo="2000" data-hi="8000">Per share: pending share count</span></td><td>Arcellx $7.8B (only close example in the period)</td><td>Successful later-stage trials and an approval filing: typically many years and very large investment. Most cancer drugs that enter human trials never reach this stage.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="deal-note">*Per-share figures divide the sale price by today's fully diluted share count. They are a simplification: actual proceeds per share also depend on preferred-stock terms, debt, deal costs and any convertible notes or SAFEs. Reaching later stages would require issuing new shares, so per-share values at those stages would be lower than shown.</p>
+      <p class="deal-note">Later stages command higher prices, but reaching them takes years, requires raising more money (which dilutes existing shareholders), and carries a real chance the program fails along the way.</p>
+      <div class="callout" style="margin-top:22px"><p><strong>How these ranges were set.</strong> They start from what buyers paid for the closest past deals, then are discounted because Thunder would still be at the mouse-study stage, while most of those companies had human data or were ready to start trials, and had raised far more capital. Two factors work in Thunder's favor: no macrophage-engineering company has been acquired yet, and its unique patent portfolio dates to 2015 with 18 issued patents. The next large step up in value typically comes with IND-enabling safety studies and the first human data.</p></div>
+      <p class="deal-note">These are illustrative scenarios, not a valuation, forecast or offer. Actual outcomes depend on study results, market conditions, buyer interest and many other factors, and Thunder may not be acquired or partnered at all. "Headline" values include milestone payments that may never be paid.</p>
+    </div>
+  </section>
+
+  <!-- DEALS -->
+  <section id="deals">
+    <div class="deals-hero">
+      <svg class="motif" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="20" fill="#fff"></circle><g fill="#fff"><circle cx="24" cy="3.5" r="3"></circle><circle cx="41" cy="12" r="2.6"></circle><circle cx="44.5" cy="30" r="2.6"></circle><circle cx="33" cy="44" r="3"></circle><circle cx="13" cy="44.5" r="2.4"></circle><circle cx="3.5" cy="31" r="2.6"></circle><circle cx="5" cy="13" r="2.4"></circle></g><circle cx="24" cy="24" r="8.5" fill="#0f6f65"></circle><circle cx="24" cy="24" r="3.6" fill="#fff"></circle></svg>
+      <div class="wrap">
+        <div class="eyebrow">Deals &amp; Valuations</div>
+        <h2>What large pharma has paid for engineered immune-cell companies</h2>
+        <p class="lede">Acquisitions announced since August 2021 in three groups: macrophage-targeted cancer therapy, in vivo CAR (programming immune cells inside the body, Thunder's approach), and engineered cell therapy more broadly.</p>
+        <div class="hero-stats">
+          <div class="hero-stat"><b>12</b><span>acquisitions by large pharma in five years</span></div>
+          <div class="hero-stat"><b>~$27B</b><span>combined headline value of the 11 with disclosed terms</span></div>
+          <div class="hero-stat"><b>8</b><span>in vivo CAR deals since 2024: 6 buyouts and 2 buyout options</span></div>
+          <div class="hero-stat"><b>$350M → $7B</b><span>in vivo deal size, Aug 2025 to Apr 2026</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="wrap">
+      <div class="group-label" style="margin-top:0">1 · In vivo CAR: programming immune cells inside the body</div>
+      <p class="deal-note" style="margin:0 0 12px">This market is young. The first large-pharma purchase of an in vivo CAR company was announced in March 2025, so the record below also includes options to acquire.</p>
+
+      <h3 style="margin:18px 0 8px">Acquired by large pharma</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Date</th><th>Acquirer</th><th>Company</th><th>Technology</th><th>Lead use</th><th>Stage at deal</th><th>Value</th></tr></thead>
+          <tbody>
+            <tr><td>Apr 2026</td><td>Eli Lilly</td><td><strong>Kelonia Therapeutics</strong></td><td>Lentiviral gene delivery to T cells (KLN-1010, BCMA)</td><td>Multiple myeloma</td><td><span class="pill good">Phase 1</span></td><td class="val">$3.25B upfront,<br>up to $7B</td></tr>
+            <tr><td>Feb 2026</td><td>Eli Lilly</td><td><strong>Orna Therapeutics</strong></td><td>Circular RNA in LNP (ORN-252, CD19)</td><td>Autoimmune disease</td><td><span class="pill warn">Preclinical (trial-ready)</span></td><td class="val">Up to $2.4B</td></tr>
+            <tr><td>Oct 2025</td><td>Bristol Myers Squibb</td><td><strong>Orbital Therapeutics</strong></td><td>Circular RNA in LNP (OTX-201)</td><td>Autoimmune disease</td><td><span class="pill warn">Preclinical</span></td><td class="val">~$1.5B cash</td></tr>
+            <tr><td>Aug 2025</td><td>Gilead / Kite</td><td><strong>Interius BioTherapeutics</strong></td><td>Lentiviral in vivo CAR (CD20)</td><td>B-cell cancers</td><td><span class="pill good">Phase 1</span></td><td class="val">$350M</td></tr>
+            <tr><td>Jun 2025</td><td>AbbVie</td><td><strong>Capstan Therapeutics</strong></td><td>Targeted LNP, mRNA CAR-T (CPTX2309)</td><td>Autoimmune disease</td><td><span class="pill good">Phase 1</span></td><td class="val">Up to $2.1B</td></tr>
+            <tr><td>Mar 2025</td><td>AstraZeneca</td><td><strong>EsoBiotec</strong></td><td>Lentiviral delivery to immune cells (ENaBL)</td><td>Cancer</td><td><span class="pill good">Early clinical</span></td><td class="val">$425M upfront,<br>up to $1B</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 style="margin:22px 0 8px">Options to acquire</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Date</th><th>Option holder</th><th>Company</th><th>Technology</th><th>Lead use</th><th>Stage at deal</th><th>Value</th></tr></thead>
+          <tbody>
+            <tr><td>Jul 2026</td><td>Johnson &amp; Johnson</td><td><strong>Sail Biomedicines</strong></td><td>"Endless" RNA with programmable nanoparticles (SAIL-0839)</td><td>Autoimmune disease</td><td><span class="pill warn">Preclinical</span></td><td class="val">$785M upfront (incl. $465M equity);<br>option to buy for $2.58B</td></tr>
+            <tr><td>Jan 2024</td><td>AbbVie</td><td><strong>Umoja Biopharma</strong></td><td>Lentiviral in situ CAR-T (UB-VV111, CD19)</td><td>Blood cancers</td><td><span class="pill warn">IND-enabling</span></td><td class="val">Up to $1.44B<br>(option + milestones)</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="deal-note">Related licensing deal: Kite and Pregene, Oct 2025, $120M upfront, up to $1.64B. Orna had itself bought ReNAgade Therapeutics in 2024 to strengthen its delivery technology before Lilly acquired it.</p>
+
+      <div class="group-label">2 · Macrophage-targeted cancer therapy</div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Date</th><th>Buyer / partner</th><th>Company</th><th>Technology</th><th>Stage at deal</th><th>Value</th></tr></thead>
+          <tbody>
+            <tr><td>Jan 2022</td><td>Moderna <em>(partnership)</em></td><td><strong>Carisma Therapeutics</strong></td><td>In vivo CAR-macrophage (CAR-M), up to 12 cancer targets</td><td><span class="pill warn">Discovery</span></td><td class="val">$45M upfront<br>+ $35M equity</td></tr>
+            <tr><td>Aug 2021</td><td>Pfizer</td><td><strong>Trillium Therapeutics</strong></td><td>CD47 / SIRPα blockers that unleash macrophages to eat cancer cells</td><td><span class="pill good">Phase 1b/2</span></td><td class="val">$2.26B<br>($18.50/share, 118% premium)</td></tr>
+            <tr><td style="color:var(--muted)">Mar 2020</td><td style="color:var(--muted)">Gilead</td><td><strong>Forty Seven</strong> <em style="color:var(--muted)">(earlier landmark)</em></td><td>CD47 antibody (magrolimab); later discontinued in 2024</td><td><span class="pill good">Clinical</span></td><td class="val">$4.9B</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="deal-note">No company that engineers macrophages has been acquired yet. Moderna now holds a fully paid-up license to Carisma's technology. Forty Seven falls just outside the five-year window and is not counted in the totals above.</p>
+
+      <div class="group-label">3 · Engineered cell therapy (cells engineered outside the body)</div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Date</th><th>Acquirer</th><th>Company</th><th>Technology</th><th>Stage at deal</th><th>Value</th></tr></thead>
+          <tbody>
+            <tr><td>Feb 2026</td><td>Gilead</td><td><strong>Arcellx</strong></td><td>CAR-T (anito-cel), multiple myeloma</td><td><span class="pill good">Under FDA review</span></td><td class="val">$7.8B<br>($115/share, 79% premium)</td></tr>
+            <tr><td>Nov 2024</td><td>Roche</td><td><strong>Poseida Therapeutics</strong></td><td>Off-the-shelf (allogeneic) CAR-T</td><td><span class="pill good">Phase 1</span></td><td class="val">~$1.0B upfront,<br>up to $1.5B</td></tr>
+            <tr><td>Dec 2023</td><td>AstraZeneca</td><td><strong>Gracell Biotechnologies</strong></td><td>Fast-manufactured CAR-T (FasTCAR)</td><td><span class="pill good">Clinical</span></td><td class="val">Up to $1.2B</td></tr>
+            <tr class="flag"><td>Dec 2022</td><td>Gilead / Kite</td><td><strong>Tmunity Therapeutics</strong></td><td>"Armored" CAR-T for solid tumors, including a <strong>mesothelin</strong> program (Thunder's lead target)</td><td><span class="pill good">Phase 1</span></td><td class="val">Undisclosed</td></tr>
+            <tr><td>Nov 2022</td><td>AstraZeneca</td><td><strong>Neogene Therapeutics</strong></td><td>TCR-T for solid tumors (e.g., mutated KRAS, TP53)</td><td><span class="pill good">Clinical</span></td><td class="val">$200M upfront,<br>up to $320M</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="deal-note">"Up to" values include milestone payments that are only paid if development, regulatory or sales goals are met. Headline totals use the full "up to" figure.</p>
+
+      <div class="group-label takeaways">What the deals show</div>
+      <div class="grid">
+        <div class="card"><h3>Buyers pay before human data</h3><p>Lilly paid up to $2.4B for Orna and Bristol Myers Squibb paid about $1.5B for Orbital while both were preclinical, and J&amp;J put $785M into preclinical Sail. Platform technology alone has commanded large prices.</p></div>
+        <div class="card"><h3>Prices are climbing fast</h3><p>In vivo CAR deal sizes rose from $350M (Interius, Aug 2025) to as much as $7B (Kelonia, Apr 2026) in eight months, as more large companies competed for a limited number of platforms.</p></div>
+        <div class="card"><h3>Macrophages are the next frontier</h3><p>Every in vivo company bought so far targets T cells. No macrophage-engineering company has been acquired, and the only in vivo CAR-macrophage human data so far comes from CREATE Medicines, which remains independent.</p></div>
+        <div class="card"><h3>Autoimmune is a major draw</h3><p>Four of the eight in vivo deals (Capstan, Orbital, Orna and Sail) are aimed at autoimmune disease, not cancer. Thunder's M2 program, which calms inflammation, points at the same market.</p></div>
+        <div class="card"><h3>Mesothelin has been bought before</h3><p>Kite's purchase of Tmunity included a Phase 1 mesothelin-targeted CAR-T for solid tumors, the same target as Thunder's lead MOTO-CAR program.</p></div>
+      </div>
+      <p class="deal-note" style="margin-top:16px">Past transactions are not a prediction of any future transaction or valuation for Thunder Biotech.</p>
+    </div>
+  </section>
+
+  <!-- EDGE -->
+  <section id="edge">
+    <div class="wrap">
+      <h2>What Sets Thunder Apart</h2>
+      <p class="intro">Thunder is an early-stage company in a field where the first movers stumbled and the money is moving to in vivo approaches. Here is where it stands out.</p>
+      <div class="grid">
+        <div class="card"><h3>Early, foundational patents</h3><p>Thunder's macrophage-CAR filings date back to 2015, years before any CAR-macrophage therapy entered human testing. The portfolio now spans 28 filings in 10 jurisdictions, with 18 issued (9 in the US) and 10 still pending.</p></div>
+        <div class="card"><h3>Built for in vivo</h3><p>Thunder's lead program uses lipid nanoparticles, the same delivery approach behind the field's first in vivo human data and behind several of the large pharma acquisitions above.</p></div>
+        <div class="card"><h3>Both directions of the switch</h3><p>Thunder's patents describe converting macrophages toward M1 to fight cancer and toward M2 to calm inflammation. That supports two markets: solid tumors and inflammatory/autoimmune disease.</p></div>
+        <div class="card"><h3>Learned from the first wave</h3><p>Carisma, the leading ex vivo company, dropped its HER2 programs amid crowded HER2 competition and tumors losing the HER2 marker. Thunder's in vivo approach avoids cell manufacturing, and its lead target, mesothelin, is expressed across many cancer types.</p></div>
+        <div class="card"><h3>Deep scientific founder</h3><p>Founder and CSO Kim O'Neill, PhD, has 40 years of cancer research experience at Brigham Young University, 155 peer-reviewed papers and 9 issued patents.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PATENTS -->
+  <section id="patents">
+    <div class="wrap">
+      <h2>Patents</h2>
+      <p class="intro">Thunder's macrophage-CAR portfolio dates to a 2015 priority date and now spans 28 filings in 4 families across 10 jurisdictions — 18 issued (9 in the US) and 10 still pending. The core family, "Transgenic macrophages, chimeric antigen receptors, and associated methods," is assigned to Thunder Biotech, Inc., with Kim O'Neill as inventor.</p>
+
+      <div class="grid">
+        <div class="card"><div class="stat">28</div><p>patent filings in 4 families</p></div>
+        <div class="card"><div class="stat">18</div><p>issued, including 9 US patents</p></div>
+        <div class="card"><div class="stat">10</div><p>jurisdictions: US, Europe, China, Japan, Korea, India and more</p></div>
+        <div class="card"><div class="stat">2015</div><p>earliest priority date</p></div>
+      </div>
+
+      <div class="group-label">Core granted US patents</div>
+
+      <div class="grid">
+        <div class="card patent">
+          <div class="num">US 10,415,017</div><span class="pill good">Granted</span>
+          <dl><dt>Filed</dt><dd>May 17, 2017</dd><dt>Granted</dt><dd>Sep 17, 2019</dd><dt>Est. expiry*</dt><dd>Jan 2038</dd></dl>
+        </div>
+        <div class="card patent">
+          <div class="num">US 10,889,803</div><span class="pill good">Granted</span>
+          <dl><dt>Filed</dt><dd>Sep 16, 2019</dd><dt>Granted</dt><dd>Jan 12, 2021</dd><dt>Est. expiry*</dt><dd>May 2037</dd></dl>
+        </div>
+        <div class="card patent">
+          <div class="num">US 12,024,719</div><span class="pill good">Granted</span>
+          <dl><dt>Filed</dt><dd>Jan 11, 2021</dd><dt>Granted</dt><dd>Jul 2, 2024</dd><dt>Est. expiry*</dt><dd>Nov 2038</dd></dl>
+        </div>
+      </div>
+
+      <div class="group-label">Pending and related filings</div>
+      <ul class="clean">
+        <li><strong>US 2025/0075181</strong> — continuation in the same family (published Mar 2025)</li>
+        <li><strong>US 2025/0082679</strong> — "Method of Targeting Cells and Associated Compositions" (published Mar 2025)</li>
+        <li><strong>WO 2018/212770</strong> — international (PCT) application in the family</li>
+      </ul>
+
+      <div class="group-label">What the patents describe</div>
+      <div class="grid">
+        <div class="card"><h3>The receptor</h3><p>A chimeric receptor built from an outer targeting domain, a transmembrane domain, and an inner signaling domain taken from receptors that polarize macrophages when activated.</p></div>
+        <div class="card"><h3>The switch</h3><p>Binding the target activates the receptor and drives the macrophage toward M1 (anti-tumor) or M2 (anti-inflammatory), depending on design.</p></div>
+        <div class="card"><h3>Broad building blocks</h3><p>Signaling domains described include TLR3, TLR4, TLR7, TLR8, TLR9, MYD88, IRAK1, FCGR2A, FCGR3A and FCER1G. Targets described include mesothelin, HER2, GPC3, CEA, ROR1, EGFRvIII, GD2, BCMA, CD19 and others.</p></div>
+      </div>
+
+      <div class="group-label">Timeline</div>
+      <div class="timeline">
+        <div><b>2015</b><span>Earliest patent priority date — macrophage-CAR filings begin</span></div>
+        <div><b>Sep 2019</b><span>First US patent granted</span></div>
+        <div><b>2021</b><span>First CAR-macrophage therapy dosed in humans (Carisma, NCT04660929)</span></div>
+        <div><b>Jan 2021</b><span>Second US patent granted</span></div>
+        <div><b>Jul 2024</b><span>Third US patent granted; named Utah Patent of the Month (Aug 2024)</span></div>
+        <div><b>Mar 2025</b><span>Two further applications published</span></div>
+      </div>
+
+      <p style="color:var(--muted);font-size:13px;margin-top:18px">*Estimated expiration dates are Google Patents estimates, not legal determinations. The scope of protection is defined by each patent's claims; descriptions above summarize the patent disclosures.</p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="faq">
+    <div class="wrap">
+      <h2>Investor FAQ</h2>
+      <p class="intro">Short answers to the questions investors ask most. Each links back to the detail above.</p>
+
+      <div class="group-label">The science</div>
+      <details>
+        <summary>What does Thunder Biotech do?</summary>
+        <div class="a"><p>Thunder is developing MOTO-CAR, an immunotherapy that reprograms macrophages, a type of immune cell, to attack solid tumors. Its lead program delivers the instructions directly inside the body using lipid nanoparticles, the same delivery technology used in mRNA vaccines.</p></div>
+      </details>
+      <details>
+        <summary>What is a CAR-macrophage, and how is it different from CAR-T?</summary>
+        <div class="a"><p>Both add a chimeric antigen receptor (CAR) to an immune cell so it can recognize a cancer marker. CAR-T uses T cells and has transformed blood cancers, but it has struggled in solid tumors, which make up most cancer cases.</p><p>Macrophages already gather in solid tumors in large numbers, can engulf tumor cells directly, and recruit T cells to join the attack. They also lack a T-cell receptor, so they cannot cause graft-versus-host disease, and reviews report lower cytokine-release risk than CAR-T. <a href="#science">More in The Science</a></p></div>
+      </details>
+      <details>
+        <summary>How does MOTO-CAR work?</summary>
+        <div class="a"><p>A lipid nanoparticle carries genetic instructions for the CAR to macrophages. When the CAR finds its target on a cancer cell, it flips the macrophage from a tumor-protecting "M2" state into a cancer-fighting "M1" state. The activated macrophage attacks the tumor and brings in T cells, which may build immune memory against recurrence. <a href="#science">See the four steps</a></p></div>
+      </details>
+      <details>
+        <summary>Why target mesothelin?</summary>
+        <div class="a"><p>Mesothelin is a marker found on many cancer types, which gives one program a broad potential reach. It also avoids the crowded HER2 space, which contributed to the first-generation CAR-macrophage company dropping its programs. Thunder's patents describe many other targets as well, including HER2, GPC3, CEA and ROR1. <span class="tbd">[Rob to confirm: lead indication(s), e.g. mesothelioma, ovarian, pancreatic]</span></p></div>
+      </details>
+      <details>
+        <summary>What does "in vivo" mean, and why does it matter?</summary>
+        <div class="a"><p>In vivo means the cells are programmed inside the patient's body. The first wave of CAR-macrophage therapies removed cells, engineered them in a lab and infused them back, which is slow and expensive. Programming cells in the body skips manufacturing altogether. This is where the field and large pharma investment have moved, and it is the approach in Thunder's lead program.</p></div>
+      </details>
+
+      <div class="group-label">The company</div>
+      <details>
+        <summary>What stage is Thunder at?</summary>
+        <div class="a"><p>Preclinical. The mesothelin MOTO-CAR program has shown tumor control in an immunocompetent mouse model, meaning a model with a working immune system, which matters for a therapy that relies on recruiting the immune system. <span class="tbd">[Rob to confirm: next milestones and target timing, e.g. IND-enabling studies, IND filing, first patient]</span></p></div>
+      </details>
+      <details>
+        <summary>What intellectual property does Thunder own?</summary>
+        <div class="a"><p>Thunder's macrophage-CAR portfolio dates to a 2015 priority, filed before any CAR-macrophage therapy had entered human testing. It now spans 28 filings in 4 families across 10 jurisdictions, with 18 issued (9 in the US) and 10 still pending. The three granted US patents (2019, 2021 and 2024) have estimated expirations running to 2037–2038. The patents cover the receptor design, the M1/M2 switch, and a broad set of signaling domains and targets. <a href="#patents">See Patents</a></p></div>
+      </details>
+      <details>
+        <summary>Is cancer the only market?</summary>
+        <div class="a"><p>No. Thunder's patents describe switching macrophages in both directions: toward M1 to fight cancer, and toward M2 to calm inflammation. That supports a second program in inflammatory and autoimmune disease, an area where other macrophage companies such as Resolution Therapeutics are already in clinical trials. <span class="tbd">[Rob to confirm: status of the anti-inflammatory program]</span></p></div>
+      </details>
+      <details>
+        <summary>Who leads the company?</summary>
+        <div class="a"><p>Founder and Chief Scientific Officer Kim O'Neill, PhD, has 40 years of cancer research experience at Brigham Young University, 155 peer-reviewed papers and 9 issued patents. He is the inventor on Thunder's core patent family. <span class="tbd">[Rob to add: CEO, other executives, board and scientific advisors]</span></p></div>
+      </details>
+      <details>
+        <summary>Who are the main competitors?</summary>
+        <div class="a"><p>The closest are CREATE Medicines (formerly Myeloid Therapeutics), which reported early human data for its in vivo approach in 2025, and Moderna, which has a preclinical in vivo CAR-macrophage program. Other macrophage companies work ex vivo or outside oncology. <a href="#landscape">See the full landscape</a></p></div>
+      </details>
+
+      <div class="group-label">Risk and opportunity</div>
+      <details>
+        <summary>The first CAR-macrophage company shut down. Why should investors still believe in the field?</summary>
+        <div class="a"><p>Carisma Therapeutics, which used the ex vivo approach, wound down in 2025 after dropping its HER2 programs. Its challenges were largely tied to that model: costly cell manufacturing, crowded HER2 competition, and tumors losing the HER2 marker.</p><p>The in vivo approach avoids manufacturing entirely, and it is producing the field's first encouraging human signals: in November 2025, CREATE Medicines reported a confirmed partial response and engineered cells inside tumors in a 27-patient Phase 1 study. Those are early results from a small study, not proof of efficacy.</p></div>
+      </details>
+      <details>
+        <summary>Is large pharma interested in this kind of technology?</summary>
+        <div class="a"><p>Yes. Large pharma acquired twelve companies developing engineered immune-cell therapies between August 2021 and April 2026, with about $27 billion in combined headline value. The fastest-moving group is in vivo CAR: AstraZeneca, AbbVie, Gilead/Kite, Bristol Myers Squibb and Eli Lilly (twice) bought six in vivo companies in 14 months, in deals worth $350 million to $7 billion, including at least one at the preclinical stage. Those companies focus on T cells rather than macrophages, but they show the value placed on in vivo platforms. <a href="#deals">See Deals &amp; Valuations</a></p></div>
+      </details>
+      <details>
+        <summary>What are the main risks?</summary>
+        <div class="a"><p>Like any preclinical biotech, results in animals may not carry over to people, and clinical development takes years and significant capital. Specific to the field: engineered macrophages may not persist long enough in the body, nanoparticles tend to accumulate in the liver and spleen, and the degree of cell reprogramming is hard to standardize. Thunder also competes with larger, better-funded companies.</p></div>
+      </details>
+      <details>
+        <summary>How much is Thunder raising, and what will the money fund?</summary>
+        <div class="a"><p><span class="tbd">[Rob to add: round size, instrument, use of proceeds and the milestones it reaches]</span></p></div>
+      </details>
+      <details>
+        <summary>How can I learn more or invest?</summary>
+        <div class="a"><p><span class="tbd">[Rob to add: contact person and email, or a link to schedule a call]</span></p></div>
+      </details>
+    </div>
+  </section>
+
+  <!-- NEXT -->
+  <section id="next">
+    <div class="wrap">
+      <h2>Coming Next</h2>
+      <div class="grid">
+        <div class="card"><h3>Pipeline &amp; milestones</h3><p>Programs, stages, and what's next for Thunder.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOURCES -->
+  <section id="sources">
+    <div class="wrap sources">
+      <h2 style="font-size:22px">Sources</h2>
+      <p>Research current as of October 14, 2026.</p>
+      <ol>
+        <li><a href="https://thunderbiotech.com/our-science/">Thunder Biotech — Our Science</a>, <a href="https://thunderbiotech.com/pipeline/">Pipeline</a>, <a href="https://thunderbiotech.com/our-team/">Our Team</a></li>
+        <li><a href="https://patents.google.com/patent/US10415017B2/en">US 10,415,017 B2</a> · <a href="https://patents.google.com/patent/US10889803">US 10,889,803 B2</a> · <a href="https://patents.google.com/patent/US12024719">US 12,024,719 B2</a> (Google Patents)</li>
+        <li><a href="https://trea.com/industry/macrophages/937f281e-3ecb-45d5-b9ab-b840c225ef5a">Trea — macrophage patent filings</a></li>
+        <li><a href="https://www.swansonreed.com/?p=36398">Swanson Reed — Utah Patent of the Month, August 2024</a></li>
+        <li><a href="https://www.nature.com/articles/s41698-025-01170-7">npj Precision Oncology (Nov 2025) — CAR-macrophages in solid tumors: promise, progress, and prospects</a></li>
+        <li><a href="https://www.1stoncology.com/blog/?p=106829">CREATE Medicines — MT-302 first-in-human results (Nov 2025)</a></li>
+        <li><a href="https://www.stocktitan.net/overview/CARM">Carisma Therapeutics — company status</a> · <a href="https://www.fiercebiotech.com/biotech/carisma-axes-sole-clinical-cell-therapy-candidate-lays-23-workers">Fierce Biotech (Dec 2024)</a></li>
+        <li><a href="https://www.fiercebiotech.com/research/carismas-moderna-powered-vivo-macrophage-cell-therapy-shrinks-lung-and-liver-tumors-mice">Fierce Biotech — Carisma/Moderna in vivo CAR-M (Nov 2024)</a></li>
+        <li><a href="https://targetedonc.com/view/sirpant-m-receives-fda-orphan-drug-designation-for-t-cell-lymphoma">Targeted Oncology — SIRPant-M orphan designation</a></li>
+        <li><a href="https://www.clinicaltrialsarena.com/news/resolution-scores-83m-to-develop-macrophage-cell-therapies/">Clinical Trials Arena — Resolution Therapeutics Series B</a></li>
+        <li><a href="https://www.biospace.com/cellorigin-biotech-announces-global-strategic-collaboration-with-qilu-pharma-to-develop-and-quot-off-the-shelf-and-quot-car-imac-cell-therapy">BioSpace — CellOrigin / Qilu collaboration</a></li>
+        <li><a href="https://www.morningstar.co.uk/uk/news/AN_1747727726234611500/astrazeneca-completes-esobiotec-acquisition-for-up-to-usd1-billion.aspx">AstraZeneca / EsoBiotec</a> · <a href="https://synapse.patsnap.com/article/abbvie-acquires-capstan-for-21b-targets-in-vivo-car-t-market">AbbVie / Capstan</a> · <a href="https://www.fiercebiotech.com/biotech/gileads-kite-sails-vivo-car-t-space-350m-interius-buyout">Gilead / Interius</a> · <a href="https://www.apexonco.com/node/1635">BMS / Orbital</a> · <a href="https://biocentury.com/article/658369/lilly-s-orna-deal-marks-fifth-takeout-of-an-in-vivo-car-t-play-in-two-years">Lilly / Orna</a> · <a href="https://www.biopharmadive.com/news/lilly-kelonia-acquire-in-vivo-cell-therapy-multiple-myeloma/817953/">Lilly / Kelonia</a> · <a href="https://www.fiercebiotech.com/biotech/frenzied-feeding-playing-defense-and-disruption-lillys-kelonia-acquisition-and-future-vivo">Fierce Biotech — in vivo deal landscape (Apr 2026)</a></li>
+        <li><a href="https://www.fiercebiotech.com/biotech/jj-pays-sail-785m-charting-course-possible-vivo-car-t-buyout">J&amp;J / Sail Biomedicines</a> · <a href="https://www.fiercebiotech.com/biotech/lilly-buys-orna-24b-enter-vivo-car-t-arena">Lilly / Orna (Fierce Biotech)</a> · <a href="https://www.insideprecisionmedicine.com/topics/precision-medicine/bristol-myers-squibb-moves-into-in-vivo-car-t-with-1-5-billion-orbital-buy/">BMS / Orbital (Inside Precision Medicine)</a> · <a href="https://www.astrazeneca.com/media-centre/press-releases/2025/astrazeneca-to-acquire-esobiotec.html">AstraZeneca / EsoBiotec (press release)</a> · <a href="https://www.noah.bio/insight/860c6ff4-d6ff-4db0-8f38-07c0f7f72ebc">In vivo CAR-T landscape 2021–2026</a></li>
+        <li><a href="https://www.biospace.com/article/releases/orna-therapeutics-announces-strategic-acquisition-of-renagade-therapeutics-to-solidify-leadership-in-circular-rna-therapies/">Orna / ReNAgade</a></li>
+        <li><a href="https://www.fiercebiotech.com/biotech/kite-puts-16b-line-pair-chinas-pregene-another-vivo-car-t-deal">Kite / Pregene</a> · <a href="https://news.abbvie.com/2024-01-04-AbbVie-and-Umoja-Biopharma-Announce-Strategic-Collaboration-to-Develop-Novel-In-Situ-CAR-T-Cell-Therapies">AbbVie / Umoja</a> · <a href="https://www.fiercebiotech.com/biotech/moderna-finds-carisma-s-macrophage-tech-compelling-enough-for-45m-cancer-research-deal">Moderna / Carisma (Jan 2022)</a></li>
+        <li><a href="https://www.pharmtech.com/view/pfizer-to-acquire-trillium-therapeutics-in-2-26-billion-deal">Pfizer / Trillium</a> · <a href="https://eureka.patsnap.com/blog/life-science/cd47-competitive-landscape-analysis/">CD47 deal history incl. Gilead / Forty Seven</a></li>
+        <li><a href="https://biopharmadive.com/news/gilead-arcellx-acquire-multiple-myeloma-cell-therapy-anito-cel/812798">Gilead / Arcellx</a> · <a href="https://www.alacrita.com/whitepapers/cell-therapy-financing-beyond-car-t">Alacrita — cell therapy M&amp;A (Roche / Poseida, AstraZeneca / Gracell)</a> · <a href="https://www.roche.com/media/releases/med-cor-2024-11-26b">Roche / Poseida</a> · <a href="https://pharmaphorum.com/news/gileads-kite-takes-control-of-car-t-partner-tmunity/">Kite / Tmunity</a> · <a href="https://www.businesswire.com/news/home/20221128005852/en/AstraZeneca-to-Acquire-Neogene-Therapeutics-Accelerating-Ambition-in-Oncology-Cell-Therapy">AstraZeneca / Neogene</a></li>
+      </ol>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">This guide is for informational purposes only and is not an offer to sell or a solicitation of an offer to buy any securities. Forward-looking statements involve risks and uncertainties. Thunder's programs are preclinical.</div>
+  </footer>
+<script>
+  // Fully diluted shares outstanding. Set this number and per-share values fill in everywhere.
+  const SHARES_OUTSTANDING = null;
+  (function () {
+    const fmt = v => v >= 10 ? '$' + Math.round(v).toLocaleString('en-US') : '$' + v.toFixed(2);
+    document.querySelectorAll('.ps').forEach(el => {
+      if (!SHARES_OUTSTANDING) { el.textContent = 'Per share: pending share count'; el.classList.add('pending'); return; }
+      const lo = el.dataset.lo * 1e6 / SHARES_OUTSTANDING, hi = el.dataset.hi * 1e6 / SHARES_OUTSTANDING;
+      el.textContent = (el.closest('td') ? '' : '≈ ') + fmt(lo) + '–' + fmt(hi) + (el.closest('td') ? '' : ' per share');
+    });
+  })();
+</script>
+
+
+
+</body></html>

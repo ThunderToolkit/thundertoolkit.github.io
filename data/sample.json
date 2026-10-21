@@ -1,0 +1,17 @@
+{
+  "slug": "sample",
+  "name": "Sample Investor",
+  "prepared": "October 21, 2026",
+  "fully_diluted_shares": 114368473,
+  "round_price": 0.30,
+  "accounts": [
+    {"label": "Sample Investor", "note": "Personal account", "shares": 500000, "invested": 150000},
+    {"label": "Sample Investor IRA", "note": "Retirement account", "shares": 100000, "invested": 50000}
+  ],
+  "stages": [
+    {"stage": "Preclinical (today)", "company_low": 40000000, "company_high": 150000000},
+    {"stage": "Strong mouse data", "company_low": 150000000, "company_high": 450000000},
+    {"stage": "IND / first human data", "company_low": 450000000, "company_high": 1200000000},
+    {"stage": "Positive Phase 1", "company_low": 1200000000, "company_high": 2500000000}
+  ]
+}
