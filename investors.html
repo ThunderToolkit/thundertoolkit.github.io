@@ -46,9 +46,7 @@
     .eyebrow { display: inline-block; font: 700 12px "Lato", sans-serif; letter-spacing: .12em; text-transform: uppercase; color: var(--accent-dark); background: var(--accent-soft); padding: 5px 12px; border-radius: 99px; }
     h1 { font: 900 clamp(32px, 6vw, 54px)/1.08 "Lato", sans-serif; letter-spacing: -.02em; margin: 16px 0 14px; }
     h2 { font: 700 clamp(24px, 4vw, 32px)/1.2 "Lato", sans-serif; letter-spacing: -.01em; margin: 0 0 10px; }
-    section > .wrap > h2 { position: relative; padding: 0 0 12px 18px; margin-bottom: 22px; border-bottom: 2px solid var(--line); }
-    section > .wrap > h2::before { content: ""; position: absolute; left: 0; top: .1em; height: 1em; width: 7px; border-radius: 4px; background: linear-gradient(180deg, #2fc5b2 0%, #0f6f65 100%); }
-    section > .wrap > h2::after { content: ""; position: absolute; left: 0; bottom: -2px; width: 132px; height: 2px; background: linear-gradient(90deg, #0b524b 0%, #178a7d 100%); }
+    section > .wrap > h2 { display: inline-block; color: #fff; background: linear-gradient(100deg, #0b524b 0%, #0f6f65 55%, #178a7d 100%); padding: 12px 24px; border-radius: 12px; border-bottom: 3px solid #2fc5b2; margin: 0 0 26px; box-shadow: 0 8px 22px -12px rgba(11,82,75,.65); }
     h3 { font: 700 18px/1.3 "Lato", sans-serif; margin: 0 0 6px; }
     .lede { color: var(--muted); font-size: 18px; margin: 0; text-align: justify; }
     section { padding: 48px 0; border-top: 1px solid var(--line); }
