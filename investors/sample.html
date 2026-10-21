@@ -151,10 +151,19 @@
     .faq .a { padding: 0 20px 18px; color: var(--muted); }
     .faq .a p { margin: 0 0 10px; } .faq .a p:last-child { margin: 0; }
     .tbd { color: var(--warn); border: 1px dashed currentColor; border-radius: 6px; padding: 1px 6px; font-size: 14px; }
+    .disclaimer-top { background: linear-gradient(90deg, #0b524b 0%, #0f6f65 60%, #178a7d 100%); color: #fff; border-bottom: 3px solid #2fc5b2; font-size: 14px; line-height: 1.5; }
+    .disclaimer-top .wrap { display: flex; gap: 12px; align-items: flex-start; padding-top: 12px; padding-bottom: 12px; }
+    .disclaimer-top .tag { flex: none; font: 900 11px/1 "Lato", sans-serif; letter-spacing: .12em; text-transform: uppercase; background: #fff; color: #0b524b; padding: 5px 9px; border-radius: 99px; margin-top: 1px; }
+    .disclaimer-top p { margin: 0; font-weight: 500; }
+    .disclaimer-top p strong { font-weight: 700; }
+    @media (max-width: 640px) { .disclaimer-top .wrap { flex-direction: column; gap: 8px; } }
     footer { padding: 28px 0 48px; border-top: 1px solid var(--line); color: var(--muted); font-size: 13px; }
   </style>
 </head>
-<body style="padding-bottom: 64px;">
+<body>
+  <div class="disclaimer-top" role="note">
+    <div class="wrap"><span class="tag">Disclaimer</span><p><strong>For illustrative purposes only. This is not an offer to sell, or a solicitation of an offer to buy, any securities or investment.</strong> It is intended to give a glimpse of the market and Thunder Biotech's position within the overall landscape. Any values shown are hypothetical scenarios based on what large drug companies have paid for comparable businesses, not predictions or a valuation. Thunder may never be sold, or may sell for less, and investors could lose some or all of their investment. Actual proceeds would also depend on preferred-stock terms, debt, deal costs, taxes, milestone payments that may never be paid, and future financing rounds that dilute existing shares. Although the content of this site was reviewed by scientific professionals, some of the wording may be inaccurate, and nothing on this site should be relied upon in making financial decisions. Please consult your own financial, tax and legal advisors.</p></div>
+  </div>
   <nav class="top">
     <div class="wrap">
       <a class="home" href="./" aria-label="Thunder Biotech home"><span class="brand"><svg class="mark" viewBox="0 0 48 48" width="24" height="24" aria-hidden="true"><circle cx="24" cy="24" r="20" fill="var(--accent)"></circle><g fill="var(--accent)"><circle cx="24" cy="3.5" r="3"></circle><circle cx="41" cy="12" r="2.6"></circle><circle cx="44.5" cy="30" r="2.6"></circle><circle cx="33" cy="44" r="3"></circle><circle cx="13" cy="44.5" r="2.4"></circle><circle cx="3.5" cy="31" r="2.6"></circle><circle cx="5" cy="13" r="2.4"></circle></g><circle cx="24" cy="24" r="8.5" fill="#fff" opacity=".92"></circle><circle cx="24" cy="24" r="3.6" fill="var(--accent)"></circle></svg><span class="wordmark">Thunder<span class="b">Biotech</span></span></span></a>
