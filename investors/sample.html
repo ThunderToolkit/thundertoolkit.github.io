@@ -144,6 +144,9 @@
     #deals td:first-child { white-space: nowrap; }
     tr.flag td { background: color-mix(in srgb, var(--accent-soft) 60%, var(--surface)); }
     .takeaways { margin-top: 36px; }
+    .dark-cards .card { background: linear-gradient(135deg, #0b524b 0%, #0f6f65 55%, #178a7d 100%); border-color: #0b524b; box-shadow: 0 6px 18px -10px rgba(11,82,75,.6); }
+    .dark-cards .card h3 { color: #fff; }
+    .dark-cards .card p { color: rgba(255,255,255,.86); }
     .faq details { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; margin: 0 0 10px; }
     .faq summary { cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 16px 20px; font-weight: 600; }
     .faq summary::-webkit-details-marker { display: none; }
@@ -441,7 +444,7 @@
       <p class="deal-note">"Up to" values include milestone payments that are only paid if development, regulatory or sales goals are met. Headline totals use the full "up to" figure.</p>
 
       <div class="group-label takeaways">What the deals show</div>
-      <div class="grid">
+      <div class="grid dark-cards">
         <div class="card"><h3>Buyers pay before human data</h3><p>Lilly paid up to $2.4B for Orna and Bristol Myers Squibb paid about $1.5B for Orbital while both were preclinical, and J&amp;J put $785M into preclinical Sail. Platform technology alone has commanded large prices.</p></div>
         <div class="card"><h3>Prices are climbing fast</h3><p>In vivo CAR deal sizes rose from $350M (Interius, Aug 2025) to as much as $7B (Kelonia, Apr 2026) in eight months, as more large companies competed for a limited number of platforms.</p></div>
         <div class="card"><h3>Macrophages are the next frontier</h3><p>Every in vivo company bought so far targets T cells. No macrophage-engineering company has been acquired, and the only in vivo CAR-macrophage human data so far comes from CREATE Medicines, which remains independent.</p></div>
