@@ -222,6 +222,34 @@
       <h3 style="margin-top:28px">What your shares could be worth</h3>
       <div class="table-wrap"><table><thead><tr><th>Stage at sale</th><th>Company sale value</th><th>Price per share</th><th>Your shares</th><th>Multiple of investment</th></tr></thead><tbody><tr><td><strong>Preclinical (today)</strong></td><td>$40,000,000 – $150,000,000</td><td>$0.35 – $1.31</td><td>$209,848 – $786,930</td><td>1.0× – 3.9×</td></tr><tr><td><strong>Strong mouse data</strong></td><td>$150,000,000 – $450,000,000</td><td>$1.31 – $3.93</td><td>$786,930 – $2,360,790</td><td>3.9× – 11.8×</td></tr><tr><td><strong>IND / first human data</strong></td><td>$450,000,000 – $1,200,000,000</td><td>$3.93 – $10.49</td><td>$2,360,790 – $6,295,441</td><td>11.8× – 31.5×</td></tr><tr><td><strong>Positive Phase 1</strong></td><td>$1,200,000,000 – $2,500,000,000</td><td>$10.49 – $21.86</td><td>$6,295,441 – $13,115,503</td><td>31.5× – 65.6×</td></tr></tbody></table></div>
       <p style="color:var(--muted);font-size:14px;margin-top:10px">At this round's price of $0.30/share, your holdings are valued at $180,000. Illustrative scenarios only — not a valuation, forecast or offer.</p>
+      
+      <h3 style="margin-top:28px">Your pro-rata right in this round</h3>
+      <p style="color:var(--muted)">As an existing investor, you can invest in this $0.30 per-share round to keep your ownership from being diluted. Enter the round's total raise to see your pro-rata allocation.</p>
+      <div class="imodel">
+        <label for="praRaise">This round's total raise</label>
+        <div class="field"><span>$</span><input id="praRaise" type="text" inputmode="numeric" autocomplete="off" placeholder="e.g. 5,000,000" aria-label="Round total raise"></div>
+        <div class="presets">
+          <button type="button" data-raise="2000000">$2M</button><button type="button" data-raise="5000000">$5M</button><button type="button" data-raise="10000000">$10M</button><button type="button" data-raise="15000000">$15M</button>
+        </div>
+        <p id="praOut" class="res-note"></p>
+      </div>
+      <script>
+      (function(){
+        var SH=600000, FD=114368473, PRICE=0.3, own=SH/FD;
+        var inp=document.getElementById('praRaise');
+        function parse(){return Math.max(0,parseFloat((inp.value||'').replace(/[^0-9.]/g,''))||0);}
+        function fmt(n){return '$'+Math.round(n).toLocaleString();}
+        function render(){
+          var raise=parse(), out=document.getElementById('praOut');
+          if(!raise){out.textContent="Enter the round's total raise above to see your pro-rata.";return;}
+          var newSh=raise/PRICE, proSh=own*newSh, proDol=own*raise, diluted=SH/(FD+newSh);
+          out.innerHTML='To keep your <strong>'+(own*100).toFixed(2)+'%</strong> stake, you can invest about <strong>'+fmt(proDol)+'</strong> for <strong>'+Math.round(proSh).toLocaleString()+'</strong> shares at $'+PRICE.toFixed(2)+'. If you pass, your stake would dilute from '+(own*100).toFixed(2)+'% to about '+(diluted*100).toFixed(2)+'%.';
+        }
+        inp.addEventListener('input',render);
+        document.querySelectorAll('#your-report .presets button[data-raise]').forEach(function(b){b.addEventListener('click',function(){inp.value=parseInt(b.getAttribute('data-raise'),10).toLocaleString();render();});});
+        render();
+      })();
+      </script>
     </div>
   </section>
 
