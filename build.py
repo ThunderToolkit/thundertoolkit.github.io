@@ -35,9 +35,9 @@ def render_personal(d):
         <label for="praRaise">This round's total raise</label>
         <div class="field"><span>$</span><input id="praRaise" type="text" inputmode="numeric" autocomplete="off" placeholder="e.g. 5,000,000" aria-label="Round total raise"></div>
         <div class="presets">
-          <button type="button" data-raise="2000000">$2M</button><button type="button" data-raise="5000000">$5M</button><button type="button" data-raise="10000000">$10M</button><button type="button" data-raise="15000000">$15M</button>
+          <button type="button" data-raise="1000000">$1M</button><button type="button" data-raise="2000000">$2M</button><button type="button" data-raise="5000000">$5M</button><button type="button" data-raise="10000000">$10M</button>
         </div>
-        <p id="praOut" class="res-note"></p>
+        <div id="praOut" class="pra-box empty"></div>
       </div>
       <script>
       (function(){
@@ -47,9 +47,10 @@ def render_personal(d):
         function fmt(n){return '$'+Math.round(n).toLocaleString();}
         function render(){
           var raise=parse(), out=document.getElementById('praOut');
-          if(!raise){out.textContent="Enter the round's total raise above to see your pro-rata.";return;}
+          if(!raise){out.className='pra-box empty';out.textContent="Enter the round's total raise above to see your pro-rata.";return;}
           var newSh=raise/PRICE, proSh=own*newSh, proDol=own*raise, diluted=SH/(FD+newSh);
-          out.innerHTML='To keep your <strong>'+(own*100).toFixed(2)+'%</strong> stake, you can invest about <strong>'+fmt(proDol)+'</strong> for <strong>'+Math.round(proSh).toLocaleString()+'</strong> shares at $'+PRICE.toFixed(2)+'. If you pass, your stake would dilute from '+(own*100).toFixed(2)+'% to about '+(diluted*100).toFixed(2)+'%.';
+          out.className='pra-box';
+          out.innerHTML='<div class="lbl">Your pro-rata at $'+PRICE.toFixed(2)+' this round</div><div class="big">'+fmt(proDol)+'</div><div class="sub">Buys about '+Math.round(proSh).toLocaleString()+' shares and keeps your '+(own*100).toFixed(2)+'% stake. If you pass, your stake dilutes to about '+(diluted*100).toFixed(2)+'%.</div>';
         }
         inp.addEventListener('input',render);
         document.querySelectorAll('#your-report .presets button[data-raise]').forEach(function(b){b.addEventListener('click',function(){inp.value=parseInt(b.getAttribute('data-raise'),10).toLocaleString();render();});});
